@@ -50,16 +50,16 @@ This section describes how to install the plugin and get it working.
 
 	2.	Activate the plugin through the 'Plugins' menu in WordPress
 
+	3.	To Set default google map settings, Go to Settings -> WP Google Map Settings
 
+	4.	To display google map use [map_locations] shortcode on posts/pages.
 == Upgrade Notice ==
 
 == Screenshots ==
-
-1. Admin Settings to customize your map globally.
+1. Admin Settings Page.
 
 == Changelog ==
 
 == Frequently Asked Questions ==
 
 == Donations ==
-
