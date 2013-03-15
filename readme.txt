@@ -26,11 +26,17 @@ It's easy! Once activated, A locations section created automatically and you can
 Put [map_locations] shortcode to display map on pages/posts. To Customize map using shortcode, Use following parameters. 
 
 zoom - Set the current zoom level. ([map_locations zoom=4])
+
 width - Set the width of the map. ([map_locations width=900])
+
 height - Set the height of the map. ([map_locations height=600])
+
 class - Set the class on map to customize using CSS
+
 center_latitude - Set the center latitude of the map.
+
 center_longitude - Set the center longitude of the map.
+
 container_id - Set ID of the Map's Container Div.
 	
 Notes:
