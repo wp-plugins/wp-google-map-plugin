@@ -1,7 +1,7 @@
 <?php 
 /*
 Plugin Name: WP Google Map Plugin
-Description: Easiest way to display Markers on Locations by Address on Google Map. Plugin based on latest google api version so you need not to register for API KEY so seemlessly you can transfer your work on any number of websites.
+Description: Easiest way to display Markers on Locations by Address on Google Map. Plugin based on latest google api version.
 Author: flippercode
 Version: 1.0.0
 Author URI: http://profiles.wordpress.org/flippercode/
