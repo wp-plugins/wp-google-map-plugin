@@ -14,7 +14,7 @@ Stable tag:        Easiest way to display google map on any page using short cod
 Easiest way to display google map on any page using short code. Easily display multiple markers by address or provided latitude and longitude on a Google Map. Now you can display unlimited number of markers on a google map without worrying about latitude and longitude
 for individual locations. This plugin, automatically calculate exact latitude and longitude by provided address. No need for Google Map API KEY now, You can transfer your map hassle free to any number of domains.
 
-Check Demo here http://wwww.flippercode.com/wp-google-map-plugin-demo/
+Check Demo here http://www.flippercode.com/wp-google-map-plugin-demo/
 
 Importance
 
