@@ -43,16 +43,21 @@ class GOOGLE_API_3
 	var $divID='map'; // The div id where you want to 	place your google map
 	var $marker=array(); // Array to store markers information. 
 	var $instance=1;
+	var $height=300;
+	var $width=300;
+	
 	function __construct()
 	{
-		echo '<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>';
+	global $wgmp_containers;
+	$this->divID="map".(count($wgmp_containers)+1);
+	$wgmp_containers[]=$this->divID;
 	}
 	// Intialized google map scripts.
 	private function start()
 	{
-        if($this->center_address)
+	    if($this->center_address)
 		{ 
-		  $output = $this->getData($this->center_address);	
+		   $output = $this->getData($this->center_address);	
 		  if($output->status == 'OK')
 		  {
 		    $this->center_lat = $output->results[0]->geometry->location->lat;
@@ -60,53 +65,57 @@ class GOOGLE_API_3
 		  }
 	   }	 
 		
-		$this->code='
+		 
+		$this->code='<style>#'.$this->divID.' img {
+    max-width: none;
+ }</style>'.'<div id="'.$this->divID.'" style="width:'.$this->width."px;height:".$this->height.'px"></div>';
+
+		$this->code.='
 		<script type="text/javascript">
       (function() {
-        window.onload = function(){
         	// Creating a LatLng object containing the coordinate for the center of the map  
-          var latlng = new google.maps.LatLng('.$this->center_lat.', '.$this->center_lng.');  
+          var latlng'.$this->divID.' = new google.maps.LatLng('.$this->center_lat.', '.$this->center_lng.');  
           // Creating an object literal containing the properties we want to pass to the map  
-          var options = {  
+          var options'.$this->divID.' = {  
           	zoom: '.$this->zoom.',
-          	center: latlng,
+          	center: latlng'.$this->divID.',
           	mapTypeId: google.maps.MapTypeId.ROADMAP
           };  
           // Calling the constructor, thereby initializing the map  
-          var map = new google.maps.Map(document.getElementById("'.$this->divID.'"), options); ';
+          var '.$this->divID.' = new google.maps.Map(document.getElementById("'.$this->divID.'"), options'.$this->divID.'); ';
 		   
           
 		  for($i=0;$i<count($this->marker);$i++)
 		  {
 		  
-			 $this->code.=' var marker'.$i.' = new google.maps.Marker({
+			 $this->code.=' var marker'.$i.$this->divID.' = new google.maps.Marker({
 				position: new google.maps.LatLng('.$this->marker[$i]['lat'].', '.$this->marker[$i]['lng'].'), 
-				map: '.$this->marker[$i]['map'].',
+				map: '.$this->divID.',
 				title: "'.$this->marker[$i]['title'].'",
 				clickable: '.$this->marker[$i]['click'].',
 				icon: "'.$this->marker[$i]['icon'].'"
+
 			  });';
 		  
 		  // Creating an InfoWindow object
 			if($this->marker[$i]['info']!='')
 			{
-				$this->code.=' var infowindow'.$i.' = new google.maps.InfoWindow({content: "'.$this->marker[$i]['info'].'"}); ';
-	   			$this->code.=" google.maps.event.addListener(marker".$i.", 'click', function() { infowindow".$i.".open(map, marker".$i."); });"; 
+				$this->code.=' var infowindow'.$i.$this->divID.' = new google.maps.InfoWindow({content: "'.$this->marker[$i]['info'].'"}); ';
+	   			$this->code.=" google.maps.event.addListener(marker".$i.$this->divID.", 'click', function() { infowindow".$i.$this->divID.".open(".$this->divID.", marker".$i.$this->divID."); });"; 
 			}
 	}
     
 	
 	$this->code.='	}
-      })();
+      )();
 		</script>';
 		
 	}
 
 	// Add markers to google map.
 	
-	public function addMarker($lat='14.0730',$lng='56.0848',$click='false',$title='My WorkPlace',$info='Hello World',$icon='',$map='map')
+	public function addMarker($lat,$lng,$click='false',$title='My WorkPlace',$info='Hello World',$icon='',$map='map')
 	{
-	
 		$count=count($this->marker);	
 		$this->marker[$count]['lat']=$lat;
 		$this->marker[$count]['lng']=$lng;
@@ -143,6 +152,7 @@ class GOOGLE_API_3
 	
 	public function showmap()
 	{
+	
 		$this->start();
 		$this->instance++;
 		return $this->code;

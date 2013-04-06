@@ -1,6 +1,6 @@
 === Plugin Name ===
 
-Contributors:      flippercode
+Contributors:      Flipper Code
 Plugin Name:       WP Google Map Plugin
 Tags:              google map, gmap, google map markers, google map locations, map by address 
 Author URI:        http://profiles.wordpress.org/flippercode/
@@ -14,6 +14,8 @@ Stable tag:        Easiest way to display google map on any page using short cod
 Easiest way to display google map on any page using short code. Easily display multiple markers by address or provided latitude and longitude on a Google Map. Now you can display unlimited number of markers on a google map without worrying about latitude and longitude
 for individual locations. This plugin, automatically calculate exact latitude and longitude by provided address. No need for Google Map API KEY now, You can transfer your map hassle free to any number of domains.
 
+Check Demo here http://wwww.flippercode.com/wp-google-map-plugin-demo/
+
 Importance
 
 Display a marker on google map is always a hassle for non technical person or find out latitude and longitude for the locations. Now you need not worry about these things. This plugins helps you to create a
@@ -23,22 +25,6 @@ Usage:
 
 It's easy! Once activated, A locations section created automatically and you can add any number of locations.
 
-Put [map_locations] shortcode to display map on pages/posts. To Customize map using shortcode, Use following parameters. 
-
-zoom - Set the current zoom level. ([map_locations zoom=4])
-
-width - Set the width of the map. ([map_locations width=900])
-
-height - Set the height of the map. ([map_locations height=600])
-
-class - Set the class on map to customize using CSS
-
-center_latitude - Set the center latitude of the map.
-
-center_longitude - Set the center longitude of the map.
-
-container_id - Set ID of the Map's Container Div.
-	
 Notes:
 
 This plugin for WordPress, the publicly available  If you experience any problems with the plugin, feel free to contact me.
@@ -50,16 +36,17 @@ This section describes how to install the plugin and get it working.
 
 	2.	Activate the plugin through the 'Plugins' menu in WordPress
 
-	3.	To Set default google map settings, Go to Settings -> WP Google Map Settings
 
-	4.	To display google map use [map_locations] shortcode on posts/pages.
 == Upgrade Notice ==
 
 == Screenshots ==
-1. Admin Settings Page.
 
 == Changelog ==
-
+1. Solved zoom toolbar bug
+2. Solved white lines on the map
+3. Added Widget Support
+4. Added multiple maps on a page support.
 == Frequently Asked Questions ==
 
 == Donations ==
+
