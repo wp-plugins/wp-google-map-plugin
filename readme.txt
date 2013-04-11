@@ -42,6 +42,9 @@ This section describes how to install the plugin and get it working.
 == Upgrade Notice ==
 
 == Screenshots ==
+1. Admin Settings
+2. How to add new location, info box message and custom marker for the location.
+3. How to add single/multiple maps on a pages/posts.
 
 == Changelog ==
 1. Solved zoom toolbar bug
