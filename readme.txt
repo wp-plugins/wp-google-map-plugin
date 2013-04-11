@@ -25,6 +25,8 @@ Usage:
 
 It's easy! Once activated, A locations section created automatically and you can add any number of locations.
 
+Use [map_locations] shortcode to put map on posts/pages.
+
 Notes:
 
 This plugin for WordPress, the publicly available  If you experience any problems with the plugin, feel free to contact me.
