@@ -93,6 +93,14 @@ function wgmp_show_location_in_map($atts){
  
   include_once dirname(__FILE__).'/googlemap.php';
     $map=new GOOGLE_API_3();
+    
+    if($zoom=='')
+    $zoom=4;
+    
+    if($height=='')
+    $height=400;
+    
+    
     $map->zoom=$zoom;
 	$map->center_lat=$center_latitude;
 	$map->center_lng=$center_longitude;
