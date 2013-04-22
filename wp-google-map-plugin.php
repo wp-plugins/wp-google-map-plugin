@@ -205,7 +205,10 @@ function wgmp_settings()
 
         <form method="post" action="options.php">  
             <?php wp_nonce_field('update-options') ?>  
-            
+      <p>
+ <fieldset class="info">Use [map_locations] shortcode to display map.  <a href="<?php echo get_bloginfo('siteurl'); ?>/wp-admin/post-new.php?post_type=location">Click Here</a> to add a new location or <a href="<?php echo get_bloginfo('siteurl'); ?>/wp-admin/edit.php?post_type=location">browse</a> your existings locations.
+ </p>
+       
       <table class="form-table">
 <tbody>    
             <tr valign="top">
