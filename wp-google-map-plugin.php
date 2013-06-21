@@ -3,7 +3,7 @@
 Plugin Name: WP Google Map Plugin
 Description: Easiest way to display Markers on Locations by Address on Google Map. Plugin based on latest google api version.
 Author: flippercode
-Version: 1.1.0
+Version: 1.2.0
 Author URI: http://profiles.wordpress.org/flippercode/
 */
 
@@ -20,9 +20,11 @@ function save_location_website_address_meta($post_id){
   if ( !current_user_can( 'edit_post', $post_id ) ) {
         return;
   }
+  
   $post_object = get_post( $post_id );
   $address = trim(stripslashes($post_object->post_content));
   $output = wgmp_getData($address);
+  
   if($output->status == 'OK')
   {
 	$lat = $output->results[0]->geometry->location->lat;
@@ -36,7 +38,7 @@ function save_location_website_address_meta($post_id){
 function wgmp_location_post_type(){
 
  $labels = array(
-    'name' => 'Locations',
+    'name' => 'WP Google MAP',
     'singular_name' => 'Location',
     'add_new' => 'Add New',
     'add_new_item' => 'Add New Location',
@@ -48,7 +50,7 @@ function wgmp_location_post_type(){
     'not_found' =>  'No locations found',
     'not_found_in_trash' => 'No locations found in Trash', 
     'parent_item_colon' => '',
-    'menu_name' => 'Locations'
+    'menu_name' => 'WP Google MAP'
   );
 
   $args = array(
@@ -62,8 +64,8 @@ function wgmp_location_post_type(){
     'capability_type' => 'post',
     'has_archive' => true, 
     'hierarchical' => false,
-    'menu_position' => null,
-    'supports' => array( 'title', 'editor', 'thumbnail' )
+    'menu_position' => 100,
+    'supports' => array( 'title', 'editor', 'thumbnail','excerpt' )
   ); 
 
   register_post_type( 'location', $args );  
@@ -87,42 +89,27 @@ function wgmp_show_location_in_map($atts){
    'post_status' => 'publish',
    'posts_per_page' => -1
  );
- 
+ $icon=$atts['icon'];
  $the_query =  new WP_Query($args); 
 
  
   include_once dirname(__FILE__).'/googlemap.php';
-    $map=new GOOGLE_API_3();
-    
-    if($zoom=='')
-    $zoom=4;
-    
-    if($height=='')
-    $height=400;
-    
-    
-    $map->zoom=$zoom;
-	$map->center_lat=$center_latitude;
-	$map->center_lng=$center_longitude;
-	$map->width=$width;
-	$map->height=$height;
-
-	if(get_option('wgmp_displaymarker')=='yes')
-	{
-		$map->addMarker($center_latitude,$center_longitude,'false',$title,$address);
-	}
-	
-	
-	
- if($the_query->have_posts())
+  
+  $first=0;
+  $map=new GOOGLE_API_3();
+   
+   
+    if($the_query->have_posts())
  {
    
 	 	while ( $the_query->have_posts() ) :
 		$the_query->the_post();
 		
 		$address = stripslashes(trim(get_the_content()));
-		
+	
 		$title = stripslashes(get_the_title());
+		
+		$address = stripslashes(trim(get_the_content()));
 		
 		$infobox = '<div class=\'wgmp_infobox\'>';
 		
@@ -141,9 +128,22 @@ function wgmp_show_location_in_map($atts){
 		$infobox = str_replace(array("\r","\n"),'"+"',$infobox);
 
 		$latitude = get_post_meta(get_the_ID(),'gmap_latitude', true);
-
+		
+		
+		
 		$longitude = get_post_meta(get_the_ID(),'gmap_longitude',true);
-
+	
+		if($first==0)
+		{
+			$center_latitude=$latitude;
+			$center_longitude=$longitude;
+			
+		}
+		$first++;
+		
+		
+		
+		
 		if($latitude && $longitude)
 		$map->addMarker($latitude,$longitude,'true',$title,$infobox);
 
@@ -155,6 +155,42 @@ function wgmp_show_location_in_map($atts){
  {
   
  }
+   
+   if($center_latitude=='' or $center_longitude=='')
+    {
+    
+    $center_latitude="39.774769";
+  	$center_longitude="-101.439514";
+  	
+  	$map->addMarker($center_latitude,$center_longitude,'true',"WP Google Map Plugin","Thank you for using this plugin. Please <a href='".admin_url('edit.php?post_type=location')."'>Add your locations</a> or set plugin <a href='".admin_url('edit.php?post_type=location&page=wgmp_settings')."'>Settings</a>.");
+
+  	} 
+   
+    if($zoom=='')
+    $zoom=4;
+    
+    if($height=='')
+    $height=400;
+    
+    
+    $map->zoom=$zoom;
+	$map->center_lat=$center_latitude;
+	$map->center_lng=$center_longitude;
+	$map->width=$width;
+	$map->height=$height;
+
+	if($icon!='')
+	$map->addMarker($center_latitude,$center_longitude,'false',$title,$address,$icon);
+	elseif(get_option('wgmp_displaymarker')=='yes')
+	{
+		$map->addMarker($center_latitude,$center_longitude,'false',$title,$address);
+	}
+	
+	
+	
+	
+	
+
  echo $map->showmap();
  $content =  ob_get_contents();
  ob_clean();
@@ -190,9 +226,9 @@ add_action( 'admin_menu','wgmp_admin_menu' );
 
 function wgmp_admin_menu()
 {
- global $overview;
+ global $overview;	
+add_submenu_page("edit.php?post_type=location", "Settings", "Settings", "manage_options","wgmp_settings", "wgmp_settings");
 
-   add_options_page(__('WP Google Map'),__('WP Google Map Settings'),'manage_options',__FILE__,'wgmp_settings');
 }	
 
 // Hook things in, late enough so that add_meta_box() is defined
@@ -296,9 +332,10 @@ class Google_Map_Widget extends WP_Widget
 		$c_lat=$instance['mapcenter_latitude'];
 		$c_long=$instance['mapcenter_longitude'];
 		$c_id=$instance['mapcontainer_id'];
-		$sm=get_option('wgmp_short_mapselect_marker');
-				
+		$sm=get_option('wgmp_short_mapselect_marker');			
 		$s_marker=$sm['mapselect_marker'];
+		if($s_marker!='')
+		$s_marker=plugins_url('icons/'.$s_marker,__FILE__);
 		if($title)
 			echo $before_title . $title . $after_title;
 		if($z)
@@ -353,6 +390,7 @@ class Google_Map_Widget extends WP_Widget
 		
 		if($c_id=='')
 		$c_id=rand(10,100);
+		
 		
 		echo do_shortcode('[map_locations zoom='.$z.' width='.$w.' height='.$h.' center_longitude='.$c_long.'  center_latitude='.$c_lat.' icon='.$s_marker.' container_id='.$c_id.' ]' );
 	

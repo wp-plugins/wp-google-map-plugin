@@ -7,7 +7,7 @@ Author URI:        http://profiles.wordpress.org/flippercode/
 Author:            flippercode
 Donate link:       (a link for donating)
 Requires at least: 2.0.0 
-Tested up to:      3.5
+Tested up to:      3.5.1
 Stable tag:        Easiest way to display google map on any page using short code. Easily Display Multiple Markers by address or provided latitude and longitude on a Google Map.  
 
 == Description ==
@@ -47,6 +47,11 @@ This section describes how to install the plugin and get it working.
 3. How to add single/multiple maps on a pages/posts.
 
 == Changelog ==
+Version 1.2.0
+1. Zero Configuration Enabled
+2. Managed Navigation
+3. Custom Icon using Widget
+Version 1.1.0
 1. Solved zoom toolbar bug
 2. Solved white lines on the map
 3. Added Widget Support
