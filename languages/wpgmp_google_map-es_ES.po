@@ -1,0 +1,2320 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Google Map Pro v1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-08-22 08:30:18+0000\n"
+"Last-Translator: admin <php.bajrang@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-Language: \n"
+"X-Poedit-Country: \n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: wp-google-map-pro.php:189
+#: wp-google-map-pro.php:191
+#@ wpgmp_google_map
+msgid "WP Google Map"
+msgstr "WP Google Map"
+
+#: wp-google-map-pro.php:205
+#: wp-google-map-pro.php:207
+#@ wpgmp_google_map
+msgid "Add Locations"
+msgstr "Añadir ubicaciones"
+
+#: wp-google-map-pro.php:221
+#: wp-google-map-pro.php:223
+#: wpgmp_manage_location.php:918
+#@ wpgmp_google_map
+msgid "Manage Locations"
+msgstr "Gestionar ubicaciones"
+
+#: wp-google-map-pro.php:237
+#: wp-google-map-pro.php:239
+#: wpgmp_create_map.php:366
+#@ wpgmp_google_map
+msgid "Create Map"
+msgstr "Crear Mapa"
+
+#: wp-google-map-pro.php:253
+#: wp-google-map-pro.php:255
+#@ wpgmp_google_map
+msgid "Manage Map"
+msgstr "Gestionar mapa"
+
+#: wp-google-map-pro.php:301
+#: wp-google-map-pro.php:303
+#@ wpgmp_google_map
+msgid "Setting"
+msgstr "Ajustes"
+
+#: wp-google-map-pro.php:832
+#@ wpgmp_google_map
+msgid "Google WP Map Pro Settings"
+msgstr "Ajustes para Google WP Map Pro"
+
+#: wp-google-map-pro.php:842
+#@ wpgmp_google_map
+msgid "Use [put_wpgm] shortcode to display map."
+msgstr "Usar código corto [put_wpgm] para mostrar mapa"
+
+#: wp-google-map-pro.php:842
+#: wp-google-map-pro.php:1528
+#@ wpgmp_google_map
+msgid "Click Here"
+msgstr "Clicar aquí"
+
+#: wp-google-map-pro.php:842
+#@ wpgmp_google_map
+msgid "to add a new location or"
+msgstr "añadir una nueva ubicación o"
+
+#: wp-google-map-pro.php:842
+#@ wpgmp_google_map
+msgid "Browse"
+msgstr "Navegar"
+
+#: wp-google-map-pro.php:842
+#@ wpgmp_google_map
+msgid "your existings locations."
+msgstr "sus ubicaciones existentes"
+
+#: wp-google-map-pro.php:854
+#@ wpgmp_google_map
+msgid "Zoom Level"
+msgstr "Nivel de zoom"
+
+#: wp-google-map-pro.php:858
+#@ wpgmp_google_map
+msgid "Choose Zoom Level between 1 to 14. Default is 4."
+msgstr "Elija nivel de zoom entre 1 y 4 (por defecto en 4)"
+
+#: wp-google-map-pro.php:868
+#@ wpgmp_google_map
+msgid "Center Latitude"
+msgstr "Centrar Latitud"
+
+#: wp-google-map-pro.php:872
+#: wp-google-map-pro.php:884
+#@ wpgmp_google_map
+msgid "Write down center location on the map."
+msgstr "Escribir ubicación central del mapa"
+
+#: wp-google-map-pro.php:880
+#@ wpgmp_google_map
+msgid "Center Longitude"
+msgstr "Centrar Longitud"
+
+#: wpgmp_create_map.php:411
+#: wpgmp_manage_map.php:188
+#: wpgmp_manage_map.php:859
+#@ wpgmp_google_map
+msgid "Map Width"
+msgstr "Ancho de mapa"
+
+#: wpgmp_create_map.php:419
+#: wpgmp_manage_map.php:192
+#: wpgmp_manage_map.php:867
+#@ wpgmp_google_map
+msgid "Map Height"
+msgstr "Altura de mapa"
+
+#: wp-google-map-pro.php:892
+#@ wpgmp_google_map
+msgid "Select Language"
+msgstr "Elegir idioma"
+
+#: wp-google-map-pro.php:1008
+#@ wpgmp_google_map
+msgid "Default is english."
+msgstr "Inglés por defecto"
+
+#: wp-google-map-pro.php:1104
+#@ wpgmp_google_map
+msgid "A widget that displays the google map"
+msgstr "Un widget que muestra el Google Map"
+
+#: wp-google-map-pro.php:1163
+#@ wpgmp_google_map
+msgid "Select Your Map:"
+msgstr "Elija su mapa:"
+
+#: wp-google-map-pro.php:1515
+#@ wpgmp_google_map
+msgid "How to Use"
+msgstr "Cómo usar"
+
+#: wp-google-map-pro.php:1521
+#@ wpgmp_google_map
+msgid "To create your first map. Please go with following steps."
+msgstr "Para crear su primer mapa. Por favor, siga los pasos siguientes."
+
+#: wp-google-map-pro.php:1524
+#@ wpgmp_google_map
+msgid "Step 1"
+msgstr "Paso 1"
+
+#: wp-google-map-pro.php:1524
+#@ wpgmp_google_map
+msgid "First use our auto suggession enabled location box to add your location"
+msgstr "Primero haga uso de nuestra casilla de sugerencia activada para añadir su ubicación"
+
+#: wp-google-map-pro.php:1524
+#@ wpgmp_google_map
+msgid "Here"
+msgstr "Aquí"
+
+#: wp-google-map-pro.php:1528
+#@ wpgmp_google_map
+msgid "Step 2"
+msgstr "Paso 2"
+
+#: wp-google-map-pro.php:1528
+#@ wpgmp_google_map
+msgid "Now"
+msgstr "Ahora"
+
+#: wp-google-map-pro.php:1531
+#@ wpgmp_google_map
+msgid "Step 3"
+msgstr "Paso 3"
+
+#: wp-google-map-pro.php:1531
+#@ wpgmp_google_map
+msgid "Once you have done administrative tasks, you can display map on posts/pages using"
+msgstr "Una vez haya completado sus tareas administrativas podrá incrustar sus mapas en entradas/páginas usando"
+
+#: wp-google-map-pro.php:1531
+#@ wpgmp_google_map
+msgid "Shortcode"
+msgstr "Códigos Cortos"
+
+#: wp-google-map-pro.php:1531
+#@ wpgmp_google_map
+msgid "and in sidebar, using widgets section"
+msgstr "y en barras laterales, usando widgets"
+
+#: wp-google-map-pro.php:1542
+#: wp-google-map-pro.php:1548
+#@ wpgmp_google_map
+msgid "Online Documentation"
+msgstr "Documentación online"
+
+#: wpgmp_add_location.php:16
+#: wpgmp_create_map.php:16
+#: wpgmp_manage_location.php:641
+#: wpgmp_manage_map.php:406
+#@ wpgmp_google_map
+msgid "Please enter title."
+msgstr "Introduzca título"
+
+#: wpgmp_add_location.php:20
+#@ wpgmp_google_map
+msgid "Please enter address."
+msgstr "Introduzca dirección"
+
+#: wpgmp_add_location.php:24
+#: wpgmp_manage_location.php:663
+#@ wpgmp_google_map
+msgid "Please enter latitude."
+msgstr "Introduzca latitud"
+
+#: wpgmp_add_location.php:28
+#: wpgmp_manage_location.php:668
+#@ wpgmp_google_map
+msgid "Please enter longitude."
+msgstr "Introduzca longitud"
+
+#: wpgmp_add_location.php:109
+#@ wpgmp_google_map
+msgid "Address already exists."
+msgstr "Dirección existente"
+
+#: wpgmp_add_location.php:121
+#@ wpgmp_google_map
+msgid "Add Location"
+msgstr "Añadir ubicación"
+
+#: wpgmp_add_location.php:154
+#: wpgmp_manage_location.php:782
+#@ wpgmp_google_map
+msgid "Location Title"
+msgstr "Título de la ubicación"
+
+#: wpgmp_add_location.php:158
+#@ wpgmp_google_map
+msgid "Enter here the location title"
+msgstr "Introduzca título de la ubicación"
+
+#: wpgmp_add_location.php:162
+#: wpgmp_manage_location.php:312
+#: wpgmp_manage_location.php:790
+#@ wpgmp_google_map
+msgid "Address"
+msgstr "Dirección"
+
+#: wpgmp_add_location.php:168
+#@ wpgmp_google_map
+msgid "Enter here the address. Google auto suggest helps you to choose one."
+msgstr "Introduca aquí la dirección. Google le ayudará sugiriéndole una"
+
+#: wpgmp_add_location.php:174
+#@ wpgmp_google_map
+msgid "Enter here the latitude."
+msgstr "Introduzca aquí la latitud"
+
+#: wpgmp_add_location.php:174
+#@ wpgmp_google_map
+msgid "Enter here the longitude."
+msgstr "Introduzca aquí la longitud"
+
+#: wpgmp_add_location.php:189
+#: wpgmp_add_location.php:202
+#: wpgmp_add_location.php:218
+#: wpgmp_add_location.php:234
+#: wpgmp_add_location.php:250
+#: wpgmp_manage_location.php:816
+#: wpgmp_manage_location.php:829
+#: wpgmp_manage_location.php:844
+#: wpgmp_manage_location.php:858
+#: wpgmp_manage_location.php:872
+#@ wpgmp_google_map
+msgid "Insert here the infoWindow message."
+msgstr "Insertar aquí el mensaje infoWindow"
+
+#: wpgmp_add_location.php:253
+#: wpgmp_manage_location.php:875
+#@ wpgmp_google_map
+msgid "Choose Marker Image"
+msgstr "Elegir imagen para el marcador"
+
+#: wp-google-map-pro.php:1027
+#: wpgmp_add_location.php:261
+#: wpgmp_create_group_map.php:112
+#: wpgmp_manage_group_map.php:726
+#: wpgmp_manage_location.php:889
+#@ wpgmp_google_map
+msgid "Upload Marker Image"
+msgstr "Subir imagen para el marcador"
+
+#: wp-google-map-pro.php:1028
+#: wpgmp_add_location.php:263
+#: wpgmp_create_group_map.php:114
+#: wpgmp_manage_group_map.php:728
+#: wpgmp_manage_location.php:891
+#@ wpgmp_google_map
+msgid "Remove Marker Image"
+msgstr "Eliminar imagen para el marcador"
+
+#: wpgmp_add_location.php:267
+#@ wpgmp_google_map
+msgid "Upload marker image"
+msgstr "Subir imagen para el marcador"
+
+#: wpgmp_add_location.php:270
+#: wpgmp_manage_location.php:896
+#@ wpgmp_google_map
+msgid "Is Draggale"
+msgstr "Se puede arrastrar"
+
+#: wpgmp_add_location.php:275
+#: wpgmp_manage_location.php:901
+#@ wpgmp_google_map
+msgid "Marker Draggabble."
+msgstr "Marcador arrastrable"
+
+#: wpgmp_create_map.php:21
+#: wpgmp_manage_map.php:411
+#@ wpgmp_google_map
+msgid "Please enter Integer value in map width."
+msgstr "Introduzca un valor entero de ancho de mapa."
+
+#: wpgmp_create_map.php:26
+#: wpgmp_manage_map.php:416
+#@ wpgmp_google_map
+msgid "Please enter Integer value in map height."
+msgstr "Introduzca un valor entero de alto de mapa"
+
+#: wpgmp_create_group_map.php:26
+#: wpgmp_create_map.php:170
+#: wpgmp_manage_group_map.php:621
+#: wpgmp_manage_map.php:580
+#@ wpgmp_google_map
+msgid "Please check any one location."
+msgstr "Por favor, compruebe cada ubicación"
+
+#: wpgmp_create_map.php:232
+#: wpgmp_manage_map.php:642
+#@ wpgmp_google_map
+msgid "Please enter grid."
+msgstr "Introduzca cuadrícula"
+
+#: wpgmp_create_map.php:236
+#: wpgmp_manage_map.php:646
+#@ wpgmp_google_map
+msgid "Please enter Integer value in grid."
+msgstr "Introduzca un valor entero en la cuadrícula"
+
+#: wpgmp_create_map.php:183
+#: wpgmp_manage_map.php:593
+#@ wpgmp_google_map
+msgid "Please insert KML link."
+msgstr "Introduzca enlace KML"
+
+#: wpgmp_create_map.php:188
+#: wpgmp_manage_map.php:598
+#@ wpgmp_google_map
+msgid "Please insert Fusion Select."
+msgstr "Introduzca Fusion Select"
+
+#: wpgmp_create_map.php:193
+#: wpgmp_manage_map.php:603
+#@ wpgmp_google_map
+msgid "Please insert Fusion From."
+msgstr "Introduzca Fusion From"
+
+#: wpgmp_create_map.php:251
+#: wpgmp_manage_map.php:662
+#@ wpgmp_google_map
+msgid "Please enter overlay width."
+msgstr "Introduzca la anchura de la capa de superposición."
+
+#: wpgmp_create_map.php:255
+#: wpgmp_manage_map.php:666
+#@ wpgmp_google_map
+msgid "Please enter Integer value in overlay width."
+msgstr "Introduzca un valor entero de ancho de la capa de superposición"
+
+#: wpgmp_create_map.php:260
+#: wpgmp_manage_map.php:671
+#@ wpgmp_google_map
+msgid "Please enter overlay height."
+msgstr "Introduzca la altura de la capa de superposición"
+
+#: wpgmp_create_map.php:265
+#: wpgmp_manage_map.php:676
+#@ wpgmp_google_map
+msgid "Please enter Integer value in overlay height."
+msgstr "Introduzca un valor entero de altura de la capa de superposición"
+
+#: wpgmp_create_map.php:270
+#: wpgmp_manage_map.php:681
+#@ wpgmp_google_map
+msgid "Please enter overlay Font Size."
+msgstr "Introduzca el tamaño de la fuente (tipografía) de la capa de superposición"
+
+#: wpgmp_create_map.php:275
+#: wpgmp_manage_map.php:686
+#@ wpgmp_google_map
+msgid "Please enter Integer value in overlay Font Size."
+msgstr "Introduzca un valor entero de la fuente (tipografía) de la capa de superposición"
+
+#: wpgmp_create_map.php:280
+#: wpgmp_manage_map.php:691
+#@ wpgmp_google_map
+msgid "Please enter overlay border width."
+msgstr "Introduzca el ancho del borde de la capa de superposición"
+
+#: wpgmp_create_map.php:284
+#: wpgmp_manage_map.php:695
+#@ wpgmp_google_map
+msgid "Please enter Integer value in overlay border width."
+msgstr "Introduzca un valor entero del ancho del borde de la capa de superposición"
+
+#: wpgmp_create_group_map.php:96
+#: wpgmp_create_map.php:399
+#: wpgmp_manage_group_map.php:710
+#: wpgmp_manage_map.php:847
+#@ wpgmp_google_map
+msgid "General Setting"
+msgstr "Ajustes generales"
+
+#: wpgmp_create_map.php:407
+#@ wpgmp_google_map
+msgid "Enter here the title"
+msgstr "Introduzca el título"
+
+#: wpgmp_create_map.php:415
+#@ wpgmp_google_map
+msgid "Enter here the map width"
+msgstr "Introduzca el ancho del mapa"
+
+#: wpgmp_create_map.php:423
+#@ wpgmp_google_map
+msgid "Enter here the map height"
+msgstr "Introduzca el alto del mapa"
+
+#: wpgmp_create_map.php:427
+#: wpgmp_manage_map.php:196
+#: wpgmp_manage_map.php:875
+#@ wpgmp_google_map
+msgid "Map Zoom Level"
+msgstr "Nivel de zoom del mapa"
+
+#: wpgmp_create_map.php:461
+#: wpgmp_create_map.php:1623
+#: wpgmp_manage_map.php:909
+#: wpgmp_manage_map.php:2240
+#: wpgmp_manage_map.php:2310
+#@ wpgmp_google_map
+msgid "(Available options - 1,2,3,4,5,6,8,9,10,11,12,13,14)."
+msgstr "(Opciones disponibles - 1,2,3,4,5,6,8,9,10,11,12,13,14)."
+
+#: wpgmp_create_map.php:465
+#: wpgmp_manage_map.php:913
+#@ wpgmp_google_map
+msgid "Choose Map Type"
+msgstr "Elija tipo de mapa"
+
+#: wpgmp_create_map.php:469
+#: wpgmp_manage_map.php:917
+#@ wpgmp_google_map
+msgid "ROADMAP"
+msgstr "MAPA DE CARRETERAS"
+
+#: wpgmp_create_map.php:471
+#: wpgmp_manage_map.php:919
+#@ wpgmp_google_map
+msgid "SATELLITE"
+msgstr "SATÉLITE"
+
+#: wpgmp_create_map.php:473
+#: wpgmp_manage_map.php:921
+#@ wpgmp_google_map
+msgid "HYBRID"
+msgstr "HÍBRIDO"
+
+#: wpgmp_create_map.php:475
+#: wpgmp_manage_map.php:923
+#@ wpgmp_google_map
+msgid "TERRAIN"
+msgstr "TERRENO"
+
+#: wpgmp_create_map.php:479
+#: wpgmp_manage_map.php:927
+#@ wpgmp_google_map
+msgid "(Available options - ROADMAP,SATELLITE,HYBRID,TERRAIN {Default is roadmap type})."
+msgstr "(Opciones disponibles - MAPA DE CARRETERAS,SATÉLITE,HÍBRIDO,TERRENO {Default is roadmap type})."
+
+#: wpgmp_create_map.php:484
+#: wpgmp_manage_map.php:931
+#@ wpgmp_google_map
+msgid "Turn Off Scrolling Wheel"
+msgstr "Desactivar rueda de desplazamiento"
+
+#: wpgmp_create_map.php:488
+#@ wpgmp_google_map
+msgid "Please check to disable scroll wheel zooms."
+msgstr "Marque para desactivar la rueda de desplazamiento"
+
+#: wpgmp_create_map.php:1145
+#: wpgmp_manage_map.php:1570
+#: wpgmp_manage_map.php:1632
+#@ wpgmp_google_map
+msgid "Please check to disable infowindow messages."
+msgstr "Marque para desactivar mensajes de infowindow"
+
+#: wpgmp_create_map.php:491
+#: wpgmp_manage_map.php:938
+#@ wpgmp_google_map
+msgid "Enable Visual Refresh"
+msgstr "Activar refresco visual"
+
+#: wpgmp_create_map.php:499
+#: wpgmp_manage_map.php:942
+#@ wpgmp_google_map
+msgid "Please check to enable visual refresh."
+msgstr "Marcar para activar refresco visual"
+
+#: wpgmp_create_map.php:503
+#: wpgmp_manage_map.php:945
+#@ wpgmp_google_map
+msgid "45&deg; Imagery"
+msgstr "Imágenes 45&deg;"
+
+#: wpgmp_create_map.php:507
+#: wpgmp_manage_map.php:949
+#@ wpgmp_google_map
+msgid "Apply 45&deg; Imagery ? (only available for map type SATELLITE and HYBRID)."
+msgstr "Usar imágenes 45&deg; ? (solo disponible para tipos de mapa: SATÉLITE / HÍBRIDO)."
+
+#: wpgmp_create_map.php:803
+#: wpgmp_manage_map.php:1199
+#@ wpgmp_google_map
+msgid "Control Setting"
+msgstr "Ajustes de control"
+
+#: wpgmp_create_map.php:805
+#: wpgmp_manage_map.php:1201
+#@ wpgmp_google_map
+msgid "Turn Off Pan Control"
+msgstr "Desactivar control de panning"
+
+#: wpgmp_create_map.php:809
+#: wpgmp_manage_map.php:1205
+#@ wpgmp_google_map
+msgid "Please check to disable pan control."
+msgstr "Marque para desactivar control de panning"
+
+#: wpgmp_create_map.php:811
+#: wpgmp_manage_map.php:1207
+#@ wpgmp_google_map
+msgid "Turn Off Zoom Control"
+msgstr "Desactivar zoom"
+
+#: wpgmp_create_map.php:815
+#: wpgmp_manage_map.php:1211
+#@ wpgmp_google_map
+msgid "Please check to disable zoom control."
+msgstr "Marque para desactivar zoom"
+
+#: wpgmp_create_map.php:817
+#: wpgmp_manage_map.php:1213
+#@ wpgmp_google_map
+msgid "Turn Off Map Type Control"
+msgstr "Desactivar control de tipo de mapa"
+
+#: wpgmp_create_map.php:821
+#: wpgmp_manage_map.php:1217
+#@ wpgmp_google_map
+msgid "Please check to disable map type control."
+msgstr "Marque para desactivar control de tipo de mapa"
+
+#: wpgmp_create_map.php:823
+#: wpgmp_manage_map.php:1219
+#@ wpgmp_google_map
+msgid "Turn Off Scale Control"
+msgstr "Desactivar control de escala"
+
+#: wpgmp_create_map.php:827
+#: wpgmp_manage_map.php:1223
+#@ wpgmp_google_map
+msgid "Please check to disable scale control."
+msgstr "Marque para desactivar control de escala"
+
+#: wpgmp_create_map.php:829
+#: wpgmp_manage_map.php:1225
+#@ wpgmp_google_map
+msgid "Turn Off Street View Control"
+msgstr "Desactivar control de Street View"
+
+#: wpgmp_create_map.php:833
+#: wpgmp_manage_map.php:1229
+#@ wpgmp_google_map
+msgid "Please check to disable street view control."
+msgstr "Marque para desactivar control de Street View"
+
+#: wpgmp_create_map.php:835
+#: wpgmp_manage_map.php:1231
+#@ wpgmp_google_map
+msgid "Turn Off Overview Map Control"
+msgstr "Desactivar vista de control del mapa"
+
+#: wpgmp_create_map.php:839
+#: wpgmp_manage_map.php:1235
+#@ wpgmp_google_map
+msgid "Please check to disable overview map control."
+msgstr "Marque para desactivar vista de control del mapa"
+
+#: wpgmp_create_group_map.php:126
+#: wpgmp_create_map.php:514
+#: wpgmp_manage_group_map.php:740
+#: wpgmp_manage_map.php:955
+#@ wpgmp_google_map
+msgid "Choose Locations"
+msgstr "Elija ubicación"
+
+#: wpgmp_create_map.php:600
+#@ wpgmp_google_map
+msgid "NO LOCATIONS FOUND."
+msgstr "NO SE HAN ENCONTRADO UBICACIONES"
+
+#: wpgmp_create_group_map.php:207
+#: wpgmp_create_map.php:600
+#: wpgmp_create_map.php:1025
+#: wpgmp_create_map.php:1118
+#: wpgmp_manage_map.php:1444
+#: wpgmp_manage_map.php:1539
+#@ wpgmp_google_map
+msgid "CLICK HERE"
+msgstr "CLIQUE AQUÍ"
+
+#: wpgmp_create_group_map.php:207
+#: wpgmp_create_map.php:600
+#@ wpgmp_google_map
+msgid "TO ADD A LOCATION"
+msgstr "PARA AÑADIR UNA UBICACIÓN"
+
+#: wpgmp_create_map.php:619
+#: wpgmp_manage_map.php:1015
+#@ wpgmp_google_map
+msgid "Layers"
+msgstr "Capas"
+
+#: wpgmp_create_map.php:623
+#: wpgmp_create_map.php:627
+#: wpgmp_manage_map.php:1019
+#: wpgmp_manage_map.php:1023
+#@ wpgmp_google_map
+msgid "Select Layers"
+msgstr "Selecciones capas"
+
+#: wpgmp_create_map.php:629
+#: wpgmp_manage_map.php:1025
+#@ wpgmp_google_map
+msgid "KML Layers"
+msgstr "Capas KML"
+
+#: wpgmp_create_map.php:631
+#: wpgmp_manage_map.php:1027
+#@ wpgmp_google_map
+msgid "Fusion Tables Layers"
+msgstr "Capas Fusion Tables"
+
+#: wpgmp_create_map.php:633
+#: wpgmp_manage_map.php:1029
+#@ wpgmp_google_map
+msgid "Traffic Layers"
+msgstr "Capas de tráfico"
+
+#: wpgmp_create_map.php:635
+#: wpgmp_manage_map.php:1031
+#@ wpgmp_google_map
+msgid "Transit Layers"
+msgstr "Capas de tránsito"
+
+#: wpgmp_create_map.php:637
+#: wpgmp_manage_map.php:1033
+#@ wpgmp_google_map
+msgid "Weather Layers"
+msgstr "Capas de meteorología"
+
+#: wpgmp_create_map.php:639
+#: wpgmp_manage_map.php:1035
+#@ wpgmp_google_map
+msgid "Bicycling Layers"
+msgstr "Capas de recorridos en bicicleta"
+
+#: wpgmp_create_map.php:641
+#: wpgmp_manage_map.php:1037
+#@ wpgmp_google_map
+msgid "Panoramio Layers"
+msgstr "Capas Panoramiio"
+
+#: wpgmp_create_map.php:645
+#: wpgmp_manage_map.php:1041
+#@ wpgmp_google_map
+msgid "(Available options - KML Layers,Fusion Tables Layers,Traffic Layers,Transit Layers,Weather Layers,Bicycling Layers,Panoramio Layers)."
+msgstr "(Opciones disponibles - Capas KML, Capas de Fusion Tables,Capas de tráfico,Capas de tránsito,Capas de meteorología,Capas de recorridos en bicicleta,Capas de Panoramio)."
+
+#: wpgmp_create_map.php:659
+#: wpgmp_create_map.php:679
+#: wpgmp_manage_map.php:1055
+#: wpgmp_manage_map.php:1075
+#@ wpgmp_google_map
+msgid "Kml Links"
+msgstr "Enlaces KML"
+
+#: wpgmp_create_map.php:663
+#: wpgmp_create_map.php:683
+#: wpgmp_manage_map.php:1059
+#: wpgmp_manage_map.php:1079
+#@ wpgmp_google_map
+msgid "Insert here the Kml Link if you select KML Layer."
+msgstr "Introduzca aquí en enlace KML si ha seleccionado capa KML"
+
+#: wpgmp_create_map.php:705
+#: wpgmp_create_map.php:733
+#: wpgmp_manage_map.php:1101
+#: wpgmp_manage_map.php:1129
+#@ wpgmp_google_map
+msgid "Select"
+msgstr "Seleccione"
+
+#: wpgmp_create_map.php:709
+#: wpgmp_create_map.php:737
+#: wpgmp_manage_map.php:1105
+#: wpgmp_manage_map.php:1133
+#@ wpgmp_google_map
+msgid "Insert here the fusion select."
+msgstr "Introduzca aquí el tipo de fusión seleccionado"
+
+#: wpgmp_create_map.php:713
+#: wpgmp_create_map.php:741
+#: wpgmp_manage_map.php:1109
+#: wpgmp_manage_map.php:1137
+#@ wpgmp_google_map
+msgid "From"
+msgstr "Desde"
+
+#: wpgmp_create_map.php:717
+#: wpgmp_create_map.php:745
+#: wpgmp_manage_map.php:1113
+#: wpgmp_manage_map.php:1141
+#@ wpgmp_google_map
+msgid "Insert here the fusion from."
+msgstr "Introduzca aquí la fusión desde"
+
+#: wpgmp_create_map.php:763
+#: wpgmp_create_map.php:783
+#: wpgmp_manage_map.php:1159
+#: wpgmp_manage_map.php:1179
+#@ wpgmp_google_map
+msgid "Temperature units:"
+msgstr "Unidades de temperatura:"
+
+#: wpgmp_create_map.php:766
+#: wpgmp_create_map.php:786
+#: wpgmp_manage_map.php:1162
+#: wpgmp_manage_map.php:1182
+#@ wpgmp_google_map
+msgid "Please check temperature unit."
+msgstr "Compruebe la unidad de temperatura"
+
+#: wpgmp_create_map.php:768
+#: wpgmp_create_map.php:788
+#: wpgmp_manage_map.php:1164
+#: wpgmp_manage_map.php:1184
+#@ wpgmp_google_map
+msgid "Wind speed units:"
+msgstr "Unidades de velocidad del viento:"
+
+#: wpgmp_create_map.php:772
+#: wpgmp_create_map.php:792
+#: wpgmp_manage_map.php:1168
+#: wpgmp_manage_map.php:1188
+#@ wpgmp_google_map
+msgid "Please check wind speed unit."
+msgstr "Compruebe las unidades de velocidad del viento"
+
+#: wpgmp_create_map.php:1359
+#: wpgmp_manage_map.php:1935
+#@ wpgmp_google_map
+msgid "Polygon Setting"
+msgstr "Ajustes del polígono"
+
+#: wpgmp_create_map.php:1361
+#: wpgmp_manage_map.php:1937
+#@ wpgmp_google_map
+msgid "Draw Polygon"
+msgstr "Dibujar polígono"
+
+#: wpgmp_create_map.php:1370
+#: wpgmp_manage_map.php:1949
+#: wpgmp_manage_map.php:1971
+#@ wpgmp_google_map
+msgid "Polygon Border Color"
+msgstr "Color del borde del polígono"
+
+#: wpgmp_create_map.php:1400
+#@ wpgmp_google_map
+msgid "Choose Polygon Border Color."
+msgstr "Seleccione color del borde del polígono"
+
+#: wpgmp_create_map.php:1404
+#: wpgmp_manage_map.php:1957
+#: wpgmp_manage_map.php:1979
+#@ wpgmp_google_map
+msgid "Polygon Background Color"
+msgstr "Color de fondo del polígono"
+
+#: wpgmp_create_map.php:1434
+#@ wpgmp_google_map
+msgid "Choose Polygon Background Color."
+msgstr "Selecciones color de fondo del polígono"
+
+#: wpgmp_create_map.php:1550
+#: wpgmp_manage_map.php:2166
+#@ wpgmp_google_map
+msgid "Marker Cluster Setting"
+msgstr "Ajustes del Marker Cluster"
+
+#: wpgmp_create_map.php:1554
+#: wpgmp_manage_map.php:2168
+#@ wpgmp_google_map
+msgid "Marker Cluster"
+msgstr "Marker Cluster"
+
+#: wpgmp_create_map.php:1558
+#: wpgmp_manage_map.php:2172
+#@ wpgmp_google_map
+msgid "Apply Marker Cluster ?"
+msgstr "Usar Marker Cluster?"
+
+#: wpgmp_create_map.php:1563
+#: wpgmp_manage_map.php:2180
+#: wpgmp_manage_map.php:2250
+#@ wpgmp_google_map
+msgid "Grid"
+msgstr "Cuadrícula"
+
+#: wpgmp_create_map.php:1567
+#@ wpgmp_google_map
+msgid "Enter grid here. Default is 15"
+msgstr "Introduzca cuadrícula (por defecto en 15)"
+
+#: wpgmp_create_map.php:874
+#: wpgmp_create_map.php:1571
+#: wpgmp_manage_map.php:1274
+#: wpgmp_manage_map.php:2188
+#: wpgmp_manage_map.php:2258
+#@ wpgmp_google_map
+msgid "Style"
+msgstr "Estilo"
+
+#: wpgmp_create_map.php:1575
+#: wpgmp_create_map.php:1712
+#: wpgmp_manage_map.php:2192
+#: wpgmp_manage_map.php:2262
+#: wpgmp_manage_map.php:2378
+#: wpgmp_manage_map.php:2441
+#@ wpgmp_google_map
+msgid "Default"
+msgstr "Por defecto"
+
+#: wpgmp_create_map.php:1577
+#: wpgmp_manage_map.php:2194
+#: wpgmp_manage_map.php:2264
+#@ wpgmp_google_map
+msgid "People"
+msgstr "Gente"
+
+#: wpgmp_create_map.php:1579
+#: wpgmp_manage_map.php:2196
+#: wpgmp_manage_map.php:2266
+#@ wpgmp_google_map
+msgid "Conversation"
+msgstr "Conversación"
+
+#: wpgmp_create_map.php:1581
+#: wpgmp_manage_map.php:2198
+#: wpgmp_manage_map.php:2268
+#@ wpgmp_google_map
+msgid "Heart"
+msgstr "Corazón"
+
+#: wpgmp_create_map.php:1585
+#: wpgmp_manage_map.php:2202
+#: wpgmp_manage_map.php:2272
+#@ wpgmp_google_map
+msgid "(Available options - Default,People,Conversation,Herat)."
+msgstr "(Opciones disponibles - Por defecto,Gente,Conversación,Herat)."
+
+#: wpgmp_create_map.php:1589
+#: wpgmp_manage_map.php:2206
+#: wpgmp_manage_map.php:2276
+#@ wpgmp_google_map
+msgid "Max Zoom Level"
+msgstr "Nivel máximo de Zoom"
+
+#: wpgmp_create_map.php:1629
+#: wpgmp_manage_map.php:2319
+#@ wpgmp_google_map
+msgid "Overlay Setting"
+msgstr "Ajustes de capa de superposición"
+
+#: wpgmp_create_map.php:1633
+#: wpgmp_manage_map.php:2321
+#@ wpgmp_google_map
+msgid "Overlay"
+msgstr "Capa de superposición"
+
+#: wpgmp_create_map.php:1637
+#: wpgmp_manage_map.php:2325
+#@ wpgmp_google_map
+msgid "Overlays (if you checked,below information can not be empty)."
+msgstr "Capa de superposición (si se marca la información inferior debe ser completada)"
+
+#: wpgmp_create_map.php:1642
+#: wpgmp_manage_map.php:2334
+#: wpgmp_manage_map.php:2397
+#@ wpgmp_google_map
+msgid "Overlay Border Color"
+msgstr "Color del borde de la capa de superposición"
+
+#: wpgmp_create_map.php:1672
+#: wpgmp_manage_map.php:1953
+#: wpgmp_manage_map.php:1961
+#: wpgmp_manage_map.php:1975
+#: wpgmp_manage_map.php:1983
+#: wpgmp_manage_map.php:2338
+#: wpgmp_manage_map.php:2401
+#@ wpgmp_google_map
+msgid "(Default is red)."
+msgstr "(Por defecto en rojo)"
+
+#: wpgmp_create_map.php:1676
+#: wpgmp_manage_map.php:2342
+#: wpgmp_manage_map.php:2405
+#@ wpgmp_google_map
+msgid "Overlay Width"
+msgstr "Ancho de la capa de superposición"
+
+#: wpgmp_create_map.php:1680
+#@ wpgmp_google_map
+msgid "Insert here Overlay Width. Default is 200px"
+msgstr "Introduzca ancho de la capa de superposición (por defecto 200px)"
+
+#: wpgmp_create_map.php:1684
+#: wpgmp_manage_map.php:2350
+#: wpgmp_manage_map.php:2413
+#@ wpgmp_google_map
+msgid "Overlay Height"
+msgstr "Altura de la capa de superposición"
+
+#: wpgmp_create_map.php:1688
+#@ wpgmp_google_map
+msgid "Enter here Overlay Height. Default is 200px"
+msgstr "Introduzca altura de la capa de superposición (por defecto 200px)"
+
+#: wpgmp_create_map.php:1692
+#: wpgmp_manage_map.php:2358
+#: wpgmp_manage_map.php:2421
+#@ wpgmp_google_map
+msgid "Overlay Font size"
+msgstr "Tamaño de fuente (tipografía) de la capa de superposición"
+
+#: wpgmp_create_map.php:1696
+#@ wpgmp_google_map
+msgid "Enter here Overlay Font Size. Default is 16px"
+msgstr "Introduzca tamaño de fuente (tipografía) de la capa de superposición"
+
+#: wpgmp_create_map.php:1700
+#@ wpgmp_google_map
+msgid "Overlay Border Width"
+msgstr "Ancho del borde de la capa de superposición"
+
+#: wpgmp_create_map.php:1704
+#@ wpgmp_google_map
+msgid "Enter here Overlay Border Width. Default is 2px"
+msgstr "Introduzca el ancho del borde de la capa de superposición (por defecto 2px)"
+
+#: wpgmp_create_map.php:1708
+#: wpgmp_manage_map.php:2374
+#: wpgmp_manage_map.php:2437
+#@ wpgmp_google_map
+msgid "Overlay Border Style"
+msgstr "Estilo del borde de la capa de superposición"
+
+#: wpgmp_create_map.php:1714
+#: wpgmp_manage_map.php:2380
+#: wpgmp_manage_map.php:2443
+#@ wpgmp_google_map
+msgid "Solid"
+msgstr "Contínuo"
+
+#: wpgmp_create_map.php:1716
+#: wpgmp_manage_map.php:2382
+#: wpgmp_manage_map.php:2445
+#@ wpgmp_google_map
+msgid "Dashed"
+msgstr "Discontínuo"
+
+#: wpgmp_create_map.php:1720
+#: wpgmp_manage_map.php:2386
+#: wpgmp_manage_map.php:2449
+#@ wpgmp_google_map
+msgid "(Available options - Default,Solid,Dashed)."
+msgstr "(Opciones disponibles - Por defecto,Contínuo,Discontínuo)."
+
+#: wpgmp_manage_group_map.php:28
+#: wpgmp_manage_location.php:28
+#: wpgmp_manage_map.php:20
+#@ wpgmp_google_map
+msgid "googlemap"
+msgstr "googlemap"
+
+#: wpgmp_manage_group_map.php:32
+#: wpgmp_manage_location.php:32
+#: wpgmp_manage_map.php:22
+#@ wpgmp_google_map
+msgid "googlemaps"
+msgstr "googlemaps"
+
+#: wpgmp_manage_location.php:152
+#@ wpgmp_google_map
+msgid "No Records for Map Locations."
+msgstr "No hay registro de ubicaciones en el mapa"
+
+#: wpgmp_manage_location.php:308
+#: wpgmp_manage_map.php:184
+#@ wpgmp_google_map
+msgid "Title"
+msgstr "Título"
+
+#: wpgmp_add_location.php:170
+#: wpgmp_manage_location.php:316
+#: wpgmp_manage_location.php:798
+#@ wpgmp_google_map
+msgid "Latitude"
+msgstr "Latitud"
+
+#: wpgmp_add_location.php:172
+#: wpgmp_manage_location.php:320
+#: wpgmp_manage_location.php:800
+#@ wpgmp_google_map
+msgid "Longitude"
+msgstr "Longitud"
+
+#: wpgmp_manage_location.php:324
+#@ wpgmp_google_map
+msgid "When Added"
+msgstr "Cuando se añada"
+
+#: wpgmp_manage_location.php:655
+#@ wpgmp_google_map
+msgid "Please enter Address."
+msgstr "Introduzca dirección"
+
+#: wpgmp_manage_location.php:749
+#@ wpgmp_google_map
+msgid "Edit Location"
+msgstr "Editar ubicación"
+
+#: wpgmp_manage_location.php:796
+#@ wpgmp_google_map
+msgid "Insert here the address."
+msgstr "Introduzca aquí la dirección"
+
+#: wpgmp_manage_location.php:802
+#@ wpgmp_google_map
+msgid "Insert here the latitude."
+msgstr "Introduzca aquí la latitud"
+
+#: wpgmp_manage_location.php:802
+#@ wpgmp_google_map
+msgid "Insert here the longitude."
+msgstr "Introduzca aquí la longitud"
+
+#: wpgmp_manage_map.php:88
+#@ wpgmp_google_map
+msgid "No Records for Maps."
+msgstr "No hay registro de mapas"
+
+#: wpgmp_manage_map.php:200
+#@ wpgmp_google_map
+msgid "Map Type"
+msgstr "Tipo de mapa"
+
+#: wpgmp_manage_map.php:204
+#@ wpgmp_google_map
+msgid "Shortcodes"
+msgstr "Códigos cortos"
+
+#: wpgmp_manage_group_map.php:598
+#: wpgmp_manage_map.php:360
+#: wpgmp_manage_map.php:390
+#@ wpgmp_google_map
+msgid "Selected Records Deleted Successfully."
+msgstr "Entradas seleccionadas borradas correctamente"
+
+#: wpgmp_create_map.php:403
+#: wpgmp_manage_map.php:851
+#@ wpgmp_google_map
+msgid "Map Title"
+msgstr "Título del mapa"
+
+#: wpgmp_manage_map.php:855
+#@ wpgmp_google_map
+msgid "Insert here the title"
+msgstr "Introduzca aquí el título"
+
+#: wpgmp_manage_map.php:863
+#@ wpgmp_google_map
+msgid "Insert here the map width"
+msgstr "Introduzca el alto del mapa"
+
+#: wpgmp_manage_map.php:871
+#@ wpgmp_google_map
+msgid "Insert here the map height"
+msgstr "Introduzca el ancho del mapa"
+
+#: wpgmp_manage_map.php:935
+#@ wpgmp_google_map
+msgid "Please Check TO Disable Scroll Wheel Zooms."
+msgstr "Marque para desactivar rueda de desplazamiento del zoom"
+
+#: wpgmp_manage_map.php:1941
+#@ wpgmp_google_map
+msgid "Draw Polygon&nbsp;&nbsp;(if you checked,a polygon will be drawn on selected locations like this http://developers.google.com/documentation/javascript/examples/polygon-arrays)"
+msgstr "Dibujar polígono&nbsp;&nbsp;(Si se selecciona, se dibujará un polígono como este (http://developers.google.com/documentation/javascript/examples/polygon-arrays ) en las ubicaciones seleccionadas"
+
+#: wpgmp_manage_map.php:2184
+#: wpgmp_manage_map.php:2254
+#@ wpgmp_google_map
+msgid "Insert grid here."
+msgstr "Insertar cuadrícula aquí"
+
+#: wpgmp_manage_map.php:2346
+#: wpgmp_manage_map.php:2409
+#@ wpgmp_google_map
+msgid "Insert here Overlay Width"
+msgstr "Insertar ancho de la capa de superposición"
+
+#: wpgmp_manage_map.php:2354
+#: wpgmp_manage_map.php:2417
+#@ wpgmp_google_map
+msgid "Insert here Overlay Height"
+msgstr "Insertar altura de la capa de superposición"
+
+#: wpgmp_manage_map.php:2362
+#: wpgmp_manage_map.php:2425
+#@ wpgmp_google_map
+msgid "Insert here Overlay Font Size"
+msgstr "Insertar tamaño de fuente (tipografía) de la capa de superposición"
+
+#: wpgmp_manage_map.php:2366
+#: wpgmp_manage_map.php:2429
+#@ wpgmp_google_map
+msgid "Overlay Border width"
+msgstr "Ancho del borde de la capa de superposición"
+
+#: wpgmp_manage_map.php:2370
+#: wpgmp_manage_map.php:2433
+#@ wpgmp_google_map
+msgid "Insert here Overlay Border Width"
+msgstr "Insertar ancho del borde de la capa de superposición"
+
+#: wpgmp_manage_map.php:2466
+#@ wpgmp_google_map
+msgid "Manage Maps"
+msgstr "Gestionar mapas"
+
+#: wp-google-map-pro.php:269
+#: wp-google-map-pro.php:271
+#: wpgmp_create_group_map.php:63
+#@ wpgmp_google_map
+msgid "Create Group Map"
+msgstr ""
+
+#: wp-google-map-pro.php:285
+#: wp-google-map-pro.php:287
+#@ wpgmp_google_map
+msgid "Manage Group Map"
+msgstr ""
+
+#: wp-google-map-pro.php:900
+#@ wpgmp_google_map
+msgid "ENGLISH"
+msgstr ""
+
+#: wp-google-map-pro.php:902
+#@ wpgmp_google_map
+msgid "ARABIC"
+msgstr ""
+
+#: wp-google-map-pro.php:904
+#@ wpgmp_google_map
+msgid "BASQUE"
+msgstr ""
+
+#: wp-google-map-pro.php:906
+#@ wpgmp_google_map
+msgid "BULGARIAN"
+msgstr ""
+
+#: wp-google-map-pro.php:908
+#@ wpgmp_google_map
+msgid "BENGALI"
+msgstr ""
+
+#: wp-google-map-pro.php:910
+#@ wpgmp_google_map
+msgid "CATALAN"
+msgstr ""
+
+#: wp-google-map-pro.php:912
+#@ wpgmp_google_map
+msgid "CZECH"
+msgstr ""
+
+#: wp-google-map-pro.php:914
+#@ wpgmp_google_map
+msgid "DANISH"
+msgstr ""
+
+#: wp-google-map-pro.php:916
+#@ wpgmp_google_map
+msgid "GERMAN"
+msgstr ""
+
+#: wp-google-map-pro.php:918
+#@ wpgmp_google_map
+msgid "GREEK"
+msgstr ""
+
+#: wp-google-map-pro.php:920
+#@ wpgmp_google_map
+msgid "ENGLISH (AUSTRALIAN)"
+msgstr ""
+
+#: wp-google-map-pro.php:922
+#@ wpgmp_google_map
+msgid "ENGLISH (GREAT BRITAIN)"
+msgstr ""
+
+#: wp-google-map-pro.php:924
+#@ wpgmp_google_map
+msgid "SPANISH"
+msgstr ""
+
+#: wp-google-map-pro.php:926
+#@ wpgmp_google_map
+msgid "FARSI"
+msgstr ""
+
+#: wp-google-map-pro.php:928
+#@ wpgmp_google_map
+msgid "FINNISH"
+msgstr ""
+
+#: wp-google-map-pro.php:930
+#@ wpgmp_google_map
+msgid "FILIPINO"
+msgstr ""
+
+#: wp-google-map-pro.php:932
+#@ wpgmp_google_map
+msgid "FRENCH"
+msgstr ""
+
+#: wp-google-map-pro.php:934
+#@ wpgmp_google_map
+msgid "GALICIAN"
+msgstr ""
+
+#: wp-google-map-pro.php:936
+#@ wpgmp_google_map
+msgid "GUJARATI"
+msgstr ""
+
+#: wp-google-map-pro.php:938
+#@ wpgmp_google_map
+msgid "HINDI"
+msgstr ""
+
+#: wp-google-map-pro.php:940
+#@ wpgmp_google_map
+msgid "CROATIAN"
+msgstr ""
+
+#: wp-google-map-pro.php:942
+#@ wpgmp_google_map
+msgid "HUNGARIAN"
+msgstr ""
+
+#: wp-google-map-pro.php:944
+#@ wpgmp_google_map
+msgid "INDONESIAN"
+msgstr ""
+
+#: wp-google-map-pro.php:946
+#@ wpgmp_google_map
+msgid "ITALIAN"
+msgstr ""
+
+#: wp-google-map-pro.php:948
+#@ wpgmp_google_map
+msgid "HEBREW"
+msgstr ""
+
+#: wp-google-map-pro.php:950
+#@ wpgmp_google_map
+msgid "JAPANESE"
+msgstr ""
+
+#: wp-google-map-pro.php:952
+#@ wpgmp_google_map
+msgid "KANNADA"
+msgstr ""
+
+#: wp-google-map-pro.php:954
+#@ wpgmp_google_map
+msgid "KOREAN"
+msgstr ""
+
+#: wp-google-map-pro.php:956
+#@ wpgmp_google_map
+msgid "LITHUANIAN"
+msgstr ""
+
+#: wp-google-map-pro.php:958
+#@ wpgmp_google_map
+msgid "LATVIAN"
+msgstr ""
+
+#: wp-google-map-pro.php:960
+#@ wpgmp_google_map
+msgid "MALAYALAM"
+msgstr ""
+
+#: wp-google-map-pro.php:962
+#@ wpgmp_google_map
+msgid "MARATHI"
+msgstr ""
+
+#: wp-google-map-pro.php:964
+#@ wpgmp_google_map
+msgid "DUTCH"
+msgstr ""
+
+#: wp-google-map-pro.php:966
+#@ wpgmp_google_map
+msgid "NORWEGIAN"
+msgstr ""
+
+#: wp-google-map-pro.php:968
+#@ wpgmp_google_map
+msgid "POLISH"
+msgstr ""
+
+#: wp-google-map-pro.php:970
+#@ wpgmp_google_map
+msgid "PORTUGUESE"
+msgstr ""
+
+#: wp-google-map-pro.php:972
+#@ wpgmp_google_map
+msgid "PORTUGUESE (BRAZIL)"
+msgstr ""
+
+#: wp-google-map-pro.php:974
+#@ wpgmp_google_map
+msgid "PORTUGUESE (PORTUGAL)"
+msgstr ""
+
+#: wp-google-map-pro.php:976
+#@ wpgmp_google_map
+msgid "ROMANIAN"
+msgstr ""
+
+#: wp-google-map-pro.php:978
+#@ wpgmp_google_map
+msgid "RUSSIAN"
+msgstr ""
+
+#: wp-google-map-pro.php:980
+#@ wpgmp_google_map
+msgid "SLOVAK"
+msgstr ""
+
+#: wp-google-map-pro.php:982
+#@ wpgmp_google_map
+msgid "SLOVENIAN"
+msgstr ""
+
+#: wp-google-map-pro.php:984
+#@ wpgmp_google_map
+msgid "SERBIAN"
+msgstr ""
+
+#: wp-google-map-pro.php:986
+#@ wpgmp_google_map
+msgid "SWEDISH"
+msgstr ""
+
+#: wp-google-map-pro.php:988
+#@ wpgmp_google_map
+msgid "TAGALOG"
+msgstr ""
+
+#: wp-google-map-pro.php:990
+#@ wpgmp_google_map
+msgid "TAMIL"
+msgstr ""
+
+#: wp-google-map-pro.php:992
+#@ wpgmp_google_map
+msgid "TELUGU"
+msgstr ""
+
+#: wp-google-map-pro.php:994
+#@ wpgmp_google_map
+msgid "THAI"
+msgstr ""
+
+#: wp-google-map-pro.php:996
+#@ wpgmp_google_map
+msgid "TURKISH"
+msgstr ""
+
+#: wp-google-map-pro.php:998
+#@ wpgmp_google_map
+msgid "UKRAINIAN"
+msgstr ""
+
+#: wp-google-map-pro.php:1000
+#@ wpgmp_google_map
+msgid "VIETNAMESE"
+msgstr ""
+
+#: wp-google-map-pro.php:1002
+#@ wpgmp_google_map
+msgid "CHINESE (SIMPLIFIED)"
+msgstr ""
+
+#: wp-google-map-pro.php:1004
+#@ wpgmp_google_map
+msgid "CHINESE (TRADITIONAL)"
+msgstr ""
+
+#: wp-google-map-pro.php:1018
+#@ wpgmp_google_map
+msgid "Set Default Marker"
+msgstr ""
+
+#: wp-google-map-pro.php:1032
+#@ wpgmp_google_map
+msgid "Please upload default marker for map."
+msgstr ""
+
+#: wp-google-map-pro.php:1038
+#@ wpgmp_google_map
+msgid "Mashup Google Map"
+msgstr ""
+
+#: wp-google-map-pro.php:1042
+#@ wpgmp_google_map
+msgid "Please check to display Google map mashup."
+msgstr ""
+
+#: wp-google-map-pro.php:1056
+#@ wpgmp_google_map
+msgid "Save Changes"
+msgstr ""
+
+#: wp-google-map-pro.php:1169
+#@ wpgmp_google_map
+msgid "Select map"
+msgstr ""
+
+#: wp-google-map-pro.php:1285
+#@ wpgmp_google_map
+msgid "Select Location:"
+msgstr ""
+
+#: wp-google-map-pro.php:1295
+#@ wpgmp_google_map
+msgid "Select Map:"
+msgstr ""
+
+#: wp-google-map-pro.php:1336
+#@ wpgmp_google_map
+msgid "Choose Icons"
+msgstr ""
+
+#: wp-google-map-pro.php:1378
+#@ wpgmp_google_map
+msgid "Select Icons"
+msgstr ""
+
+#: wp-google-map-pro.php:1404
+#@ wpgmp_google_map
+msgid "Insert into Post"
+msgstr ""
+
+#: wp-google-map-pro.php:1524
+#@ wpgmp_google_map
+msgid "You may add as many as locations you want to add. All those locations will be available to choose when you will create your map."
+msgstr ""
+
+#: wp-google-map-pro.php:1528
+#@ wpgmp_google_map
+msgid "to create your map. You may create as many as maps you want to add. Using shortcode, you can add maps on posts/pages."
+msgstr ""
+
+#: wp-google-map-pro.php:1548
+#@ wpgmp_google_map
+msgid "You can find a documentation with zip package your purchases or visit"
+msgstr ""
+
+#: wp-google-map-pro.php:1548
+#@ wpgmp_google_map
+msgid "Our Website"
+msgstr ""
+
+#: wp-google-map-pro.php:1620
+#: wp-google-map-pro.php:1677
+#@ wpgmp_google_map
+msgid "No location found for the entered address."
+msgstr ""
+
+#: wp-google-map-pro.php:1622
+#: wp-google-map-pro.php:1679
+#@ wpgmp_google_map
+msgid "Invalid request. Did you enter an address?"
+msgstr ""
+
+#: wp-google-map-pro.php:1624
+#: wp-google-map-pro.php:1681
+#@ wpgmp_google_map
+msgid "Something went wrong while retrieving your map, please ensure you have entered the short code correctly."
+msgstr ""
+
+#: wp-google-map-pro.php:1628
+#: wp-google-map-pro.php:1685
+#@ wpgmp_google_map
+msgid "Unable to contact Google API service."
+msgstr ""
+
+#: wpgmp_add_location.php:99
+#@ wpgmp_google_map
+msgid "Locations Added Successfully."
+msgstr ""
+
+#: wpgmp_add_location.php:166
+#@ wpgmp_google_map
+msgid "Geocode"
+msgstr ""
+
+#: wpgmp_add_location.php:179
+#: wpgmp_manage_location.php:806
+#@ wpgmp_google_map
+msgid "Info Window Title #1"
+msgstr ""
+
+#: wpgmp_add_location.php:183
+#: wpgmp_add_location.php:196
+#: wpgmp_add_location.php:211
+#: wpgmp_add_location.php:225
+#: wpgmp_add_location.php:243
+#: wpgmp_manage_location.php:810
+#: wpgmp_manage_location.php:823
+#: wpgmp_manage_location.php:837
+#: wpgmp_manage_location.php:850
+#: wpgmp_manage_location.php:866
+#@ wpgmp_google_map
+msgid "Insert here the infoWindow title."
+msgstr ""
+
+#: wpgmp_add_location.php:185
+#: wpgmp_manage_location.php:812
+#@ wpgmp_google_map
+msgid "Info Window Message #1"
+msgstr ""
+
+#: wpgmp_add_location.php:191
+#: wpgmp_manage_location.php:818
+#@ wpgmp_google_map
+msgid "Info Window Title #2"
+msgstr ""
+
+#: wpgmp_add_location.php:198
+#: wpgmp_manage_location.php:825
+#@ wpgmp_google_map
+msgid "Info Window Message #2"
+msgstr ""
+
+#: wpgmp_add_location.php:206
+#: wpgmp_manage_location.php:832
+#@ wpgmp_google_map
+msgid "Info Window Title #3"
+msgstr ""
+
+#: wpgmp_add_location.php:213
+#: wpgmp_manage_location.php:839
+#@ wpgmp_google_map
+msgid "Info Window Message #3"
+msgstr ""
+
+#: wpgmp_add_location.php:221
+#: wpgmp_manage_location.php:846
+#@ wpgmp_google_map
+msgid "Info Window Title #4"
+msgstr ""
+
+#: wpgmp_add_location.php:228
+#: wpgmp_manage_location.php:852
+#@ wpgmp_google_map
+msgid "Info Window Message #4"
+msgstr ""
+
+#: wpgmp_add_location.php:238
+#: wpgmp_manage_location.php:861
+#@ wpgmp_google_map
+msgid "Info Window Title #5"
+msgstr ""
+
+#: wpgmp_add_location.php:246
+#: wpgmp_manage_location.php:868
+#@ wpgmp_google_map
+msgid "Info Window Message #5"
+msgstr ""
+
+#: wpgmp_add_location.php:281
+#@ wpgmp_google_map
+msgid "Save Locations"
+msgstr ""
+
+#: wpgmp_create_group_map.php:16
+#: wpgmp_manage_group_map.php:611
+#@ wpgmp_google_map
+msgid "Please enter group map title."
+msgstr ""
+
+#: wpgmp_create_group_map.php:21
+#: wpgmp_manage_group_map.php:616
+#@ wpgmp_google_map
+msgid "Please upload marker image."
+msgstr ""
+
+#: wpgmp_create_group_map.php:49
+#@ wpgmp_google_map
+msgid "Group Map Created Successfully."
+msgstr ""
+
+#: wpgmp_create_group_map.php:98
+#: wpgmp_manage_group_map.php:712
+#@ wpgmp_google_map
+msgid "Group Map Title"
+msgstr ""
+
+#: wpgmp_create_group_map.php:102
+#: wpgmp_manage_group_map.php:716
+#@ wpgmp_google_map
+msgid "Enter here the group map title."
+msgstr ""
+
+#: wpgmp_create_group_map.php:104
+#: wpgmp_manage_group_map.php:718
+#@ wpgmp_google_map
+msgid "Choose Group Marker Image"
+msgstr ""
+
+#: wpgmp_create_group_map.php:118
+#: wpgmp_manage_group_map.php:732
+#@ wpgmp_google_map
+msgid "Upload marker image."
+msgstr ""
+
+#: wpgmp_create_group_map.php:207
+#@ wpgmp_google_map
+msgid "NO LOCATIONS FOUND"
+msgstr ""
+
+#: wpgmp_create_group_map.php:222
+#@ wpgmp_google_map
+msgid "Save Group Map"
+msgstr ""
+
+#: wpgmp_create_map.php:40
+#: wpgmp_manage_map.php:430
+#@ wpgmp_google_map
+msgid "please add two locations for route directions."
+msgstr ""
+
+#: wpgmp_create_map.php:177
+#: wpgmp_manage_map.php:587
+#@ wpgmp_google_map
+msgid "Please check at least one group map."
+msgstr ""
+
+#: wpgmp_create_map.php:352
+#@ wpgmp_google_map
+msgid "Maps created Successfully."
+msgstr ""
+
+#: wpgmp_create_map.php:413
+#: wpgmp_create_map.php:421
+#: wpgmp_create_map.php:1678
+#: wpgmp_create_map.php:1686
+#: wpgmp_create_map.php:1694
+#: wpgmp_create_map.php:1702
+#: wpgmp_manage_map.php:861
+#: wpgmp_manage_map.php:869
+#: wpgmp_manage_map.php:2407
+#: wpgmp_manage_map.php:2415
+#: wpgmp_manage_map.php:2423
+#: wpgmp_manage_map.php:2431
+#@ wpgmp_google_map
+msgid "&nbsp;px"
+msgstr ""
+
+#: wpgmp_create_map.php:764
+#: wpgmp_create_map.php:784
+#: wpgmp_manage_map.php:1160
+#: wpgmp_manage_map.php:1180
+#@ wpgmp_google_map
+msgid "&nbsp;Celsius&nbsp;&nbsp;&nbsp;"
+msgstr ""
+
+#: wpgmp_create_map.php:765
+#: wpgmp_create_map.php:785
+#: wpgmp_manage_map.php:1161
+#: wpgmp_manage_map.php:1181
+#@ wpgmp_google_map
+msgid "&nbsp;Fahrenheit"
+msgstr ""
+
+#: wpgmp_create_map.php:769
+#: wpgmp_create_map.php:789
+#: wpgmp_manage_map.php:1165
+#: wpgmp_manage_map.php:1185
+#@ wpgmp_google_map
+msgid "&nbsp;mph&nbsp;&nbsp;&nbsp;"
+msgstr ""
+
+#: wpgmp_create_map.php:770
+#: wpgmp_create_map.php:790
+#: wpgmp_manage_map.php:1166
+#: wpgmp_manage_map.php:1186
+#@ wpgmp_google_map
+msgid "&nbsp;km/h&nbsp;&nbsp;&nbsp;"
+msgstr ""
+
+#: wpgmp_create_map.php:771
+#: wpgmp_create_map.php:791
+#: wpgmp_manage_map.php:1167
+#: wpgmp_manage_map.php:1187
+#@ wpgmp_google_map
+msgid "&nbsp;m/s"
+msgstr ""
+
+#: wpgmp_create_map.php:845
+#: wpgmp_manage_map.php:1241
+#@ wpgmp_google_map
+msgid "Map Style Setting"
+msgstr ""
+
+#: wpgmp_create_map.php:857
+#: wpgmp_manage_map.php:1256
+#@ wpgmp_google_map
+msgid "Feature Type"
+msgstr ""
+
+#: wpgmp_create_map.php:860
+#: wpgmp_manage_map.php:1259
+#@ wpgmp_google_map
+msgid "Element Type"
+msgstr ""
+
+#: wpgmp_create_map.php:863
+#: wpgmp_manage_map.php:1262
+#@ wpgmp_google_map
+msgid "Color"
+msgstr ""
+
+#: wpgmp_create_map.php:866
+#: wpgmp_manage_map.php:1265
+#@ wpgmp_google_map
+msgid "Visibility"
+msgstr ""
+
+#: wpgmp_create_map.php:877
+#: wpgmp_manage_map.php:1277
+#@ wpgmp_google_map
+msgid "Select Featured Type"
+msgstr ""
+
+#: wpgmp_create_map.php:891
+#: wpgmp_manage_map.php:1297
+#@ wpgmp_google_map
+msgid "Select Element Type"
+msgstr ""
+
+#: wpgmp_create_map.php:923
+#: wpgmp_manage_map.php:1339
+#@ wpgmp_google_map
+msgid "Yes"
+msgstr ""
+
+#: wpgmp_create_map.php:924
+#: wpgmp_manage_map.php:1340
+#@ wpgmp_google_map
+msgid "No"
+msgstr ""
+
+#: wpgmp_create_map.php:925
+#: wpgmp_manage_map.php:1341
+#@ wpgmp_google_map
+msgid "Simplifed"
+msgstr ""
+
+#: wpgmp_create_map.php:938
+#: wpgmp_create_map.php:940
+#: wpgmp_manage_map.php:1354
+#: wpgmp_manage_map.php:1356
+#@ wpgmp_google_map
+msgid "Group Map Setting"
+msgstr ""
+
+#: wpgmp_create_map.php:942
+#: wpgmp_manage_map.php:1358
+#@ wpgmp_google_map
+msgid "Please check to enable Group Map settings."
+msgstr ""
+
+#: wpgmp_create_map.php:949
+#: wpgmp_create_map.php:1042
+#: wpgmp_manage_map.php:1366
+#: wpgmp_manage_map.php:1461
+#@ wpgmp_google_map
+msgid "Select Group Map"
+msgstr ""
+
+#: wpgmp_create_map.php:1025
+#: wpgmp_create_map.php:1118
+#: wpgmp_manage_map.php:1444
+#: wpgmp_manage_map.php:1539
+#@ wpgmp_google_map
+msgid "NO GROUP MAPS FOUND."
+msgstr ""
+
+#: wpgmp_create_map.php:1025
+#: wpgmp_create_map.php:1118
+#: wpgmp_manage_map.php:1444
+#: wpgmp_manage_map.php:1539
+#@ wpgmp_google_map
+msgid "TO ADD GROUP MAPS"
+msgstr ""
+
+#: wpgmp_create_map.php:1135
+#: wpgmp_create_map.php:1137
+#: wpgmp_manage_map.php:1556
+#: wpgmp_manage_map.php:1558
+#@ wpgmp_google_map
+msgid "Info Window Setting"
+msgstr ""
+
+#: wpgmp_create_map.php:1139
+#: wpgmp_manage_map.php:1560
+#@ wpgmp_google_map
+msgid "Please check to enable Info window settings."
+msgstr ""
+
+#: wpgmp_create_map.php:1143
+#: wpgmp_manage_map.php:1568
+#: wpgmp_manage_map.php:1630
+#@ wpgmp_google_map
+msgid "Turn Off Info Window"
+msgstr ""
+
+#: wpgmp_create_map.php:1148
+#: wpgmp_manage_map.php:1572
+#: wpgmp_manage_map.php:1634
+#@ wpgmp_google_map
+msgid "Info Window Width:"
+msgstr ""
+
+#: wpgmp_create_map.php:1150
+#: wpgmp_manage_map.php:1574
+#: wpgmp_manage_map.php:1636
+#@ wpgmp_google_map
+msgid "Please insert info window Width."
+msgstr ""
+
+#: wpgmp_create_map.php:1152
+#: wpgmp_manage_map.php:1576
+#: wpgmp_manage_map.php:1638
+#@ wpgmp_google_map
+msgid "Info Window Height:"
+msgstr ""
+
+#: wpgmp_create_map.php:1154
+#: wpgmp_manage_map.php:1578
+#: wpgmp_manage_map.php:1640
+#@ wpgmp_google_map
+msgid "Please insert info window height."
+msgstr ""
+
+#: wpgmp_create_map.php:1157
+#: wpgmp_manage_map.php:1581
+#: wpgmp_manage_map.php:1643
+#@ wpgmp_google_map
+msgid "Info Window ShadowStyle:"
+msgstr ""
+
+#: wpgmp_create_map.php:1159
+#: wpgmp_manage_map.php:1583
+#: wpgmp_manage_map.php:1645
+#@ wpgmp_google_map
+msgid "Select Shawdow Style"
+msgstr ""
+
+#: wpgmp_create_map.php:1164
+#: wpgmp_manage_map.php:1588
+#: wpgmp_manage_map.php:1650
+#@ wpgmp_google_map
+msgid "Please select info window shawdow style."
+msgstr ""
+
+#: wpgmp_create_map.php:1166
+#: wpgmp_manage_map.php:1590
+#: wpgmp_manage_map.php:1652
+#@ wpgmp_google_map
+msgid "Info Window Border Radius:"
+msgstr ""
+
+#: wpgmp_create_map.php:1168
+#: wpgmp_manage_map.php:1592
+#: wpgmp_manage_map.php:1654
+#@ wpgmp_google_map
+msgid "Please insert info window border radious."
+msgstr ""
+
+#: wpgmp_create_map.php:1170
+#: wpgmp_manage_map.php:1594
+#: wpgmp_manage_map.php:1656
+#@ wpgmp_google_map
+msgid "Info Window Border Width:"
+msgstr ""
+
+#: wpgmp_create_map.php:1172
+#: wpgmp_manage_map.php:1596
+#: wpgmp_manage_map.php:1658
+#@ wpgmp_google_map
+msgid "Please insert info window border width."
+msgstr ""
+
+#: wpgmp_create_map.php:1174
+#: wpgmp_manage_map.php:1598
+#: wpgmp_manage_map.php:1660
+#@ wpgmp_google_map
+msgid "Info Window Border Color:"
+msgstr ""
+
+#: wpgmp_create_map.php:1180
+#: wpgmp_manage_map.php:1600
+#: wpgmp_manage_map.php:1662
+#@ wpgmp_google_map
+msgid "Please insert info window border color."
+msgstr ""
+
+#: wpgmp_create_map.php:1182
+#: wpgmp_manage_map.php:1602
+#: wpgmp_manage_map.php:1664
+#@ wpgmp_google_map
+msgid "Info Window Background Color:"
+msgstr ""
+
+#: wpgmp_create_map.php:1189
+#: wpgmp_manage_map.php:1604
+#: wpgmp_manage_map.php:1666
+#@ wpgmp_google_map
+msgid "Please insert info window background color."
+msgstr ""
+
+#: wpgmp_create_map.php:1191
+#: wpgmp_manage_map.php:1606
+#: wpgmp_manage_map.php:1668
+#@ wpgmp_google_map
+msgid "Info Window Arrow Size:"
+msgstr ""
+
+#: wpgmp_create_map.php:1193
+#: wpgmp_manage_map.php:1608
+#: wpgmp_manage_map.php:1670
+#@ wpgmp_google_map
+msgid "Please insert info window arrow size."
+msgstr ""
+
+#: wpgmp_create_map.php:1195
+#: wpgmp_manage_map.php:1610
+#: wpgmp_manage_map.php:1672
+#@ wpgmp_google_map
+msgid "Info Window Arrow Position:"
+msgstr ""
+
+#: wpgmp_create_map.php:1197
+#: wpgmp_manage_map.php:1612
+#: wpgmp_manage_map.php:1674
+#@ wpgmp_google_map
+msgid "Please insert info window arrow position."
+msgstr ""
+
+#: wpgmp_create_map.php:1199
+#: wpgmp_manage_map.php:1614
+#: wpgmp_manage_map.php:1676
+#@ wpgmp_google_map
+msgid "Info Window Arrow Style:"
+msgstr ""
+
+#: wpgmp_create_map.php:1201
+#: wpgmp_manage_map.php:1616
+#: wpgmp_manage_map.php:1678
+#@ wpgmp_google_map
+msgid "Select Arrow Style"
+msgstr ""
+
+#: wpgmp_create_map.php:1206
+#: wpgmp_manage_map.php:1621
+#: wpgmp_manage_map.php:1683
+#@ wpgmp_google_map
+msgid "Please select info window arrow style."
+msgstr ""
+
+#: wpgmp_create_map.php:1212
+#: wpgmp_manage_map.php:1692
+#@ wpgmp_google_map
+msgid "Street View Setting"
+msgstr ""
+
+#: wpgmp_create_map.php:1214
+#: wpgmp_manage_map.php:1694
+#@ wpgmp_google_map
+msgid "Turn On Street View"
+msgstr ""
+
+#: wpgmp_create_map.php:1218
+#: wpgmp_manage_map.php:1698
+#@ wpgmp_google_map
+msgid "Please check to enable Street View control."
+msgstr ""
+
+#: wpgmp_create_map.php:1222
+#: wpgmp_manage_map.php:1706
+#: wpgmp_manage_map.php:1732
+#@ wpgmp_google_map
+msgid "Turn On Close Button"
+msgstr ""
+
+#: wpgmp_create_map.php:1226
+#: wpgmp_manage_map.php:1710
+#: wpgmp_manage_map.php:1736
+#@ wpgmp_google_map
+msgid "Please check to enable Close button."
+msgstr ""
+
+#: wpgmp_create_map.php:1229
+#: wpgmp_manage_map.php:1713
+#: wpgmp_manage_map.php:1739
+#@ wpgmp_google_map
+msgid "Turn Off links Control"
+msgstr ""
+
+#: wpgmp_create_map.php:1233
+#: wpgmp_manage_map.php:1717
+#: wpgmp_manage_map.php:1743
+#@ wpgmp_google_map
+msgid "Please check to disable links control."
+msgstr ""
+
+#: wpgmp_create_map.php:1235
+#: wpgmp_manage_map.php:1719
+#: wpgmp_manage_map.php:1745
+#@ wpgmp_google_map
+msgid "Turn Off Street View Pan Control"
+msgstr ""
+
+#: wpgmp_create_map.php:1239
+#: wpgmp_manage_map.php:1723
+#: wpgmp_manage_map.php:1749
+#@ wpgmp_google_map
+msgid "Please check to disable Street View Pan control."
+msgstr ""
+
+#: wpgmp_create_map.php:1246
+#: wpgmp_manage_map.php:1760
+#@ wpgmp_google_map
+msgid "Route Direction Setting"
+msgstr ""
+
+#: wpgmp_create_map.php:1250
+#: wpgmp_manage_map.php:1764
+#@ wpgmp_google_map
+msgid "Turn On Map Route Directions"
+msgstr ""
+
+#: wpgmp_create_map.php:1254
+#: wpgmp_manage_map.php:1768
+#@ wpgmp_google_map
+msgid "Please Check TO Enable Map Route Directions."
+msgstr ""
+
+#: wpgmp_create_map.php:1258
+#: wpgmp_manage_map.php:1777
+#: wpgmp_manage_map.php:1856
+#@ wpgmp_google_map
+msgid "Route Direction Stroke Color"
+msgstr ""
+
+#: wpgmp_create_map.php:1288
+#: wpgmp_manage_map.php:1785
+#: wpgmp_manage_map.php:1864
+#@ wpgmp_google_map
+msgid "Choose Route Direction Stroke Color.(Default is Blue)"
+msgstr ""
+
+#: wpgmp_create_map.php:1292
+#: wpgmp_manage_map.php:1789
+#: wpgmp_manage_map.php:1868
+#@ wpgmp_google_map
+msgid "Route Direction Stroke Opacity"
+msgstr ""
+
+#: wpgmp_create_map.php:1319
+#: wpgmp_manage_map.php:1816
+#: wpgmp_manage_map.php:1895
+#@ wpgmp_google_map
+msgid "Please Select Route Direction Stroke Opacity."
+msgstr ""
+
+#: wpgmp_create_map.php:1322
+#: wpgmp_manage_map.php:1819
+#: wpgmp_manage_map.php:1898
+#@ wpgmp_google_map
+msgid "Route Direction Stroke Weight"
+msgstr ""
+
+#: wpgmp_create_map.php:1349
+#: wpgmp_manage_map.php:1846
+#: wpgmp_manage_map.php:1925
+#@ wpgmp_google_map
+msgid "Please Select Route Direction Stroke Weight."
+msgstr ""
+
+#: wpgmp_create_map.php:1365
+#@ wpgmp_google_map
+msgid "Draw Polygon&nbsp;&nbsp;(if you checked,a polygon will be drawn on selected locations"
+msgstr ""
+
+#: wpgmp_create_map.php:1441
+#: wpgmp_manage_map.php:1993
+#@ wpgmp_google_map
+msgid "Polyline Setting"
+msgstr ""
+
+#: wpgmp_create_map.php:1445
+#: wpgmp_manage_map.php:1997
+#@ wpgmp_google_map
+msgid "Draw Polyline"
+msgstr ""
+
+#: wpgmp_create_map.php:1449
+#: wpgmp_manage_map.php:2001
+#@ wpgmp_google_map
+msgid "Draw Polyline&nbsp;&nbsp;(if you checked,a polyline will be drawn on selected locations)"
+msgstr ""
+
+#: wpgmp_create_map.php:1454
+#: wpgmp_manage_map.php:2009
+#: wpgmp_manage_map.php:2088
+#@ wpgmp_google_map
+msgid "Polyline Stroke Color"
+msgstr ""
+
+#: wpgmp_create_map.php:1484
+#: wpgmp_manage_map.php:2016
+#: wpgmp_manage_map.php:2095
+#@ wpgmp_google_map
+msgid "Choose polyline Stroke Color.(Default is Red)"
+msgstr ""
+
+#: wpgmp_create_map.php:1488
+#: wpgmp_manage_map.php:2020
+#: wpgmp_manage_map.php:2099
+#@ wpgmp_google_map
+msgid "Polyline Stroke Opacity"
+msgstr ""
+
+#: wpgmp_create_map.php:1514
+#: wpgmp_manage_map.php:2047
+#: wpgmp_manage_map.php:2126
+#@ wpgmp_google_map
+msgid "Please insert Polyline Stroke Opacity."
+msgstr ""
+
+#: wpgmp_create_map.php:1517
+#: wpgmp_manage_map.php:2050
+#: wpgmp_manage_map.php:2129
+#@ wpgmp_google_map
+msgid "Polyline Stroke Weight"
+msgstr ""
+
+#: wpgmp_create_map.php:1544
+#: wpgmp_manage_map.php:2078
+#: wpgmp_manage_map.php:2157
+#@ wpgmp_google_map
+msgid "Please insert Polyline Stroke Weight."
+msgstr ""
+
+#: wpgmp_create_map.php:1724
+#@ wpgmp_google_map
+msgid "Save Map"
+msgstr ""
+
+#: wpgmp_manage_group_map.php:141
+#@ wpgmp_google_map
+msgid "No Records for Group Maps."
+msgstr ""
+
+#: wpgmp_manage_group_map.php:278
+#@ wpgmp_google_map
+msgid "Group Title"
+msgstr ""
+
+#: wpgmp_manage_group_map.php:282
+#@ wpgmp_google_map
+msgid "Group Marker"
+msgstr ""
+
+#: wpgmp_manage_group_map.php:286
+#@ wpgmp_google_map
+msgid "Group Added"
+msgstr ""
+
+#: wpgmp_manage_group_map.php:570
+#@ wpgmp_google_map
+msgid "Selected Record Deleted Successfully."
+msgstr ""
+
+#: wpgmp_manage_group_map.php:646
+#@ wpgmp_google_map
+msgid "Group Map Updated Successfully."
+msgstr ""
+
+#: wpgmp_manage_group_map.php:677
+#@ wpgmp_google_map
+msgid "Edit Group Map"
+msgstr ""
+
+#: wpgmp_manage_group_map.php:798
+#@ wpgmp_google_map
+msgid "Update Group Map"
+msgstr ""
+
+#: wpgmp_manage_group_map.php:813
+#@ wpgmp_google_map
+msgid "Manage Group Maps"
+msgstr ""
+
+#: wpgmp_manage_location.php:720
+#@ wpgmp_google_map
+msgid "Locations Updated Successfully."
+msgstr ""
+
+#: wpgmp_manage_location.php:786
+#@ wpgmp_google_map
+msgid "Insert here the location title."
+msgstr ""
+
+#: wpgmp_manage_location.php:903
+#@ wpgmp_google_map
+msgid "Update Locations"
+msgstr ""
+
+#: wpgmp_manage_map.php:765
+#@ wpgmp_google_map
+msgid "Map Updated Successfully."
+msgstr ""
+
+#: wpgmp_manage_map.php:1253
+#@ wpgmp_google_map
+msgid "Style #"
+msgstr ""
+
+#: wpgmp_manage_map.php:2458
+#@ wpgmp_google_map
+msgid "Update Map"
+msgstr ""
+

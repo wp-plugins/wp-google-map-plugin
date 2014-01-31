@@ -7,62 +7,67 @@ Author URI:        http://profiles.wordpress.org/flippercode/
 Author:            flippercode
 Donate link:       (a link for donating)
 Requires at least: 2.0.0 
-Tested up to:      3.5.1
-Stable tag:        Easiest way to display google map on any page using short code. Easily Display Multiple Markers by address or provided latitude and longitude on a Google Map.  
+Tested up to:      3.8.1
+Stable tag:        Easiest way to create Google Maps! A plugin to display multiple location markers, customized map skins, infowindows and much more. Based on the latest Google API Version.   
 
 == Description ==
-Easiest way to display google map on any page using short code. Easily display multiple markers by address or provided latitude and longitude on a Google Map. Now you can display unlimited number of markers on a google map without worrying about latitude and longitude
-for individual locations. This plugin, automatically calculate exact latitude and longitude by provided address. No need for Google Map API KEY now, You can transfer your map hassle free to any number of domains.
+Display Google Maps at a shortcode’s ease! WP Google Map Plugin is a simple tool to add single or multiple markers on the same map and display on your webpage using a shortcode. The plugin is also featured to automatically extract exact latitude and longitude from a provided address. WP Google Map plugin hassle free transfers your map to any number of domains without a Google Map API Key. 
+Here is a quick highlight on the numerous customizable features offered by the free and pro versions of the WP Google Map plugin.
 
-We have been created a Pro Version also with following features. 
+Here is a quick highlight on the numerous customizable features offered by the free and pro versions of the  [WP Google Map Pro Version](http://codecanyon.net/item/advanced-google-maps/5211638).
 
-Marker Clusters Supported
-Multiple Infowindows
+= Lite Version (Free) =
+* Create unlimited maps and display on posts/pages using shortcode
+* Add unlimited locations using an easy to use interface for Google Maps
+* Customize marker image for each location separately or group wise. Choose from +500 readymade markers or pick your own image
+* Display your map perfectly on all devices. Create 100% responsive maps effortlessly
+* First & the only wordpress plugin to support multiple infowindows with title
+* Display Google Maps on sidebars using widget
+* Add any number of Google maps on pages/posts/sidebars
+* Display Road Map view. This is the default map type
+* Display Google Earth satellite images on just one click
+* Display maps in a blend of normal and satellite views
+* Display physical maps based on terrain information
+* Apply any type of marker customization on Google map infowindows
+* Display traffic real time conditions and overlays using Traffic Layers
+* Allows to add weather forecasts using Weather Layers
+* Add bicycle path information to your maps using the Bicycling Layer
+* Display physical maps based on terrain information
+* Apply any type of marker customization on Google map infowindows
+* Display photos from Panoramio as a layer to your maps using the Panoramio Layer
+* A Cross Browser Compatible plugin. Fully tested on IE8, IE9, IE10 and all major browsers
+* Enable visual refresh on any Google Map at a button’s click
+* No need of any Google API key. Based on API Version 3.
+* Fully Responsive. Tested on real devices.
 
-Overlays
+= Pro Edition =
+* Define overlays on Google maps via an easy to use interface
+* Design your own Google map skins easily. Turn ON/OFF roads, places, water area. 
+* Enable marker clusters if you have too many locations. Just activate and the plugin will handle the rest
+* Display polygons on Google map with options to customize
+* Display polylines on Google map with several customizable options
+* Modify existing polygons/polylines by making locations draggable 
+* Define KML Layers on Google Maps
+* Apply 45 Imagery view on Google Maps
+* Fusion Table Layers 
+* Download [WP Google Map Pro Edition](http://codecanyon.net/item/advanced-google-maps/5211638)
 
-Multi Language Supported
-
-Widget Enabled
-
-Multiple Maps on Pages/Posts/Sidebars
-
-Map Type Supported
-
-Markers Customization
-
-Polygon Supported
-
-Draggable Markers
-
-KML Layers
-
-45 Imagery
-
-Fusion Table Layers
-
-Traffic Layers
-
-Weather Layers
-
-Bicycling Layers
-
-Panoramio Layers
-
-Unlimited Locations
-
-Infowindows Customization
-
-Shortcodes Supported
-
-Cross Browsers Compatible
-
-API Version 3 Based
-
-Check <a href="http://codecanyon.net/item/wp-google-map-pro/5211638" target="_blank">Pro Version Here with DEMO Video</a>
-
-Check  <a href="http://www.flippercode.com/wp-google-map-pro-examples" target="_blank">12 Interactive Examples </a> Here.
-
+= DEMO =
+* [Styled Google Map Skins](http://www.flippercode.com/styled-google-map-skin)
+* [Google Map Street View](http://www.flippercode.com/google-map-street-view-using-wordpress-plugin)
+* [Google Map Weather Layer](http://www.flippercode.com/google-map-weather-layer-using-wordpress-plugin)
+* [Google Map Traffic Layer](http://www.flippercode.com/google-map-traffic-layer-using-wordpress-plugin)
+* [Google Map Bicycling Layer](http://www.flippercode.com/google-map-bicycling%20-layer-using-wordpress-plugin)
+* [Google Map Panoramic Layer](http://www.flippercode.com/google-map-panoramic-layer-using-wordpress-plugin)
+* [Google Map Overlays using WordPress Plugin](http://www.flippercode.com/google-map-overlays-using-wordpress-plugin)
+* [Google Map Satellite with Overlays](http://www.flippercode.com/google-map-satellite-with-overlays-using-wordpress-plugin)
+* [Google Map 45 degree Imagery](http://www.flippercode.com/google-map-45-degree-imagery-using-wordpress-plugin)
+* [Turn Off Scrolling Wheel on Google Map](http://www.flippercode.com/turn-off-scrolling-wheel-on-google-map-using-wordpress-plugin)
+* [Enable Visual Refresh on Google Map using WordPress Plugin](http://www.flippercode.com/enable-visual-refresh-on-google-map-using-wordpress-plugin)
+* [Google Map Marker Cluster](http://www.flippercode.com/google-map-marker-cluster-using-wordpress-plugin)
+* [Google Map KML Layers using WordPress Plugin](http://www.flippercode.com/implement-kml-layers-on-google-map-using-wordpress-plugin)
+* [Display Polylines on Google Map](http://www.flippercode.com/display-polylines-on-google-map-using-wordpress-plugin)
+* [Display Route Direction on Google Map](http://www.flippercode.com/display-route-direction-on-google-map-using-wordpress-plugin)
 
 
 Importance
@@ -91,9 +96,15 @@ This section describes how to install the plugin and get it working.
 == Upgrade Notice ==
 
 == Screenshots ==
-1. Admin Settings
-2. How to add new location, info box message and custom marker for the location.
-3. How to add single/multiple maps on a pages/posts.
+1. An easy interface to add Locations. You can add unlimited locations.
+2. Take control on Google Map Default options with just on click.
+3. Easy to define General Settings of Google Maps
+4. Easy interface to modify info windows.
+5. Display all your locations in Core wordpress format. Easy to manage locations just like you do for posts/pages.
+6. Display all your maps in Core wordpress format. Easy to manage maps just like you do for posts/pages.
+7. Disable Scrolling Wheel, Enable Visual Refresh Property and many more...
+8. Enable Streetview and it's Settings.
+9  Define your dimensations for weathers layers.
 
 == Changelog ==
 Version 1.2.0
