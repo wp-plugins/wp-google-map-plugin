@@ -77,9 +77,8 @@ google map and display multiple markers on that seamlessly.
 
 Usage:
 
-It's easy! Once activated, A locations section created automatically and you can add any number of locations.
+It's easy! Just instll this and see WP Google Map Plugin navigation at left side menus.
 
-Use [map_locations] shortcode to put map on posts/pages.
 
 Notes:
 
