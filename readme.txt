@@ -1,6 +1,6 @@
 === Plugin Name ===
 
-Contributors:      Flipper Code
+Contributors:      flippercode
 Plugin Name:       WP Google Map Plugin
 Tags:              google map, gmap, google map markers, google map locations, map by address 
 Author URI:        http://profiles.wordpress.org/flippercode/
