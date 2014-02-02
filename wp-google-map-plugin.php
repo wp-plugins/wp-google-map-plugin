@@ -755,7 +755,6 @@ function wpgmp_load_actions()
 wpgmp_google_map_load();
 wpgmp_info_bubble_script();
 wpgmp_scripts_method();
-add_action('save_post', 'wpgmp_mashup_save_post');
 add_action('media_upload_ell_insert_gmap_tab', 'wpgmp_google_map_media_upload_tab');
 add_filter('media_upload_tabs', 'wpgmp_google_map_tabs_filter');
 add_action('admin_menu', 'wpgmp_google_map_page');
