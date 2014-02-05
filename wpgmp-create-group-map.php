@@ -55,7 +55,7 @@ if( !empty($success) )
 ?>
 <div class="map_table">
 <fieldset>
-    <legend><?php _e('General Setting', 'wpgmp_google_map')?></legend>
+    <legend><?php _e('General Settings', 'wpgmp_google_map')?></legend>
     <label for="title"><?php _e('Group Title', 'wpgmp_google_map')?>&nbsp;<span style="color:#F00;">*</span></label>
 	<input type="text" name="group_map_title" value="<?php echo $_POST["group_map_title"]; ?>" class="create_map" />
 	<p class="description"><?php _e('Enter here the group title.', 'wpgmp_google_map')?></p>

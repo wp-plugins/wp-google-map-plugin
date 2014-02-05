@@ -38,33 +38,13 @@ function wpgmp_add_locations()
 		{
 			global $wpdb,$post;
 	
-			if( !empty($_POST['googlemap_address']) )
-			{				
-	
-			$address = $_POST['googlemap_address'];
-	
-			$prepAddr = str_replace(' ','+',$address);
-	
-			$geocode=wp_remote_get('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
-	
-			$output= json_decode($geocode['body']);
-	
-			$lat = $output->results[0]->geometry->location->lat;
-	
-			$long = $output->results[0]->geometry->location->lng; 
-	
-			}
-	
-			else
-	
-			{
+			
 	
 			$lat = $_POST['googlemap_latitude'];
 	
 			$long = $_POST['googlemap_longitude'];	
 	
-			}
-	
+		
 		$location_record = $wpdb->get_row($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."map_locations WHERE location_address = %s",$_POST['googlemap_address']));
 	
 		
@@ -146,46 +126,19 @@ if( !empty($success) )
 	<div id="map" style="width: 700px; height: 300px;margin: 0.6em; margin-left:230px;"></div>   
 	
     <br /><br />
-    <label for="title"><?php _e('Info Window Title #1', 'wpgmp_google_map')?></label>
+    <label for="title"><?php _e('Infowindow Title', 'wpgmp_google_map')?></label>
     
-    <input type="text" name="infowindow_message[googlemap_infowindow_title_one]" style="width:350px;" value="<?php echo $_POST['googlemap_title']; ?>" />
+    <input type="text" name="infowindow_message[googlemap_infowindow_title_one]" style="width:350px;" value="<?php echo $_POST['infowindow_message[googlemap_infowindow_title_one]']; ?>" />
     
-    <p class="description"><?php _e('Insert here the infoWindow title.', 'wpgmp_google_map')?></p>
-    <label for="title"><?php _e('Info Window Message #1', 'wpgmp_google_map')?></label>
-    <textarea rows="3" cols="70" name="infowindow_message[googlemap_infowindow_message_one]" id="googlemap_infomessage" size="45" /><?php echo $_POST['googlemap_infomessage']; ?></textarea>
-    <p class="description"><?php _e('Insert here the infoWindow message.', 'wpgmp_google_map')?></p>
-    <label for="title"><?php _e('Info Window Title #2', 'wpgmp_google_map')?></label>
-    <input type="text" name="infowindow_message[googlemap_infowindow_title_two]" style="width:350px;" value="<?php echo $_POST['googlemap_title']; ?>" />
+    <p class="description"><?php _e('Insert here the infowindow title.', 'wpgmp_google_map')?></p>
+    <label for="title"><?php _e('Infowindow Message', 'wpgmp_google_map')?></label>
+    <textarea rows="3" cols="70" name="infowindow_message[googlemap_infowindow_message_one]" id="googlemap_infomessage" size="45" /><?php echo $_POST['infowindow_message[googlemap_infowindow_message_one]']; ?></textarea>
+    <p class="description"><?php _e('Insert here the infowindow message.', 'wpgmp_google_map')?></p>
     
-    <p class="description"><?php _e('Insert here the infoWindow title.', 'wpgmp_google_map')?></p>
-    <label for="title"><?php _e('Info Window Message #2', 'wpgmp_google_map')?></label>
-    <textarea rows="3" cols="70" name="infowindow_message[googlemap_infowindow_message_two]" id="googlemap_infomessage" size="45" /><?php echo $_POST['googlemap_infomessage']; ?></textarea>
-    <p class="description"><?php _e('Insert here the infoWindow message.', 'wpgmp_google_map')?></p>
-    <label for="title"><?php _e('Info Window Title #3', 'wpgmp_google_map')?></label>
-    <input type="text" name="infowindow_message[googlemap_infowindow_title_three]" style="width:350px;" value="<?php echo $_POST['googlemap_title']; ?>" />
     
-    <p class="description"><?php _e('Insert here the infoWindow title.', 'wpgmp_google_map')?></p>
-    <label for="title"><?php _e('Info Window Message #3', 'wpgmp_google_map')?></label>
-    <textarea rows="3" cols="70" name="infowindow_message[googlemap_infowindow_message_three]" id="googlemap_infomessage" size="45" /><?php echo $_POST['googlemap_infomessage']; ?></textarea>
-    <p class="description"><?php _e('Insert here the infoWindow message.', 'wpgmp_google_map')?></p>
-    <label for="title"><?php _e('Info Window Title #4', 'wpgmp_google_map')?></label>
-    <input type="text" name="infowindow_message[googlemap_infowindow_title_four]" style="width:350px;" value="<?php echo $_POST['googlemap_title']; ?>" />
-    
-    <p class="description"><?php _e('Insert here the infoWindow title.', 'wpgmp_google_map')?></p>
-    <label for="title"><?php _e('Info Window Message #4', 'wpgmp_google_map')?></label>
-    <textarea rows="3" cols="70" name="infowindow_message[googlemap_infowindow_message_four]" id="googlemap_infomessage" size="45" /><?php echo $_POST['googlemap_infomessage']; ?></textarea>
-    <p class="description"><?php _e('Insert here the infoWindow message.', 'wpgmp_google_map')?></p>
-    <label for="title"><?php _e('Info Window Title #5', 'wpgmp_google_map')?></label>
-    <input type="text" name="infowindow_message[googlemap_infowindow_title_five]" style="width:350px;" value="<?php echo $_POST['googlemap_title']; ?>" />
-    
-    <p class="description"><?php _e('Insert here the infoWindow title.', 'wpgmp_google_map')?></p>
-		
-    <label for="title"><?php _e('Info Window Message #5', 'wpgmp_google_map')?></label>
-    <textarea rows="3" cols="70" name="infowindow_message[googlemap_infowindow_message_five]" id="googlemap_infomessage" size="45" /><?php echo $_POST['googlemap_infomessage']; ?></textarea>
-    <p class="description"><?php _e('Insert here the infoWindow message.', 'wpgmp_google_map')?></p>
-    <label for="title"><?php _e('Is Draggale', 'wpgmp_google_map')?></label>
+    <label for="title"><?php _e('Is Draggable', 'wpgmp_google_map')?></label>
     <input type="checkbox" name="googlemap_draggable" value="true"<?php checked($_POST['googlemap_draggable'],'true') ?>/>
-    <p class="description"><?php _e('Marker Draggabble.', 'wpgmp_google_map')?></p>
+    <p class="description"><?php _e('Marker Draggable.', 'wpgmp_google_map')?></p>
             
     <label for="title"><?php _e('Choose Marker Image', 'wpgmp_google_map')?></label>
            
@@ -226,7 +179,7 @@ if( !empty($success) )
     
     ?>	
     
-    <?php _e('NO GROUP MAPS FOUND.', 'wpgmp_google_map')?><a href="<?php echo admin_url('admin.php?page=wpgmp_google_wpgmp_create_group_map') ?>"><?php _e('CLICK HERE', 'wpgmp_google_map')?></a><?php _e('TO ADD GROUP MAPS', 'wpgmp_google_map')?> 
+    <?php _e('No marker groups found.', 'wpgmp_google_map')?> <a href="<?php echo admin_url('admin.php?page=wpgmp_google_wpgmp_create_group_map') ?>"><?php _e('Click Here ', 'wpgmp_google_map')?></a><?php _e('to add a new marker group.', 'wpgmp_google_map')?> 
     
     <?php
     
@@ -236,7 +189,7 @@ if( !empty($success) )
     
     </div>
     
-    <p class="description"><?php _e('Please Select one or multiple group.', 'wpgmp_google_map')?></p>
+    <p class="description"><?php _e('Please Select one or multiple groups.', 'wpgmp_google_map')?></p>
     <p class="submit">
     <input type="submit" name="googlemap_location" id="submit" class="button button-primary" value="<?php _e('Save Locations', 'wpgmp_google_map')?>" style="margin-left:230px;" />
     </p>

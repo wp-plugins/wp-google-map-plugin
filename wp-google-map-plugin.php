@@ -3,7 +3,7 @@
 Plugin Name: WP Google Map Plugin
 Description: A complete Google Map Solution for Basic to Advance Google Map.
 Author: flippercode
-Version: 2.0.1
+Version: 2.0.2
 Author URI: http://www.flippercode.com
 */
 
@@ -164,16 +164,16 @@ function wpgmp_google_map_page() {
 	
 	add_submenu_page(
         "wpgmp_google_map_pro",
-        __("Manage Marker Group", "wpgmp_google_map"),
-        __("Manage Marker Group", "wpgmp_google_map"),
+        __("Manage Marker Groups", "wpgmp_google_map"),
+        __("Manage Marker Groups", "wpgmp_google_map"),
         wpgmp_plugin_permissions,
         "wpgmp_google_wpgmp_manage_group_map",
         "wpgmp_manage_group_map"
     );
 	add_submenu_page(
         "wpgmp_google_map_pro",
-        __("Setting", "wpgmp_google_map"),
-        __("Setting", "wpgmp_google_map"),
+        __("Settings", "wpgmp_google_map"),
+        __("Settings", "wpgmp_google_map"),
         wpgmp_plugin_permissions,
         "wpgmp_google_settings",
         "wpgmp_settings"
@@ -550,7 +550,7 @@ function wpgmp_settings(){
  <option value="zh-CN"<?php selected(get_option('wpgmp_language'),'zh-CN') ?>><?php _e( 'CHINESE (SIMPLIFIED)', 'wpgmp_google_map' ) ?></option>
  <option value="zh-TW"<?php selected(get_option('wpgmp_language'),'zh-TW') ?>><?php _e( 'CHINESE (TRADITIONAL)', 'wpgmp_google_map' ) ?></option>
  </select>
-<p class="description"><?php _e( 'Default is english.', 'wpgmp_google_map' ) ?></p>
+<p class="description"><?php _e( 'Default is English.', 'wpgmp_google_map' ) ?></p>
 </td>
 </tr>
 </tbody>
@@ -755,6 +755,7 @@ function wpgmp_load_actions()
 wpgmp_google_map_load();
 wpgmp_info_bubble_script();
 wpgmp_scripts_method();
+//add_action('save_post', 'wpgmp_mashup_save_post');
 add_action('media_upload_ell_insert_gmap_tab', 'wpgmp_google_map_media_upload_tab');
 add_filter('media_upload_tabs', 'wpgmp_google_map_tabs_filter');
 add_action('admin_menu', 'wpgmp_google_map_page');
@@ -809,17 +810,17 @@ function wpgmp_admin_overview()  {
 				<div id="post-body">
 					<div id="dashboard-widgets-main-content">
 						<div class="postbox-container" id="main-container" style="width:75%;">
-							<?php _e('To create your first map. Please go with following steps.', 'wpgmp_google_map') ?>
+							<?php _e('Go through the steps below to create your first map:', 'wpgmp_google_map') ?>
 							<p>
 							
-							<b><?php _e('Step 1', 'wpgmp_google_map') ?></b> - <?php _e('First use our auto suggession enabled location box to add your location', 'wpgmp_google_map') ?><a href="<?php echo admin_url('admin.php?page=wpgmp_add_location') ?>"><?php _e('Here', 'wpgmp_google_map') ?></a>. <?php _e('You may add as many as locations you want to add. All those locations will be available to choose when you will create your map.', 'wpgmp_google_map') ?> </li>
+							<b><?php _e('Step 1', 'wpgmp_google_map') ?></b> - <?php _e('Use our auto suggestion enabled location box to add your location', 'wpgmp_google_map') ?> <a href="<?php echo admin_url('admin.php?page=wpgmp_add_location') ?>"><?php _e('Here', 'wpgmp_google_map') ?></a>. <?php _e('You can add multiple locations. All those locations will be available to choose when you create your map.', 'wpgmp_google_map') ?> </li>
 							
 							</p>
 							<p>
-							<b><?php _e('Step 2', 'wpgmp_google_map') ?></b> - <?php _e('Now', 'wpgmp_google_map') ?> <a href="<?php echo admin_url('admin.php?page=wpgmp_create_map') ?>"><?php _e('Click Here', 'wpgmp_google_map') ?></a> <?php _e('to create your map. You may create as many as maps you want to add. Using shortcode, you can add maps on posts/pages.', 'wpgmp_google_map') ?> </li>
+							<b><?php _e('Step 2', 'wpgmp_google_map') ?></b> - <?php _e('Now', 'wpgmp_google_map') ?> <a href="<?php echo admin_url('admin.php?page=wpgmp_create_map') ?>"><?php _e('Click Here', 'wpgmp_google_map') ?></a> <?php _e(' to create a map. You can create as many maps you want to add. Using shortcode, you can add maps on posts/pages.', 'wpgmp_google_map') ?> </li>
 							</p>
 							<p>
-							<b><?php _e('Step 3', 'wpgmp_google_map') ?></b> - <?php _e('Once you have done administrative tasks, you can display map on posts/pages using', 'wpgmp_google_map') ?> <a href="<?php echo admin_url('admin.php?page=wpgmp_google_wpgmp_manage_map') ?>"><?php _e('Shortcode', 'wpgmp_google_map') ?></a> <?php _e('and in sidebar, using widgets section', 'wpgmp_google_map') ?> .</li>
+							<b><?php _e('Step 3', 'wpgmp_google_map') ?></b> - <?php _e('When done with administrative tasks, you can display map on posts/pages using', 'wpgmp_google_map') ?> <a href="<?php echo admin_url('admin.php?page=wpgmp_google_wpgmp_manage_map') ?>"><?php _e('Shortcode', 'wpgmp_google_map') ?></a> <?php _e(' enable map in the widgets section to display in sidebar. ', 'wpgmp_google_map') ?> .</li>
 							</p>
 						</div>
 			    		<div class="postbox-container" id="side-container" style="width:24%;">
@@ -835,7 +836,7 @@ function wpgmp_admin_overview()  {
 				<div id="post-body">
 					<div id="dashboard-widgets-main-content">
 						<div class="postbox-container" id="main-container" style="width:75%;">
-							<?php _e('You can go with pro version to explore many more features in this most advanced google maps plugin.', 'wpgmp_google_map') ?> <a href="http://codecanyon.net/item/advanced-google-maps/5211638" target="_blank"><?php _e('Pro Version', 'wpgmp_google_map') ?></a> is available on Codecanyon.
+							<?php _e('Explore countless other customizable features in the pro version of this most advanced Google Maps plugin.', 'wpgmp_google_map') ?> <a href="http://codecanyon.net/item/advanced-google-maps/5211638" target="_blank"><?php _e('Pro Version', 'wpgmp_google_map') ?></a> is available on Codecanyon.
 						</div>
 			    		<div class="postbox-container" id="side-container" style="width:24%;">
 						</div>						
@@ -852,7 +853,7 @@ function wpgmp_admin_overview()  {
 				<div id="post-body">
 					<div id="dashboard-widgets-main-content">
 						<div class="postbox-container" id="main-container" style="width:75%;">
-							<?php _e('You can find a documentation with zip package your purchases or visit', 'wpgmp_google_map') ?> <a href="http://www.flippercode.com" target="_blank"><?php _e('Online Documentation', 'wpgmp_google_map') ?></a> on <a href="http://www.flippercode.com" target="_blank"><?php _e('Our Website', 'wpgmp_google_map') ?></a>
+							<?php _e('Documentation is available with the zipped package of the purchased plugin or visit our ', 'wpgmp_google_map') ?> <a href="http://www.flippercode.com" target="_blank"><?php _e('Official Website', 'wpgmp_google_map') ?></a> for <a href="http://www.flippercode.com" target="_blank"><?php _e('online documentation', 'wpgmp_google_map') ?></a>.
 						</div>
 			    		<div class="postbox-container" id="side-container" style="width:24%;">
 						</div>						

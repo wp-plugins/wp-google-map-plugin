@@ -2,7 +2,7 @@
 
 Contributors:      flippercode
 Plugin Name:       WP Google Map Plugin
-Tags:              google map, gmap, google map markers, google map locations, map by address 
+Tags:              google map, gmap, google map markers, google map locations, map by address, google maps,  google maps marker, google maps locations 
 Author URI:        http://profiles.wordpress.org/flippercode/
 Author:            flippercode
 Donate link:       (a link for donating)
@@ -39,6 +39,7 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * Enable visual refresh on any Google Map at a button’s click
 * No need of any Google API key. Based on API Version 3.
 * Fully Responsive. Tested on real devices.
+* You can display map with your own language. Default language is English.
 
 = Pro Edition =
 * Define overlays on Google maps via an easy to use interface
@@ -106,6 +107,17 @@ This section describes how to install the plugin and get it working.
 9  Define your dimensations for weathers layers.
 
 == Changelog ==
+
+Version 2.0.2
+1. Some Typos Solved.
+2. Global Css Issues Solved.
+
+Version 2.0.2
+1. Save posts/pages bugs solved.
+
+Version 2.0.0
+1. Totally Reconstracted with options mentioned in project description.
+
 Version 1.2.0
 1. Zero Configuration Enabled
 2. Managed Navigation

@@ -257,72 +257,25 @@ if( !empty($success) )
     
     <div id="map" style="width: 700px; height: 300px;margin: 0.6em; margin-left:230px;"></div><br /><br />   
     
-    <label for="title"><?php _e('Info Window Title #1', 'wpgmp_google_map')?></label>
+    <label for="title"><?php _e('Infowindow Title', 'wpgmp_google_map')?></label>
     
     <input type="text" name="infowindow_message[googlemap_infowindow_title_one]" style="width:350px;" value="<?php echo stripslashes($unmess['googlemap_infowindow_title_one']); ?>" />
     
-    <p class="description"><?php _e('Insert here the infoWindow title.', 'wpgmp_google_map')?></p>
+    <p class="description"><?php _e('Insert here the Infowindow title.', 'wpgmp_google_map')?></p>
     
-    <label for="title"><?php _e('Info Window Message #1', 'wpgmp_google_map')?></label>
+    <label for="title"><?php _e('Infowindow Message', 'wpgmp_google_map')?></label>
     
     <textarea rows="3" cols="70" name="infowindow_message[googlemap_infowindow_message_one]" id="googlemap_infomessage" size="45" /><?php echo stripslashes($unmess['googlemap_infowindow_message_one']); ?></textarea>
     
-    <p class="description"><?php _e('Insert here the infoWindow message.', 'wpgmp_google_map')?></p>
+    <p class="description"><?php _e('Insert here the Infowindow message.', 'wpgmp_google_map')?></p>
     
-    <label for="title"><?php _e('Info Window Title #2', 'wpgmp_google_map')?></label>
+
     
-    
-    <input type="text" name="infowindow_message[googlemap_infowindow_title_two]" style="width:350px;" value="<?php echo stripslashes($unmess['googlemap_infowindow_title_two']); ?>" />
-    
-    <p class="description"><?php _e('Insert here the infoWindow title.', 'wpgmp_google_map')?></p>
-    
-    <label for="title"><?php _e('Info Window Message #2', 'wpgmp_google_map')?></label>
-    
-    <textarea rows="3" cols="70" name="infowindow_message[googlemap_infowindow_message_two]" id="googlemap_infomessage" size="45" /><?php echo stripslashes($unmess['googlemap_infowindow_message_two']); ?></textarea>
-    
-    <p class="description"><?php _e('Insert here the infoWindow message.', 'wpgmp_google_map')?></p>
-    
-    <label for="title"><?php _e('Info Window Title #3', 'wpgmp_google_map')?></label>
-    
-    <input type="text" name="infowindow_message[googlemap_infowindow_title_three]" style="width:350px;" value="<?php echo stripslashes($unmess['googlemap_infowindow_title_three']); ?>" />
-    
-    <p class="description"><?php _e('Insert here the infoWindow title.', 'wpgmp_google_map')?></p>
-    
-    <label for="title"><?php _e('Info Window Message #3', 'wpgmp_google_map')?></label>
-    
-    <textarea rows="3" cols="70" name="infowindow_message[googlemap_infowindow_message_three]" id="googlemap_infomessage" size="45" /><?php echo stripslashes($unmess['googlemap_infowindow_message_three']); ?></textarea>
-    
-    <p class="description"><?php _e('Insert here the infoWindow message.', 'wpgmp_google_map')?></p>
-    
-    <label for="title"><?php _e('Info Window Title #4', 'wpgmp_google_map')?></label>
-    
-    <input type="text" name="infowindow_message[googlemap_infowindow_title_four]" style="width:350px;" value="<?php echo stripslashes($unmess['googlemap_infowindow_title_four']); ?>" />
-    
-    <p class="description"><?php _e('Insert here the infoWindow title.', 'wpgmp_google_map')?></p>
-    
-    <label for="title"><?php _e('Info Window Message #4', 'wpgmp_google_map')?></label>
-    
-    <textarea rows="3" cols="70" name="infowindow_message[googlemap_infowindow_message_four]" id="googlemap_infomessage" size="45" /><?php echo stripslashes($unmess['googlemap_infowindow_message_four']); ?></textarea>
-    
-    <p class="description"><?php _e('Insert here the infoWindow message.', 'wpgmp_google_map')?></p>
-    
-    <label for="title"><?php _e('Info Window Title #5', 'wpgmp_google_map')?></label>
-    
-    <input type="text" name="infowindow_message[googlemap_infowindow_title_five]" style="width:350px;" value="<?php echo stripslashes($unmess['googlemap_infowindow_title_five']); ?>" />
-    
-    <p class="description"><?php _e('Insert here the infoWindow title.', 'wpgmp_google_map')?></p>
-    
-    <label for="title"><?php _e('Info Window Message #5', 'wpgmp_google_map')?></label>
-    
-    <textarea rows="3" cols="70" name="infowindow_message[googlemap_infowindow_message_five]" id="googlemap_infomessage" size="45" /><?php echo stripslashes($unmess['googlemap_infowindow_message_five']); ?></textarea>
-    
-    <p class="description"><?php _e('Insert here the infoWindow message.', 'wpgmp_google_map')?></p>
-    
-    <label for="title"><?php _e('Is Draggale', 'wpgmp_google_map')?></label>
+    <label for="title"><?php _e('Is Draggable', 'wpgmp_google_map')?></label>
     
     <input type="checkbox" name="googlemap_draggable" value="true"<?php checked($user_record->location_draggable,'true') ?>/>
     
-    <p class="description"><?php _e('Marker Draggabble.', 'wpgmp_google_map')?></p>
+    <p class="description"><?php _e('Marker Draggable.', 'wpgmp_google_map')?></p>
     
     <label for="Image"><?php _e('Choose Marker Image', 'wpgmp_google_map')?></label>
     
@@ -364,7 +317,7 @@ if( !empty($success) )
     
     ?>	
     
-    <?php _e('NO GROUP MAPS FOUND.', 'wpgmp_google_map')?><a href="<?php echo admin_url('admin.php?page=wpgmp_google_wpgmp_create_group_map') ?>"><?php _e('CLICK HERE', 'wpgmp_google_map')?></a><?php _e('TO ADD GROUP MAPS', 'wpgmp_google_map')?> 
+    <?php _e('No Marker groups found.', 'wpgmp_google_map')?> <a href="<?php echo admin_url('admin.php?page=wpgmp_google_wpgmp_create_group_map') ?>"><?php _e('Click Here', 'wpgmp_google_map')?></a><?php _e(' to add a new marker group.', 'wpgmp_google_map')?> 
     
     <?php
     

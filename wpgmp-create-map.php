@@ -206,7 +206,7 @@ if( !empty($success) )
 ?>
 <div class="map_table">
 <fieldset>
-    <legend><?php _e('General Setting', 'wpgmp_google_map')?></legend>
+    <legend><?php _e('General Settings', 'wpgmp_google_map')?></legend>
     
     <label for="title"><?php _e('Map Title', 'wpgmp_google_map')?>&nbsp;<span style="color:#F00;">*</span></label>
 	<input type="text" name="map_title" value="<?php echo $_POST['map_title']; ?>" class="create_map" />
@@ -366,7 +366,7 @@ if( !empty($success) )
 	?>
 </fieldset>
 <fieldset>
-    <legend><?php _e('Control Setting', 'wpgmp_google_map')?></legend>
+    <legend><?php _e('Control Settings', 'wpgmp_google_map')?></legend>
     
      <label for="title"><?php _e('Turn Off Pan Control', 'wpgmp_google_map')?></label>
 	<input type="checkbox" name="control[pan_control]" value="false"<?php checked($_POST['control']['pan_control'],'false') ?>/>
@@ -395,84 +395,84 @@ if( !empty($success) )
 </fieldset>
 
 <fieldset>
-    <legend><?php _e('Map Style Setting', 'wpgmp_google_map')?></legend>
+    <legend><?php _e('Map Style Settings', 'wpgmp_google_map')?></legend>
 	 	<p class="description"><?php _e('Available in Pro Version. <a target="_blank" href="http://codecanyon.net/item/advanced-google-maps/5211638">Buy Now</a>', 'wpgmp_google_map')?></p>
 
 </fieldset>
 
 
 <fieldset>
-    <legend><?php _e('Info Window Setting', 'wpgmp_google_map')?></legend>
+    <legend><?php _e('Infowindow Settings', 'wpgmp_google_map')?></legend>
     
-     <label for="title"><?php _e('Info Window Setting', 'wpgmp_google_map')?></label>
+     <label for="title"><?php _e('Infowindow Settings', 'wpgmp_google_map')?></label>
 	<input type="checkbox" name="info_window_setting[enable_info_window_setting]" class="info_window_toggle" value="true"<?php checked($_POST['info_window_setting']['enable_info_window_setting'],'true') ?>/>
-	<p class="description"><?php _e('Please check to enable Info window settings.', 'wpgmp_google_map')?></p>
+	<p class="description"><?php _e('Please check to enable infowindow settings.', 'wpgmp_google_map')?></p>
  <div id="disply_info_window" style="display:none;">
    
-    <label for="title"><?php _e('Turn Off Info Window', 'wpgmp_google_map')?></label>
+    <label for="title"><?php _e('Turn Off Infowindow', 'wpgmp_google_map')?></label>
 	<input type="checkbox" name="info_window_setting[info_window]" value="false"<?php checked($_POST['info_window_setting']['info_window'],'false') ?>/>
 	<p class="description"><?php _e('Please check to disable infowindow messages.', 'wpgmp_google_map')?></p>
-    <label><?php _e('Info Window Width:', 'wpgmp_google_map')?></label>
+    <label><?php _e('Infowindow Width:', 'wpgmp_google_map')?></label>
     <input type="text" name="info_window_setting[info_window_width]" value="<?php echo $_POST['info_window_setting']['info_window_width']; ?>" class="create_map"/>&nbsp;px
-    <p class="description"><?php _e('Please insert info window Width.', 'wpgmp_google_map')?></p>
+    <p class="description"><?php _e('Please insert infowindow Width.', 'wpgmp_google_map')?></p>
     
-    <label><?php _e('Info Window Height:', 'wpgmp_google_map')?></label>
+    <label><?php _e('Infowindow Height:', 'wpgmp_google_map')?></label>
     <input type="text" name="info_window_setting[info_window_height]" class="create_map" value="<?php echo $_POST['info_window_setting']['info_window_height']; ?>" />&nbsp;px
-    <p class="description"><?php _e('Please insert info window height.', 'wpgmp_google_map')?></p>
+    <p class="description"><?php _e('Please insert infowindow height.', 'wpgmp_google_map')?></p>
     
-     <label><?php _e('Info Window ShadowStyle:', 'wpgmp_google_map')?></label>
+     <label><?php _e('Infowindow ShadowStyle:', 'wpgmp_google_map')?></label>
         <select name="info_window_setting[info_window_shadow_style]">
-          <option value=""><?php _e('Select Shawdow Style', 'wpgmp_google_map')?></option>
+          <option value=""><?php _e('Select shadow style', 'wpgmp_google_map')?></option>
           <option value="0"<?php selected($_POST['info_window_setting']['info_window_shadow_style'],0) ?>>0</option>
           <option value="1"<?php selected($_POST['info_window_setting']['info_window_shadow_style'],1) ?>>1</option>
           <option value="2"<?php selected($_POST['info_window_setting']['info_window_shadow_style'],2) ?>>2</option>
         </select>
-     <p class="description"><?php _e('Please select info window shawdow style.', 'wpgmp_google_map')?></p>
+     <p class="description"><?php _e('Please select infowindow shadow style.', 'wpgmp_google_map')?></p>
       
-        <label><?php _e('Info Window Border Radius:', 'wpgmp_google_map')?></label>
+        <label><?php _e('Infowindow Border Radius:', 'wpgmp_google_map')?></label>
         <input type="text" name="info_window_setting[info_window_border_radious]" value="<?php echo $_POST['info_window_setting']['info_window_border_radious']; ?>" class="create_map"/>&nbsp;px
-        <p class="description"><?php _e('Please insert info window border radious.', 'wpgmp_google_map')?></p>
+        <p class="description"><?php _e('Please insert infowindow border radious.', 'wpgmp_google_map')?></p>
       
-        <label><?php _e('Info Window Border Width:', 'wpgmp_google_map')?></label>
+        <label><?php _e('Infowindow Border Width:', 'wpgmp_google_map')?></label>
         <input type="text" name="info_window_setting[info_window_border_width]" value="<?php echo $_POST['info_window_setting']['info_window_border_width']; ?>" class="create_map"/>&nbsp;px
-        <p class="description"><?php _e('Please insert info window border width.', 'wpgmp_google_map')?></p>
+        <p class="description"><?php _e('Please insert infowindow border width.', 'wpgmp_google_map')?></p>
       
-        <label><?php _e('Info Window Border Color:', 'wpgmp_google_map')?></label>
+        <label><?php _e('Infowindow Border Color:', 'wpgmp_google_map')?></label>
         <?php if($_POST['info_window_setting']['info_window_border_color']!=''){ ?>
         <input type="text" value="<?php echo $_POST['info_window_setting']['info_window_border_color']; ?>" name="info_window_setting[info_window_border_color]" class="color {pickerClosable:true}" />
        <?php }else{ ?>
          <input type="text" value="CCCCCC" name="info_window_setting[info_window_border_color]" class="color {pickerClosable:true}" />
        <?php } ?>
-        <p class="description"><?php _e('Please insert info window border color.', 'wpgmp_google_map')?></p>
+        <p class="description"><?php _e('Please insert infowindow border color.', 'wpgmp_google_map')?></p>
      
-        <label><?php _e('Info Window Background Color:', 'wpgmp_google_map')?></label>
+        <label><?php _e('Infowindow Background Color:', 'wpgmp_google_map')?></label>
         <?php if($_POST['info_window_setting']['info_window_background_color']!=''){ ?>
         <input type="text" value="<?php echo $_POST['info_window_setting']['info_window_background_color']; ?>" name="info_window_setting[info_window_background_color]" class="color {pickerClosable:true}" />
         <?php }else{ ?>
         <input type="text" value="FFFFFF" name="info_window_setting[info_window_background_color]" class="color {pickerClosable:true}" />
         <?php } ?>
-        <p class="description"><?php _e('Please insert info window background color.', 'wpgmp_google_map')?></p>
+        <p class="description"><?php _e('Please insert infowindow background color.', 'wpgmp_google_map')?></p>
      
-        <label><?php _e('Info Window Arrow Size:', 'wpgmp_google_map')?></label>
+        <label><?php _e('Infowindow Arrow Size:', 'wpgmp_google_map')?></label>
         <input type="text" name="info_window_setting[info_window_arrow_size]" value="<?php echo $_POST['info_window_setting']['info_window_arrow_size']; ?>" class="create_map"/>&nbsp;px
-        <p class="description"><?php _e('Please insert info window arrow size.', 'wpgmp_google_map')?></p>
+        <p class="description"><?php _e('Please insert infowindow arrow size.', 'wpgmp_google_map')?></p>
      
-        <label><?php _e('Info Window Arrow Position:', 'wpgmp_google_map')?></label>
+        <label><?php _e('Infowindow Arrow Position:', 'wpgmp_google_map')?></label>
         <input type="text" name="info_window_setting[info_window_arrow_position]" value="<?php echo $_POST['info_window_setting']['info_window_arrow_position']; ?>" class="create_map"/>&nbsp;%
-        <p class="description"><?php _e('Please insert info window arrow position.', 'wpgmp_google_map')?></p>
+        <p class="description"><?php _e('Please insert infowindow arrow position.', 'wpgmp_google_map')?></p>
      
-        <label><?php _e('Info Window Arrow Style:', 'wpgmp_google_map')?></label>
+        <label><?php _e('Infowindow Arrow Style:', 'wpgmp_google_map')?></label>
         <select name="info_window_setting[info_window_arrow_style]">
           <option value=""><?php _e('Select Arrow Style', 'wpgmp_google_map')?></option>
           <option value="0"<?php selected($_POST['info_window_setting']['info_window_arrow_style'],0) ?>>0</option>
           <option value="1"<?php selected($_POST['info_window_setting']['info_window_arrow_style'],1) ?>>1</option>
           <option value="2"<?php selected($_POST['info_window_setting']['info_window_arrow_style'],2) ?>>2</option>
         </select>
-        <p class="description"><?php _e('Please select info window arrow style.', 'wpgmp_google_map')?></p>
+        <p class="description"><?php _e('Please select infowindow arrow style.', 'wpgmp_google_map')?></p>
 </div>    
 </fieldset>
 <fieldset>
-    <legend><?php _e('Street View Setting', 'wpgmp_google_map')?></legend>
+    <legend><?php _e('Street View Settings', 'wpgmp_google_map')?></legend>
     
      <label for="title"><?php _e('Turn On Street View', 'wpgmp_google_map')?></label>
 	<input type="checkbox" name="street_view_control[street_control]" class="street_view_toggle" value="true"<?php checked($_POST['street_view_control']['street_control'],'true') ?>/>
@@ -496,21 +496,21 @@ if( !empty($success) )
 </fieldset>
     
 <fieldset>
-    <legend><?php _e('Polygon Setting', 'wpgmp_google_map')?></legend>  
+    <legend><?php _e('Polygon Settings', 'wpgmp_google_map')?></legend>  
  	<p class="description"><?php _e('Available in Pro Version. <a target="_blank" href="http://codecanyon.net/item/advanced-google-maps/5211638">Buy Now</a>', 'wpgmp_google_map')?></p>
 </fieldset>
 <fieldset>
-    <legend><?php _e('Polyline Setting', 'wpgmp_google_map')?></legend>  
+    <legend><?php _e('Polyline Settings', 'wpgmp_google_map')?></legend>  
  	<p class="description"><?php _e('Available in Pro Version. <a target="_blank" href="http://codecanyon.net/item/advanced-google-maps/5211638">Buy Now</a>', 'wpgmp_google_map')?></p>
 
 </fieldset>
 <fieldset>
-    <legend><?php _e('Marker Cluster Setting', 'wpgmp_google_map')?></legend>
+    <legend><?php _e('Marker Cluster Settings', 'wpgmp_google_map')?></legend>
 	 	<p class="description"><?php _e('Available in Pro Version. <a target="_blank" href="http://codecanyon.net/item/advanced-google-maps/5211638">Buy Now</a>', 'wpgmp_google_map')?></p>
 
 </fieldset>
 <fieldset>
-    <legend><?php _e('Overlay Setting', 'wpgmp_google_map')?></legend>
+    <legend><?php _e('Overlay Settings', 'wpgmp_google_map')?></legend>
 	 <p class="description"><?php _e('Available in Pro Version. <a target="_blank" href="http://codecanyon.net/item/advanced-google-maps/5211638">Buy Now</a>', 'wpgmp_google_map')?></p>
 
 </fieldset>

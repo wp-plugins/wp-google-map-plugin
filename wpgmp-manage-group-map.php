@@ -242,7 +242,7 @@ else
 {
 ?>
 <div class="wrap"> 
-<div id="icon-options-general" class="icon32"><br></div><h2><?php _e('Manage Marker Group', 'wpgmp_google_map')?></h2><br />
+<div id="icon-options-general" class="icon32"><br></div><h2><?php _e('Manage Marker Groups', 'wpgmp_google_map')?></h2><br />
 <?php
 $group_list_table = new Wpgmp_Manage_Group_Table();
 $group_list_table->prepare_items();
