@@ -245,8 +245,12 @@ if( $this->enable_group_map=='true' )
 
 $this->code.='
 
-<script type="text/javascript">';
-	
+<script type="text/javascript">
+
+var infoWindows = [];
+
+';
+
 $this->code.='google.load("maps", "3.7", {"other_params" : "sensor=false&libraries=places,weather,panoramio&language='.get_option('wpgmp_language').'"});
 
 google.setOnLoadCallback(initialize);';	
@@ -257,9 +261,7 @@ if( $this->enable_group_map == 'true' )
 }
 
 
-$this->code.='
-
-function initialize() {';
+$this->code.='function initialize() {';
 	
 if( $this->route_direction == 'true' )
 {
@@ -514,10 +516,13 @@ if( $this->displaymarker!='' ) {
 	'.$this->infowindow.' =  new google.maps.InfoWindow({
 												content: "'.$infos.'"
 												});	';
-												
-	$this->code.="google.maps.event.addListener(marker, 'click', function() { ";											
 	
+	$this->code.=" infoWindows.push(".$this->infowindow.");"; 											
+	$this->code.="google.maps.event.addListener(marker, 'click', function() { ";											
+	$this->code.="wgmp_closeAllInfoWindows();";
 	$this->code.="".$this->infowindow.".open(".$this->divID.",marker);
+	
+	
 	
 	});";
 }
@@ -562,139 +567,11 @@ if( $this->marker[$i]['info']!='' )
 	
 	if( is_array($infos) )
 	{
-		
-		$this->code.='
-			var infoBubble;
-			infoBubble'.$i.'= new InfoBubble({padding:20});';
-			if( $this->map_enable_info_window_setting=='true' )
-			{
-				if( !empty($this->map_info_window_width) )
-				{
-					$this->code.='infoBubble'.$i.'.setMaxWidth('.$this->map_info_window_width.');';
-				}
-				
-				if( !empty($this->map_info_window_height) )
-				{
-					$this->code.='infoBubble'.$i.'.setMaxHeight('.$this->map_info_window_height.');';
-				}
-				
-				if( !empty($this->map_info_window_shadow_style) )
-				{
-					$this->code.='infoBubble'.$i.'.setShadowStyle('.$this->map_info_window_shadow_style.');';
-				}
-				if( !empty($this->map_info_window_border_radius) )
-				{
-					$this->code.='infoBubble'.$i.'.setBorderRadius('.$this->map_info_window_border_radius.');';
-				}
-				if( !empty($this->map_info_window_border_width) )
-				{
-					$this->code.='infoBubble'.$i.'.setBorderWidth('.$this->map_info_window_border_width.');';
-				}
-				if( !empty($this->map_info_window_border_color) )
-				{
-					$this->code.='infoBubble'.$i.'.setBorderColor("#'.$this->map_info_window_border_color.'");';
-				}
-				
-				if( !empty($this->map_info_window_background_color) )
-				{
-					$this->code.='infoBubble'.$i.'.setBackgroundColor("#'.$this->map_info_window_background_color.'");';
-				}
-				if( !empty($this->map_info_window_arrow_size) )
-				{
-					$this->code.='infoBubble'.$i.'.setArrowSize('.$this->map_info_window_arrow_size.');';
-				}
-				if( !empty($this->map_info_window_arrow_position) )
-				{
-					$this->code.='infoBubble'.$i.'.setArrowPosition('.$this->map_info_window_arrow_position.');';
-				}
-				if( !empty($this->map_info_window_arrow_style) )
-				{
-					$this->code.='infoBubble'.$i.'.setArrowStyle('.$this->map_info_window_arrow_style.');';
-				}
-			}
-			else
-			{
-				$this->code.='infoBubble'.$i.'.setMinWidth(300);';
-				$this->code.='infoBubble'.$i.'.setMaxWidth(400);';
-				$this->code.='infoBubble'.$i.'.setMinHeight(200);';
-				$this->code.='infoBubble'.$i.'.setBorderColor("#cccccc");';
-			}
-
-
-			if( !empty($infos['first']['title']) && !empty($infos['first']['message']) )
-			{
-				$infos_title_one = str_replace(array("\r","\n"),'"+"',$infos['first']['title']);
-				$infos_mess_one = str_replace(array("\r","\n"),'"+"',$infos['first']['message']);
-				$this->code.='infoBubble'.$i.'.addTab("'.$infos_title_one.'", "'.$infos_mess_one.'");'."\n";
-			}
-			elseif( empty($infos['first']['title']) && !empty($infos['first']['message']) )
-			{
-				$infos_mess_one = str_replace(array("\r","\n"),'"+"',$infos['first']['message']);
+		$infos_mess_one = str_replace(array("\r","\n"),'"+"',$infos['first']['message']);
 				$this->code.='
 				'.$this->infowindow.''.$i.$this->divID.' =  new google.maps.InfoWindow({
 					content: "'.$infos_mess_one.'"
 				});';
-			}
-			
-			if( !empty($infos['second']['title']) && !empty($infos['second']['message']) )
-			{
-				$infos_title_two = str_replace(array("\r","\n"),'"+"',$infos['second']['title']);
-				$infos_mess_two = str_replace(array("\r","\n"),'"+"',$infos['second']['message']);
-				$this->code.='infoBubble'.$i.'.addTab("'.$infos_title_two.'", "'.$infos_mess_two.'");'."\n";
-			}
-			elseif( empty($infos['second']['title']) && !empty($infos['second']['message']) )
-			{
-				$infos_mess_two = str_replace(array("\r","\n"),'"+"',$infos['second']['message']);
-				$this->code.='
-				'.$this->infowindow.''.$i.$this->divID.' =  new google.maps.InfoWindow({
-					content: "'.$infos_mess_two.'"
-				});';
-			}
-			
-			if( !empty($infos['third']['title']) && !empty($infos['third']['message']) )
-			{
-				$infos_title_three = str_replace(array("\r","\n"),'"+"',$infos['third']['title']);
-				$infos_mess_three = str_replace(array("\r","\n"),'"+"',$infos['third']['message']);
-				$this->code.='infoBubble'.$i.'.addTab("'.$infos_title_three.'", "'.$infos_mess_three.'");'."\n";
-			}
-			elseif( !empty($infos['third']['title']) && !empty($infos['third']['message']) )
-			{
-				$infos_mess_three = str_replace(array("\r","\n"),'"+"',$infos['third']['message']);
-				$this->code.='
-				'.$this->infowindow.''.$i.$this->divID.' =  new google.maps.InfoWindow({
-					content: "'.$infos_title_three.'"
-				});';
-			}
-			
-			if( !empty($infos['fourth']['title']) && !empty($infos['fourth']['message']) )
-			{
-				$infos_title_four = str_replace(array("\r","\n"),'"+"',$infos['fourth']['title']);
-				$infos_mess_four = str_replace(array("\r","\n"),'"+"',$infos['fourth']['message']);
-				$this->code.='infoBubble'.$i.'.addTab("'.$infos_title_four.'", "'.$infos_mess_four.'");'."\n";
-			}
-			elseif( !empty($infos['fourth']['title']) && !empty($infos['fourth']['message']) )
-			{
-				$infos_mess_four = str_replace(array("\r","\n"),'"+"',$infos['fourth']['message']);
-				$this->code.='
-				'.$this->infowindow.''.$i.$this->divID.' =  new google.maps.InfoWindow({
-					content: "'.$infos_mess_four.'"
-				});';
-			}
-			
-			if( !empty($infos['fifth']['title']) && !empty($infos['fifth']['message']) )
-			{
-				$infos_title_five = str_replace(array("\r","\n"),'"+"',$infos['fifth']['title']);
-				$infos_mess_five = str_replace(array("\r","\n"),'"+"',$infos['fifth']['message']);
-				$this->code.='infoBubble'.$i.'.addTab("'.$infos_title_five.'", "'.$infos_mess_five.'");'."\n";
-			}
-			elseif( !empty($infos['fifth']['title']) && !empty($infos['fifth']['message']) )
-			{
-				$infos_mess_five = str_replace(array("\r","\n"),'"+"',$infos['fifth']['message']);
-				$this->code.='
-				'.$this->infowindow.''.$i.$this->divID.' =  new google.maps.InfoWindow({
-					content: "'.$infos_title_five.'"
-				});';
-			}
 
 	}
 	elseif( $infos!='' )
@@ -708,97 +585,45 @@ if( $this->marker[$i]['info']!='' )
 		';
 	}
 	
-	
-	$this->code.="google.maps.event.addListener(marker".$i.$this->divID.", 'click', function() { ";
-			
-	if( is_array($infos) )
-	{
-		if( !empty($infos['first']['title']) && !empty($infos['first']['message']) )
-		{
-			$this->code.="
-					if (!infoBubble".$i.".isOpen()) {
-					infoBubble".$i.".open(".$this->divID.",marker".$i.$this->divID.");
-				}";
-		}
-		elseif( empty($infos['first']['title']) && !empty($infos['first']['message']) )
-		{
-			$this->code.="".$this->infowindow."".$i.$this->divID.".open(".$this->divID.",marker".$i.$this->divID.");";
-		}
-		
-		if( !empty($infos['second']['title']) && !empty($infos['second']['message']) )
-		{
-			$this->code.="
-					if (!infoBubble".$i.".isOpen()) {
-					infoBubble".$i.".open(".$this->divID.",marker".$i.$this->divID.");
-				}";
-		}
-		elseif( empty($infos['second']['title']) && !empty($infos['second']['message']) )
-		{
-			$this->code.="".$this->infowindow."".$i.$this->divID.".open(".$this->divID.",marker".$i.$this->divID.");";
-		}
-		
-		if( !empty($infos['third']['title']) && !empty($infos['third']['message']) )
-		{
-			$this->code.="
-					if (!infoBubble".$i.".isOpen()) {
-					infoBubble".$i.".open(".$this->divID.",marker".$i.$this->divID.");
-				}";
-		}
-		elseif( empty($infos['third']['title']) && !empty($infos['third']['message']) )
-		{
-			$this->code.="".$this->infowindow."".$i.$this->divID.".open(".$this->divID.",marker".$i.$this->divID.");";
-		}
-		
-		if( !empty($infos['fourth']['title']) && !empty($infos['fourth']['message']) )
-		{
-			$this->code.="
-					if (!infoBubble".$i.".isOpen()) {
-					infoBubble".$i.".open(".$this->divID.",marker".$i.$this->divID.");
-				}";
-		}
-		elseif( empty($infos['fourth']['title']) && !empty($infos['fourth']['message']) )
-		{
-			$this->code.="".$this->infowindow."".$i.$this->divID.".open(".$this->divID.",marker".$i.$this->divID.");";
-		}
-		
-		if( !empty($infos['fifth']['title']) && !empty($infos['fifth']['message']) )
-		{
-			$this->code.="
-					if (!infoBubble".$i.".isOpen()) {
-					infoBubble".$i.".open(".$this->divID.",marker".$i.$this->divID.");
-				}";
-		}
-		elseif( empty($infos['fifth']['title']) && !empty($infos['fifth']['message']) )
-		{
-			$this->code.="".$this->infowindow."".$i.$this->divID.".open(".$this->divID.",marker".$i.$this->divID.");";
-		}
 
-		$this->code.="
-			google.maps.event.addListener(".$this->divID.", 'click', function() {
-			infoBubble".$i.".close();
-		});";
-	}
-	elseif( $infos!='' )
-	{
-		$this->code.="
+
+	$this->code.="google.maps.event.addListener(marker".$i.$this->divID.", 'click', function() { ";
+	
+	$this->code.="wgmp_closeAllInfoWindows();";
+
+	$this->code.=" infoWindows.push(".$this->infowindow.''.$i.$this->divID.");"; 											
+
+	$this->code.="
 				".$this->infowindow."".$i.$this->divID.".open(".$this->divID.",marker".$i.$this->divID.");
 			google.maps.event.addListener(".$this->divID.", 'click', function() {
 			".$this->infowindow."".$i.$this->divID.".close();
 		});";
-	}
+		
+
 	$this->code.="});"; 
 }
 
 }
 
 	
-$this->code.='}';
+$this->code.='}
+
+
+function wgmp_closeAllInfoWindows() {
+  for (var i=0;i<infoWindows.length;i++) {
+     infoWindows[i].close();
+  }
+  infoWindows = [];
+}
+
+';
 
 
 if( $this->enable_group_map == 'true' )
 {	
 
 $this->code.='
+
 function maps_group_id(group_id)
 {
 	

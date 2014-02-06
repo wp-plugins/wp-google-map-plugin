@@ -302,7 +302,7 @@ if( !empty($success) )
 		 else
 		 {
         ?>
-        <?php _e('NO LOCATIONS FOUND.', 'wpgmp_google_map')?> <a href="<?php echo admin_url('admin.php?page=wpgmp_add_location') ?>"><?php _e('CLICK HERE', 'wpgmp_google_map')?></a><?php _e('TO ADD A LOCATION', 'wpgmp_google_map')?> 
+        <?php _e('No Locations found. ', 'wpgmp_google_map')?> <a href="<?php echo admin_url('admin.php?page=wpgmp_add_location') ?>"><?php _e('Click Here ', 'wpgmp_google_map')?></a><?php _e(' to add a new location.', 'wpgmp_google_map')?> 
         <?php
 		 }
 		 ?>

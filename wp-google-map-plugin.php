@@ -3,7 +3,7 @@
 Plugin Name: WP Google Map Plugin
 Description: A complete Google Map Solution for Basic to Advance Google Map.
 Author: flippercode
-Version: 2.0.2
+Version: 2.1.0
 Author URI: http://www.flippercode.com
 */
 
@@ -88,6 +88,8 @@ if( ! class_exists( 'WP_List_Table' ) ) {
 function wpgmp_admin_scripts() {
 	wp_enqueue_script('media-upload');
 	wp_enqueue_script('thickbox');
+	 wpgmp_google_map_load();
+
 }
 
 /**
@@ -189,8 +191,10 @@ function wpgmp_google_map_page() {
  
 function wpgmp_show_location_in_map($atts, $content=null){
  ob_start();
+
+wpgmp_google_map_load();	
+
  global $wpdb;
- 	
  extract( shortcode_atts( array(
 		'zoom' => get_option('wpgmp_zoomlevel'),
 		'width' => get_option('wpgmp_mapwidth'),
@@ -212,15 +216,9 @@ function wpgmp_show_location_in_map($atts, $content=null){
   
  $unserialize_group_map_setting = unserialize($map_data[0]->group_map_setting);
  $unserialize_map_street_view_setting = unserialize($map_data[0]->map_street_view_setting);
- $unserialize_map_route_direction_setting = unserialize($map_data[0]->map_route_direction_setting);
  $unserialize_map_control_setting = unserialize($map_data[0]->map_all_control);
  $unserialize_map_info_window_setting = unserialize($map_data[0]->map_info_window_setting);
  $unserialize_map_layer_setting = unserialize($map_data[0]->map_layer_setting);
- $unserialize_google_map_style = unserialize($map_data[0]->style_google_map);
- $unserialize_map_polygon_setting = unserialize($map_data[0]->map_polygon_setting);
- $unserialize_map_polyline_setting = unserialize($map_data[0]->map_polyline_setting);
- $unserialize_map_cluster_setting = unserialize($map_data[0]->map_cluster_setting);
- $unserialize_map_overlay_setting = unserialize($map_data[0]->map_overlay_setting);
   
  if( !empty($map_data) )
  {
@@ -240,15 +238,6 @@ function wpgmp_show_location_in_map($atts, $content=null){
  }
     $map->map_language=$map_data[0]->map_languages;
   
- if( $unserialize_group_map_setting['enable_group_map']=='true' ) {
-	 
-  	$map->enable_group_map = $unserialize_group_map_setting['enable_group_map'];
-  	$select_group_map = $unserialize_group_map_setting['select_group_map'];
-	foreach($select_group_map as $key => $select_group) {
-			$group_data = $wpdb->get_row($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."group_map where group_map_id=%d",$select_group));
-			$map->group_data[] = $group_data;
-	}
- }
   
  if( !empty($unserialize_map_street_view_setting['street_control']) ) {
 	 
@@ -301,7 +290,8 @@ function wpgmp_show_location_in_map($atts, $content=null){
    $map->heat_map=$unserialize_map_layer_setting['heat_map'];;
   $map->temperature_unit=$unserialize_map_layer_setting['temp'];
   $map->wind_speed_unit=$unserialize_map_layer_setting['wind'];
-	
+  $map->map_layers=$unserialize_map_layer_setting['choose_layer'];
+
   if( empty($map_data[0]->map_zoom_level) ) {
 		$map->zoom = $zoom;
   } else {
@@ -316,43 +306,8 @@ if( !empty($atts['id']) ) {
 $map_locations = $wpdb->get_row($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."create_map where map_id=%d",$atts['id']));
 $un_group_map_setting = unserialize($map_locations->group_map_setting);
 $un_info_window_setting = unserialize($map_locations->map_info_window_setting);
-$un_map_polygon_setting = unserialize($map_locations->map_polygon_setting);
-$un_map_polyline_setting = unserialize($map_locations->map_polyline_setting);
-$un_map_cluster_setting = unserialize($map_locations->map_cluster_setting);
  
-if( $un_group_map_setting['enable_group_map']=='true' ) {
-	
-  foreach($un_group_map_setting['select_group_map'] as $key => $select_group_map) {
-		
-	$all_group_data_markers = $wpdb->get_results($wpdb->prepare("SELECT ml.*,gm.* FROM ".$wpdb->prefix."map_locations as ml INNER JOIN ".$wpdb->prefix."group_map  as gm ON ml.location_group_map=gm.group_map_id where ml.location_group_map=%d",$select_group_map));
 
-	foreach($all_group_data_markers as $key => $group_data_markers) {
-	
-	$map->addmarker($group_data_markers->location_latitude,$group_data_markers->location_longitude,$un_info_window_setting['info_window'],$title,$group_data_markers->location_address,$group_data_markers->group_marker,'',$dragg,$animation,$group_data_markers->group_map_id);
-	
-	}
-  }
-} elseif( get_option('wpgmp_mashup')=='true' ) {
-	
-  $mashup_posts =  new wp_query(array('meta_key' => 'wpgmp_mashup_map_id', 'meta_value' => $atts['id']));
-  if($mashup_posts->have_posts()) {
-	 add_filter( 'excerpt_more', 'wpgmp_excerpt_more' );
-	 while($mashup_posts->have_posts()) : $mashup_posts->the_post();
-	 $mashup_content = get_the_mashup_content();
-	 $mashup_content = str_replace('"',"'",$mashup_content);
-	 $loc_id = get_post_meta(get_the_ID(), 'wpgmp_mashup_location_id', true);
-	 $loc_list = $wpdb->get_row($wpdb->prepare('select location_latitude, location_longitude,location_marker_image from '.$wpdb->prefix.'map_locations where location_id=%d',$loc_id));
-	
-	 if( empty($loc_list->location_marker_image) ) {
-		
-		$loc_mashup_image_src = get_option('wpgmp_default_marker');
-	 } else {
-		$loc_mashup_image_src = $loc_list->location_marker_image;
-	 }		
-		$map->addMarker($loc_list->location_latitude,$loc_list->location_longitude,'true',get_the_title(),$mashup_content,$loc_mashup_image_src,'',$dragg,$animation);
-		endwhile;
-  }
-} else {
 	
    	$map_address = unserialize($map_locations->map_locations);
 	
@@ -413,20 +368,19 @@ if( $un_group_map_setting['enable_group_map']=='true' ) {
 			
 			$address_coordinates = wpgmp_get_address_coordinates( $new_loc_adds );
 			
-			$map->addMarker($address_coordinates['lat'],$address_coordinates['lng'],$un_info_window_setting['info_window'],$title,$address_coordinates['address'],$loc_image_src,'',$dragg,$animation);
+			$map->addMarker($latitude,$longitude,$un_info_window_setting['info_window'],$title,$new_loc_adds,$loc_image_src,'',$dragg,$animation);
 				
 	    }
 	}
    }
   }
- }
 } elseif( $content ) {
 	wp_print_scripts( 'wpgmp_map' );
 	if( empty($zoom) || empty($width) || empty($height) || empty($title) ) {
 		$map->zoom = 14;
 		$map->width = '600';
 		$map->height = '400';
-		$map->title = 'WP Google Map Pro';
+		$map->title = 'WP Google Map Plugin';
 	} else {
 		$map->zoom = $zoom;
 		$map->width = $width;
@@ -588,7 +542,7 @@ class wpgmp_google_map_widget extends WP_Widget{
 	{
 		parent::__construct(
 			'wpgmp_google_map_widget',
-			'WP Google Map Pro',
+			'WP Google Map Plugin',
 			array('description' => __('A widget that displays the google map' , 'wpgmp_google_map'))
 		);
 	}
@@ -642,17 +596,8 @@ function wpgmp_scripts_method(){
     wp_enqueue_script('wpgmp_map','http://www.google.com/jsapi');
 }
 
-/**
- * This function used to display multiple info windows.
- * @author Flipper Code <hello@flippercode.com>
- * @version 1.0.0
- * @package Maps
- */
-function wpgmp_info_bubble_script(){
-	wp_enqueue_script('wpgmp_info_bubble_script',plugins_url('/js/infobubble.js', __FILE__));
-	
-	wp_enqueue_script('wpgmp_info_bubble_script3',plugins_url('/js/jscolor.js', __FILE__ ));
-}
+
+
 /**
  * This function used to load css in backend.
  * @author Flipper Code <hello@flippercode.com>
@@ -752,10 +697,7 @@ if ( is_dir($dir)  )
  
 function wpgmp_load_actions()
 {
-wpgmp_google_map_load();
-wpgmp_info_bubble_script();
-wpgmp_scripts_method();
-//add_action('save_post', 'wpgmp_mashup_save_post');
+ wpgmp_scripts_method();
 add_action('media_upload_ell_insert_gmap_tab', 'wpgmp_google_map_media_upload_tab');
 add_filter('media_upload_tabs', 'wpgmp_google_map_tabs_filter');
 add_action('admin_menu', 'wpgmp_google_map_page');
