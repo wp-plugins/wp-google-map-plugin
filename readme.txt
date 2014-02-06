@@ -39,6 +39,7 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * Enable visual refresh on any Google Map at a button’s click
 * No need of any Google API key. Based on API Version 3.
 * Fully Responsive. Tested on real devices.
+* Display one infowindow at a time.
 
 = Pro Edition =
 * Define overlays on Google maps via an easy to use interface
@@ -106,6 +107,17 @@ This section describes how to install the plugin and get it working.
 9  Define your dimensations for weathers layers.
 
 == Changelog ==
+
+Version 2.1.0
+1. Infowindow CSS Improved
+2. Optimized Code for Fast Map Experience
+3. Solved Layer Display Problem. 
+
+Version 1.2.0
+1. Zero Configuration Enabled
+2. Managed Navigation
+3. Custom Icon using Widget
+
 Version 1.2.0
 1. Zero Configuration Enabled
 2. Managed Navigation
