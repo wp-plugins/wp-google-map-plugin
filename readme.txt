@@ -128,6 +128,6 @@ Version 1.1.0
 3. Added Widget Support
 4. Added multiple maps on a page support.
 == Frequently Asked Questions ==
-Check Demo here http://wwww.flippercode.com/wp-google-map-plugin-demo/
+Check Demo here http://www.flippercode.com/wp-google-map-pro-examples/
 == Donations ==
 
