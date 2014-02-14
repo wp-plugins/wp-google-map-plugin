@@ -60,7 +60,8 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * Draw <strong>multiple Polygons</strong> easily with help of mouse. Choose your own fill colors,stroke colors, opacity, stroke width.
 * Draw <strong>multiple Rectangles</strong> easily with help of mouse. Choose your own fill colors,stroke colors, opacity, stroke width.
 * Draw <strong>multiple Circles</strong> easily with help of mouse. Choose your own fill colors,stroke colors, opacity, stroke width.
-
+* A easy way to limit panning/dragging so the map stays within certain bounds.
+* A easy way to restrict map on a minimum zoom level.
 = DEMO =
 * [Styled Google Map Skins](http://www.flippercode.com/styled-google-map-skin)
 * [Google Map Street View](http://www.flippercode.com/google-map-street-view-using-wordpress-plugin)
