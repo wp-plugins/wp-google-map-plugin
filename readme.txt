@@ -50,9 +50,6 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * Define KML Layers on Google Maps
 * Apply 45 Imagery view on Google Maps
 * Fusion Table Layers 
-* Download [WP Google Map Pro Edition](http://codecanyon.net/item/advanced-google-maps/5211638)
-
-= New Features in Version 2.1.1 =
 * Ability to <strong>Export Locations in JSON, XML,EXCLE or CSV</strong> Format.
 * Ability to <strong>Import Locations using JSON, XML,EXCLE or CSV</strong> Format.
 * <strong>Quick Locations</strong> Feature to add multiple locations manually very quickly. 
@@ -62,6 +59,8 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * Draw <strong>multiple Circles</strong> easily with help of mouse. Choose your own fill colors,stroke colors, opacity, stroke width.
 * A easy way to limit panning/dragging so the map stays within certain bounds.
 * A easy way to restrict map on a minimum zoom level.
+* Download [WP Google Map Pro Edition](http://codecanyon.net/item/advanced-google-maps/5211638)
+
 = DEMO =
 * [Styled Google Map Skins](http://www.flippercode.com/styled-google-map-skin)
 * [Google Map Street View](http://www.flippercode.com/google-map-street-view-using-wordpress-plugin)
@@ -78,6 +77,8 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * [Google Map KML Layers using WordPress Plugin](http://www.flippercode.com/implement-kml-layers-on-google-map-using-wordpress-plugin)
 * [Display Polylines on Google Map](http://www.flippercode.com/display-polylines-on-google-map-using-wordpress-plugin)
 * [Display Route Direction on Google Map](http://www.flippercode.com/display-route-direction-on-google-map-using-wordpress-plugin)
+* [Draw Circles on google maps](http://www.flippercode.com/draw-circles-on-google-maps/)
+* [Draw Rectangles on Google Maps](http://www.flippercode.com/draw-rectangles-on-google-maps/)
 
 
 Importance
