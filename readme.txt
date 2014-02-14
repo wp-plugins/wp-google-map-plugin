@@ -11,17 +11,16 @@ Tested up to:      3.8.1
 Stable tag:        Easiest way to create Google Maps! A plugin to display multiple location markers, customized map skins, infowindows and much more. Based on the latest Google API Version.   
 
 == Description ==
-Display Google Maps at a shortcode’s ease! WP Google Map Plugin is a simple tool to add single or multiple markers on the same map and display on your webpage using a shortcode. The plugin is also featured to automatically extract exact latitude and longitude from a provided address. WP Google Map plugin hassle free transfers your map to any number of domains without a Google Map API Key. 
+Display <strong>Google Maps</strong> at a shortcode’s ease! WP Google Map Plugin is a simple tool to add single or multiple markers on the same map and display on your webpage using a shortcode. The plugin is also featured to automatically extract exact latitude and longitude from a provided address. WP Google Map plugin hassle free transfers your map to any number of domains without a Google Map API Key. 
 Here is a quick highlight on the numerous customizable features offered by the free and pro versions of the WP Google Map plugin.
 
 Here is a quick highlight on the numerous customizable features offered by the free and pro versions of the  [WP Google Map Pro Version](http://codecanyon.net/item/advanced-google-maps/5211638).
 
 = Lite Version (Free) =
-* Create unlimited maps and display on posts/pages using shortcode
-* Add unlimited locations using an easy to use interface for Google Maps
+* Create <strong>unlimited maps</strong> and display on posts/pages using shortcode
+* Add <strong>unlimited locations</strong> using an easy to use interface for Google Maps
 * Customize marker image for each location separately or group wise. Choose from +500 readymade markers or pick your own image
-* Display your map perfectly on all devices. Create 100% responsive maps effortlessly
-* First & the only wordpress plugin to support multiple infowindows with title
+* Display your map perfectly on all devices. Create <strong>100% responsive maps</strong> effortlessly
 * Display Google Maps on sidebars using widget
 * Add any number of Google maps on pages/posts/sidebars
 * Display Road Map view. This is the default map type
@@ -36,7 +35,7 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * Apply any type of marker customization on Google map infowindows
 * Display photos from Panoramio as a layer to your maps using the Panoramio Layer
 * A Cross Browser Compatible plugin. Fully tested on IE8, IE9, IE10 and all major browsers
-* Enable visual refresh on any Google Map at a button’s click
+* Enable <strong>visual refresh</strong> on any Google Map on a button’s click
 * No need of any Google API key. Based on API Version 3.
 * Fully Responsive. Tested on real devices.
 * Display one infowindow at a time.
