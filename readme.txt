@@ -53,6 +53,15 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * Fusion Table Layers 
 * Download [WP Google Map Pro Edition](http://codecanyon.net/item/advanced-google-maps/5211638)
 
+= New Features in Version 2.1.1 =
+* Ability to <strong>Export Locations in JSON, XML,EXCLE or CSV</strong> Format.
+* Ability to <strong>Import Locations using JSON, XML,EXCLE or CSV</strong> Format.
+* <strong>Quick Locations</strong> Feature to add multiple locations manually very quickly. 
+* Draw <strong>multiple Polylines</strong> easily with help of mouse. Choose your own colors, opacity, stroke width.
+* Draw <strong>multiple Polygons</strong> easily with help of mouse. Choose your own fill colors,stroke colors, opacity, stroke width.
+* Draw <strong>multiple Rectangles</strong> easily with help of mouse. Choose your own fill colors,stroke colors, opacity, stroke width.
+* Draw <strong>multiple Circles</strong> easily with help of mouse. Choose your own fill colors,stroke colors, opacity, stroke width.
+
 = DEMO =
 * [Styled Google Map Skins](http://www.flippercode.com/styled-google-map-skin)
 * [Google Map Street View](http://www.flippercode.com/google-map-street-view-using-wordpress-plugin)
