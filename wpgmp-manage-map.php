@@ -461,8 +461,13 @@ if( !empty($success) )
         <option value="12"<?php selected($map_record->map_zoom_level,'12') ?>>12</option>
         <option value="13"<?php selected($map_record->map_zoom_level,'13') ?>>13</option>
         <option value="14"<?php selected($map_record->map_zoom_level,'14') ?>>14</option>
+        <option value="15"<?php selected($map_record->map_zoom_level,'15') ?>>15</option>
+        <option value="16"<?php selected($map_record->map_zoom_level,'16') ?>>16</option>
+        <option value="17"<?php selected($map_record->map_zoom_level,'17') ?>>17</option>
+        <option value="18"<?php selected($map_record->map_zoom_level,'18') ?>>18</option>
+        <option value="19"<?php selected($map_record->map_zoom_level,'19') ?>>19</option>
     </select>
-    <p class="description"><?php _e('(Available options - 1,2,3,4,5,6,8,9,10,11,12,13,14).', 'wpgmp_google_map')?></p>
+    <p class="description"><?php _e('(Available options - 1,2,3,4,5,6,8,9,10,11,12,13,14,15,16,17,18,19).', 'wpgmp_google_map')?></p>
 	
     <label for="title"><?php _e('Choose Map Type', 'wpgmp_google_map')?></label>
     <select name="choose_map">
