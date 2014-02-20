@@ -3,7 +3,7 @@
 Plugin Name: WP Google Map Plugin
 Description: A complete solution to Google Maps covering all Basic to Advanced Features
 Author: flippercode
-Version: 2.1.0
+Version: 2.2.0
 Author URI: http://www.flippercode.com
 */
 
