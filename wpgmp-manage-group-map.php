@@ -155,7 +155,7 @@ if( $_POST['action'] == 'delete' && $_POST['group_map']!='' )
 		}
 $success= __( 'Selected Records Deleted Successfully.', 'wpgmp_google_map' );
 }
-if( isset($_POST['update_group_map']) && $_POST['update_group_map']=='Update Group Map' )
+if( isset($_POST['update_group_map']) && $_POST['update_group_map']=='Update Group Marker' )
 {
 	
 if( $_POST['group_map_title']=="" )
@@ -187,9 +187,11 @@ if( $_GET['action']=='edit' && $_GET['group_map']!='' )
 {
 $group_data = $wpdb->get_row($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."group_map WHERE group_map_id=%d",$_GET['group_map']));
 ?>
-<div class="wrap">  
+<div class="wpgmp-wrap">  
+<div class="col-md-11">  
 <div id="icon-options-general" class="icon32"><br></div>
-<h2><?php _e('Edit Marker Group', 'wpgmp_google_map')?></h2><br />
+<h3><span class="glyphicon glyphicon-asterisk"></span><?php _e('Edit Marker Groups', 'wpgmp_google_map')?></h3>
+<div class="wpgmp-overview">
 <form method="post">
 <?php
 if( !empty($error) )
@@ -204,18 +206,22 @@ if( !empty($success) )
     wpgmp_showMessage($success);
 }
 ?>
-<div class="map_table">
+<div> <div class="form-horizontal">
 <fieldset>
-    <legend><?php _e('General Setting', 'wpgmp_google_map')?></legend>
+    <legend><?php _e('General Settings', 'wpgmp_google_map')?></legend>
     
-    <label for="title"><?php _e('Group Title', 'wpgmp_google_map')?>&nbsp;<span style="color:#F00;">*</span></label>
+   <div class="form-horizontal">
+    <div class="col-md-4 left">   <label for="title"><?php _e('Group Title', 'wpgmp_google_map')?>&nbsp;<span style="color:#F00;">*</span></label>
+    </div>
+   <div class="col-md-7">
+    <input type="text" name="group_map_title" value="<?php echo stripslashes($group_data->group_map_title); ?>" class="create_map form-control" />
     
-    <input type="text" name="group_map_title" value="<?php echo stripslashes($group_data->group_map_title); ?>" class="create_map" />
+    <p class="description"><?php _e('Enter here the group title.', 'wpgmp_google_map')?></p></div>
     
-    <p class="description"><?php _e('Enter here the group title.', 'wpgmp_google_map')?></p>
-    
+   <div class="col-md-4 left"> 
     <label for="title"><?php _e('Choose Marker Image', 'wpgmp_google_map')?><span style="color:#F00;">*</span></label>
-    
+    </div>
+   <div class="col-md-7">
     <img id="book_image" src="<?php echo $group_data->group_marker; ?>" style="float:left;" />
     
     <input type="hidden" name="upload_image_url" id="upload_image_url" value="<?php echo $group_data->group_marker; ?>" />
@@ -228,21 +234,21 @@ if( !empty($success) )
     
     </div><br />
     
-    <p class="description"><?php _e('Upload marker image.', 'wpgmp_google_map')?></p>
+    <p class="description"><?php _e('Upload marker image.', 'wpgmp_google_map')?></p></div>
 </fieldset>
-<p class="submit">
-<input type="submit" name="update_group_map" id="submit" class="button button-primary" value="<?php _e('Update Group Map', 'wpgmp_google_map')?>" style="width:130px;">
-</p>
+ <div class="col-md-4 left">  </div><div class="col-md-7"> 
+<input type="submit" name="update_group_map" id="submit" class="btn btn-lg btn-primary" value="<?php _e('Update Group Marker', 'wpgmp_google_map')?>"></div>
+ 
 </div>
 </form>
-</div>
-<?php
+</div></div><?php
 }
 else
 {
 ?>
-<div class="wrap"> 
-<div id="icon-options-general" class="icon32"><br></div><h2><?php _e('Manage Marker Groups', 'wpgmp_google_map')?></h2><br />
+<div class="wpgmp-wrap">  
+<div class="col-md-12">
+<div id="icon-options-general" class="icon32"><br></div><h3><span class="glyphicon glyphicon-asterisk"></span><?php _e('Manage Marker Group', 'wpgmp_google_map')?></h3>
 <?php
 $group_list_table = new Wpgmp_Manage_Group_Table();
 $group_list_table->prepare_items();
@@ -253,7 +259,7 @@ $group_list_table->search_box( 'search', 'search_id' );
 $group_list_table->display();
 ?> 
 </form> 
-</div>
+</div></div>
 <?php
 }
 }

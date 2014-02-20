@@ -230,3 +230,8 @@ body#media-upload ul#sidemenu {
 	background:url(../images/map-bottom.png);
 	text-align:center;
 }
+
+div.updated, div.error {
+padding: 0 .6em;
+margin: 5px 12px 15px !important;
+}

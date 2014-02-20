@@ -416,8 +416,12 @@ $unserialize_map_polyline_setting = unserialize($map_record->map_polyline_settin
 $unserialize_map_cluster_setting = unserialize($map_record->map_cluster_setting);
 $unserialize_map_overlay_setting = unserialize($map_record->map_overlay_setting);
 ?>
+<div class="wpgmp-wrap">
+ <div class="col-md-11">  
 <div id="icon-options-general" class="icon32"><br></div>
-<h2><?php _e('Edit Map', 'wpgmp_google_map')?></h2><br />
+<h3><span class="glyphicon glyphicon-asterisk"></span><?php _e('Edit Map', 'wpgmp_google_map')?></h3>
+<div class="wpgmp-overview">
+
 <form method="post">
 <?php
 if( !empty($error) )
@@ -432,44 +436,43 @@ if( !empty($success) )
     wpgmp_showMessage($success);
 }
 ?>
-<div class="map_table">
+<div> <div class="form-horizontal">
 <fieldset>
-    <legend><?php _e('General Settings', 'wpgmp_google_map')?></legend>
-    
-    <label for="title"><?php _e('Map Title', 'wpgmp_google_map')?>&nbsp;<span style="color:#F00;">*</span></label>
-	<input type="text" name="map_title" value="<?php echo stripslashes($map_record->map_title); ?>" class="create_map" />
-	<p class="description"><?php _e('Insert here the title', 'wpgmp_google_map')?></p>
-	<label for="title"><?php _e('Map Width', 'wpgmp_google_map')?></label>
-	<input type="text" name="map_width" value="<?php echo $map_record->map_width; ?>" class="create_map" /><?php _e('&nbsp;px', 'wpgmp_google_map')?>
-	<p class="description"><?php _e('Insert here the map width', 'wpgmp_google_map')?></p>
-	<label for="title"><?php _e('Map Height', 'wpgmp_google_map')?>&nbsp;<span style="color:#F00;">*</span></label>
-	<input type="text" name="map_height" value="<?php echo $map_record->map_height; ?>" class="create_map" /><?php _e('&nbsp;px', 'wpgmp_google_map')?>
-	<p class="description"><?php _e('Insert here the map height', 'wpgmp_google_map')?></p>
-	<label for="title"><?php _e('Map Zoom Level', 'wpgmp_google_map')?></label>
+    <legend><?php _e('General Setting', 'wpgmp_google_map')?></legend>
+    <div class="row">
+     <div class="col-md-2">  <label for="title"><?php _e('Map Title', 'wpgmp_google_map')?>&nbsp;<span style="color:#F00;">*</span></label></div>
+   <div class="col-md-7">
+	<input type="text" name="map_title" value="<?php echo stripslashes($map_record->map_title); ?>" class="create_map form-control" />
+	<p class="description"><?php _e('Enter here the title', 'wpgmp_google_map')?></p></div>
+ </div>   
+ <div class="row">
+	  <div class="col-md-2"> <label for="title"><?php _e('Map Width', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">
+	<input type="text" name="map_width" value="<?php echo $map_record->map_width; ?>" class="create_map form-control" />
+	<p class="description"><?php _e('Enter here the map width in pixel. Leave it blank for 100% width.', 'wpgmp_google_map')?></p></div>
+   </div>
+   <div class="row">  
+	  <div class="col-md-2">	<label for="title"><?php _e('Map Height', 'wpgmp_google_map')?>&nbsp;<span style="color:#F00;">*</span></label></div>
+   <div class="col-md-7">
+	<input type="text" name="map_height" value="<?php echo $map_record->map_height; ?>" class="create_map form-control" />
+	<p class="description"><?php _e('Enter here the map height in px.', 'wpgmp_google_map')?></p></div>
+   </div>
+    <div class="row"> 
+	  <div class="col-md-2">	<label for="title"><?php _e('Map Zoom Level', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">
     <select name="zoom_level">
-        <option value="1"<?php selected($map_record->map_zoom_level,'1') ?>>1</option>
-        <option value="2"<?php selected($map_record->map_zoom_level,'2') ?>>2</option>
-        <option value="3"<?php selected($map_record->map_zoom_level,'3') ?>>3</option>
-        <option value="4"<?php selected($map_record->map_zoom_level,'4') ?>>4</option>
-        <option value="5"<?php selected($map_record->map_zoom_level,'5') ?>>5</option>
-        <option value="6"<?php selected($map_record->map_zoom_level,'6') ?>>6</option>
-        <option value="7"<?php selected($map_record->map_zoom_level,'7') ?>>7</option>
-        <option value="8"<?php selected($map_record->map_zoom_level,'8') ?>>8</option>
-        <option value="9"<?php selected($map_record->map_zoom_level,'9') ?>>9</option>
-        <option value="10"<?php selected($map_record->map_zoom_level,'10') ?>>10</option>
-        <option value="11"<?php selected($map_record->map_zoom_level,'11') ?>>11</option>
-        <option value="12"<?php selected($map_record->map_zoom_level,'12') ?>>12</option>
-        <option value="13"<?php selected($map_record->map_zoom_level,'13') ?>>13</option>
-        <option value="14"<?php selected($map_record->map_zoom_level,'14') ?>>14</option>
-        <option value="15"<?php selected($map_record->map_zoom_level,'15') ?>>15</option>
-        <option value="16"<?php selected($map_record->map_zoom_level,'16') ?>>16</option>
-        <option value="17"<?php selected($map_record->map_zoom_level,'17') ?>>17</option>
-        <option value="18"<?php selected($map_record->map_zoom_level,'18') ?>>18</option>
-        <option value="19"<?php selected($map_record->map_zoom_level,'19') ?>>19</option>
+        <?php for($i=1;$i<20;$i++)
+        {
+			?>
+        <option value="<?php echo $i; ?>"<?php selected($map_record->map_zoom_level,$i) ?>><?php echo $i; ?></option>
+		<?php } ?>
     </select>
     <p class="description"><?php _e('(Available options - 1,2,3,4,5,6,8,9,10,11,12,13,14,15,16,17,18,19).', 'wpgmp_google_map')?></p>
-	
-    <label for="title"><?php _e('Choose Map Type', 'wpgmp_google_map')?></label>
+	</div>
+    </div>
+     <div class="row">
+	  <div class="col-md-2">  <label for="title"><?php _e('Choose Map Type', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">
     <select name="choose_map">
         <option value="ROADMAP"<?php selected($map_record->map_type,'ROADMAP') ?>><?php _e('ROADMAP', 'wpgmp_google_map')?></option>
         <option value="SATELLITE"<?php selected($map_record->map_type,'SATELLITE') ?>><?php _e('SATELLITE', 'wpgmp_google_map')?></option>
@@ -478,16 +481,29 @@ if( !empty($success) )
     </select>
 	<p class="description"><?php _e('(Available options - ROADMAP,SATELLITE,HYBRID,TERRAIN {Default is roadmap type}).', 'wpgmp_google_map')?></p>
 	
-    
-    
-	<label for="title"><?php _e('Turn Off Scrolling Wheel', 'wpgmp_google_map')?></label>
-	<input type="checkbox" name="scrolling_wheel" value="false"<?php checked($map_record->map_scrolling_wheel,'false') ?>/>
-	<p class="description"><?php _e('Please Check TO Disable Scroll Wheel Zooms.', 'wpgmp_google_map')?></p>
-    
-	<label for="title"><?php _e('Enable Visual Refresh', 'wpgmp_google_map')?></label>
-	<input type="checkbox" name="visual_refresh" value="true"<?php checked($map_record->map_visual_refresh,'true') ?>/>
-	<p class="description"><?php _e('Please check to enable visual refresh.', 'wpgmp_google_map')?></p>
-	
+    </div>
+    </div>
+     <div class="row">
+	  <div class="col-md-2 "> <label for="title"><?php _e('Turn Off Scrolling Wheel', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">
+	<p class="description"><input type="checkbox" name="scrolling_wheel" value="false"<?php checked($map_record->map_scrolling_wheel,'false') ?>/>
+	<?php _e('Please check to disable scroll wheel zooms.', 'wpgmp_google_map')?></p>
+    </div>
+    </div>
+     <div class="row">
+	  <div class="col-md-2">
+	<label for="title"><?php _e('Enable Visual Refresh', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">
+	<p class="description"><input type="checkbox" name="visual_refresh" value="true"<?php checked($map_record->map_visual_refresh,'true') ?>/>
+	<?php _e('Please check to enable visual refresh.', 'wpgmp_google_map')?></p></div>
+    </div>
+     <div class="row">
+	  <div class="col-md-2">	
+	<label for="title"><?php _e('45&deg; Imagery', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">
+	<p class="description"><input type="checkbox" name="45imagery" value="45"<?php checked($map_record->map_45imagery,'45') ?> />
+	<?php _e('Apply 45&deg; Imagery ? (only available for map type SATELLITE and HYBRID).', 'wpgmp_google_map')?></p>   </div>
+</div>
 </fieldset>
 <fieldset>
     <legend><?php _e('Choose Locations', 'wpgmp_google_map')?>&nbsp;<span style="color:#F00;">*</span></legend>
@@ -503,13 +519,29 @@ if( !empty($success) )
         	<?php if( in_array($results[$i]->location_id,$un_maploc) )
 			{
 			?>
-        	<input type="checkbox" name="locations[]" value="<?php echo $results[$i]->location_id; ?>" checked="checked"/>&nbsp;&nbsp;<?php echo stripcslashes($results[$i]->location_address); ?>
+        	<input type="checkbox" name="locations[]" value="<?php echo $results[$i]->location_id; ?>" checked="checked"/>&nbsp;&nbsp;<?php 
+            if($results[$i]->location_address!='')
+            echo $results[$i]->location_address;
+            elseif($results[$i]->location_title!='')
+            {
+			echo $results[$i]->location_title;
+            }
+            ?>
         	<?php
 			}
 			else
 			{
 			?>
-            <input type="checkbox" name="locations[]" value="<?php echo $results[$i]->location_id; ?>"/>&nbsp;&nbsp;<?php echo $results[$i]->location_address; ?>
+            <input type="checkbox" name="locations[]" value="<?php echo $results[$i]->location_id; ?>"/>&nbsp;&nbsp;<?php 
+            if($results[$i]->location_address!='')
+            echo $results[$i]->location_address;
+            elseif($results[$i]->location_title!='')
+            {
+			echo $results[$i]->location_title;
+			
+            }
+            
+             ?>
         	<?php
             }
 			?>
@@ -522,247 +554,95 @@ if( !empty($success) )
 <fieldset>
     <legend><?php _e('Layers', 'wpgmp_google_map')?></legend>
     
-    <label for="title"><?php _e('Select Layers', 'wpgmp_google_map')?></label>
+   <div class="col-md-4 left">  <label for="title"><?php _e('Select Layers', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">
     <select name="layer_setting[choose_layer]" onchange="mylayer(this.value)">
         <option value=""><?php _e('Select Layers', 'wpgmp_google_map')?></option>
-        <option value="TrafficLayer"<?php selected($unserialize_map_layer_setting['choose_layer'],'TrafficLayer') ?>><?php _e('Traffic Layers', 'wpgmp_google_map')?></option>
+       <option value="TrafficLayer"<?php selected($unserialize_map_layer_setting['choose_layer'],'TrafficLayer') ?>><?php _e('Traffic Layers', 'wpgmp_google_map')?></option>
         <option value="TransitLayer"<?php selected($unserialize_map_layer_setting['choose_layer'],'TransitLayer') ?>><?php _e('Transit Layers', 'wpgmp_google_map')?></option>
-        <option value="WeatherLayer"<?php selected($unserialize_map_layer_setting['choose_layer'],'WeatherLayer') ?>><?php _e('Weather Layers', 'wpgmp_google_map')?></option>
         <option value="BicyclingLayer"<?php selected($unserialize_map_layer_setting['choose_layer'],'BicyclingLayer') ?>><?php _e('Bicycling Layers', 'wpgmp_google_map')?></option>
+        <option value="PanoramioLayer"<?php selected($unserialize_map_layer_setting['choose_layer'],'PanoramioLayer') ?>><?php _e('Panoramio Layers', 'wpgmp_google_map')?></option>
     </select>
-	<p class="description"><?php _e('(Available options - KML Layers,Fusion Tables Layers,Traffic Layers,Transit Layers,Weather Layers,Bicycling Layers,Panoramio Layers).', 'wpgmp_google_map')?></p>
-    
-	  
-	
-	<?php
-	if( $unserialize_map_layer_setting['choose_layer']=='WeatherLayer' )
-	{
-	?>
-    <div id="weatherlayer">
-    
-        <label for="title"><?php _e('Temperature units:', 'wpgmp_google_map')?></label>
-        <input type="radio" name="layer_setting[temp]" value="CELSIUS"<?php checked($unserialize_map_layer_setting['temp'],'CELSIUS'); ?> /><?php _e('&nbsp;Celsius&nbsp;&nbsp;&nbsp;', 'wpgmp_google_map')?>
-        <input type="radio" name="layer_setting[temp]" value="FAHRENHEIT"<?php checked($unserialize_map_layer_setting['temp'],'FAHRENHEIT'); ?> /><?php _e('&nbsp;Fahrenheit', 'wpgmp_google_map')?>
-    	<p class="description"><?php _e('Please check temperature unit.', 'wpgmp_google_map')?></p>
-        
-        <label for="title"><?php _e('Wind speed units:', 'wpgmp_google_map')?></label>
-        <input type="radio" name="layer_setting[wind]" value="MILES_PER_HOUR"<?php checked($unserialize_map_layer_setting['wind'],'MILES_PER_HOUR'); ?> /><?php _e('&nbsp;mph&nbsp;&nbsp;&nbsp;', 'wpgmp_google_map')?>
-        <input type="radio" name="layer_setting[wind]" value="KILOMETERS_PER_HOUR"<?php checked($unserialize_map_layer_setting['wind'],'KILOMETERS_PER_HOUR'); ?> /><?php _e('&nbsp;km/h&nbsp;&nbsp;&nbsp;', 'wpgmp_google_map')?>
-        <input type="radio" name="layer_setting[wind]" value="METERS_PER_SECOND"<?php checked($unserialize_map_layer_setting['wind'],'METERS_PER_SECOND'); ?> /><?php _e('&nbsp;m/s', 'wpgmp_google_map')?>
-        <p class="description"><?php _e('Please check wind speed unit.', 'wpgmp_google_map')?></p>
-    
+	<p class="description"><?php _e('(Available options - Traffic Layers,Transit Layers,Bicycling Layers,Panoramio Layers).', 'wpgmp_google_map')?></p>
     </div>
-    
-    <?php
-	}
-	else
-	{
-	?>
-    <div id="weatherlayer" style="display:none;">
-    
-        <label for="title"><?php _e('Temperature units:', 'wpgmp_google_map')?></label>
-        <input type="radio" name="layer_setting[temp]" value="CELSIUS"<?php checked($unserialize_map_layer_setting['temp'],'CELSIUS'); ?>  /><?php _e('&nbsp;Celsius&nbsp;&nbsp;&nbsp;', 'wpgmp_google_map')?>
-        <input type="radio" name="layer_setting[temp]" value="FAHRENHEIT"<?php checked($unserialize_map_layer_setting['temp'],'FAHRENHEIT'); ?> /><?php _e('&nbsp;Fahrenheit', 'wpgmp_google_map')?>
-    	<p class="description"><?php _e('Please check temperature unit.', 'wpgmp_google_map')?></p>
-        
-        <label for="title"><?php _e('Wind speed units:', 'wpgmp_google_map')?></label>
-        <input type="radio" name="layer_setting[wind]" value="MILES_PER_HOUR"<?php checked($unserialize_map_layer_setting['wind'],'MILES_PER_HOUR'); ?>  /><?php _e('&nbsp;mph&nbsp;&nbsp;&nbsp;', 'wpgmp_google_map')?>
-        <input type="radio" name="layer_setting[wind]" value="KILOMETERS_PER_HOUR"<?php checked($unserialize_map_layer_setting['wind'],'KILOMETERS_PER_HOUR'); ?>/><?php _e('&nbsp;km/h&nbsp;&nbsp;&nbsp;', 'wpgmp_google_map')?>
-        <input type="radio" name="layer_setting[wind]" value="METERS_PER_SECOND"<?php checked($unserialize_map_layer_setting['wind'],'METERS_PER_SECOND'); ?> /><?php _e('&nbsp;m/s', 'wpgmp_google_map')?>
-        <p class="description"><?php _e('Please check wind speed unit.', 'wpgmp_google_map')?></p>
-    
-    </div>
-    <?php
-	}
-	?>
-</fieldset>
-<fieldset>
-    <legend><?php _e('Control Settings', 'wpgmp_google_map')?></legend>
-    
-     <label for="title"><?php _e('Turn Off Pan Control', 'wpgmp_google_map')?></label>
-	<input type="checkbox" name="control[pan_control]" value="false"<?php checked($unserialize_map_control_setting['pan_control'],'false') ?>/>
-	<p class="description"><?php _e('Please check to disable pan control.', 'wpgmp_google_map')?></p>
-    
-    <label for="title"><?php _e('Turn Off Zoom Control', 'wpgmp_google_map')?></label>
-	<input type="checkbox" name="control[zoom_control]" value="false"<?php checked($unserialize_map_control_setting['zoom_control'],'false') ?>/>
-	<p class="description"><?php _e('Please check to disable zoom control.', 'wpgmp_google_map')?></p>
-    
-    <label for="title"><?php _e('Turn Off Map Type Control', 'wpgmp_google_map')?></label>
-	<input type="checkbox" name="control[map_type_control]" value="false"<?php checked($unserialize_map_control_setting['map_type_control'],'false') ?>/>
-	<p class="description"><?php _e('Please check to disable map type control.', 'wpgmp_google_map')?></p>
-    
-    <label for="title"><?php _e('Turn Off Scale Control', 'wpgmp_google_map')?></label>
-	<input type="checkbox" name="control[scale_control]" value="false"<?php checked($unserialize_map_control_setting['scale_control'],'false') ?>/>
-	<p class="description"><?php _e('Please check to disable scale control.', 'wpgmp_google_map')?></p>
-    
-    <label for="title"><?php _e('Turn Off Street View Control', 'wpgmp_google_map')?></label>
-	<input type="checkbox" name="control[street_view_control]" value="false"<?php checked($unserialize_map_control_setting['street_view_control'],'false') ?>/>
-	<p class="description"><?php _e('Please check to disable street view control.', 'wpgmp_google_map')?></p>
-    
-    <label for="title"><?php _e('Turn Off Overview Map Control', 'wpgmp_google_map')?></label>
-	<input type="checkbox" name="control[overview_map_control]" value="false"<?php checked($unserialize_map_control_setting['overview_map_control'],'false') ?>/>
-	<p class="description"><?php _e('Please check to disable overview map control.', 'wpgmp_google_map')?></p>
-    
-</fieldset>
-<fieldset>
-    <legend><?php _e('Map Style Settings', 'wpgmp_google_map')?></legend>
-	 	<p class="description"><?php _e('Available in Pro Version. <a target="_blank" href="http://codecanyon.net/item/advanced-google-maps/5211638">Buy Now</a>', 'wpgmp_google_map')?></p>
 
+	
 </fieldset>
 <fieldset>
-    <legend><?php _e('Infowindow Settings', 'wpgmp_google_map')?></legend>
+    <legend><?php _e('Control Setting', 'wpgmp_google_map')?></legend>
     
-	 <label for="title"><?php _e('Infowindow Settings', 'wpgmp_google_map')?></label>
-	<input type="checkbox" name="info_window_setting[enable_info_window_setting]" class="info_window_toggle" value="true"<?php checked($unserialize_map_info_window_setting['enable_info_window_setting'],'true') ?>/>
-	<p class="description"><?php _e('Please check to enable Info window settings.', 'wpgmp_google_map')?></p>
-<?php
-if( $unserialize_map_info_window_setting['enable_info_window_setting']=='true' )
-{
-?>  
-<div id="disply_info_window">
-    
-       <label for="title"><?php _e('Turn Off Infowindow', 'wpgmp_google_map')?></label>
-	<input type="checkbox" name="info_window_setting[info_window]"  value="false"<?php checked($unserialize_map_info_window_setting['info_window'],'false') ?>/>
-	<p class="description"><?php _e('Please check to disable infowindow messages.', 'wpgmp_google_map')?></p>
-    <label><?php _e('Infowindow Width:', 'wpgmp_google_map')?></label>
-    <input type="text" name="info_window_setting[info_window_width]" value="<?php echo $unserialize_map_info_window_setting['info_window_width']; ?>" class="create_map"/>&nbsp;px
-    <p class="description"><?php _e('Please insert info window Width.', 'wpgmp_google_map')?></p>
-    
-    <label><?php _e('Infowindow Height:', 'wpgmp_google_map')?></label>
-    <input type="text" name="info_window_setting[info_window_height]" class="create_map" value="<?php echo $unserialize_map_info_window_setting['info_window_height']; ?>" />&nbsp;px
-    <p class="description"><?php _e('Please insert info window height.', 'wpgmp_google_map')?></p>
-    
-     <label><?php _e('Infowindow ShadowStyle:', 'wpgmp_google_map')?></label>
-        <select name="info_window_setting[info_window_shadow_style]">
-          <option value=""><?php _e('Select Shawdow Style', 'wpgmp_google_map')?></option>
-          <option value="0"<?php selected($unserialize_map_info_window_setting['info_window_shadow_style'],0) ?>>0</option>
-          <option value="1"<?php selected($unserialize_map_info_window_setting['info_window_shadow_style'],1) ?>>1</option>
-          <option value="2"<?php selected($unserialize_map_info_window_setting['info_window_shadow_style'],2) ?>>2</option>
-        </select>
-     <p class="description"><?php _e('Please select info window shawdow style.', 'wpgmp_google_map')?></p>
-      
-        <label><?php _e('Infowindow Border Radius:', 'wpgmp_google_map')?></label>
-        <input type="text" name="info_window_setting[info_window_border_radious]" value="<?php echo $unserialize_map_info_window_setting['info_window_border_radious']; ?>" class="create_map"/>&nbsp;px
-        <p class="description"><?php _e('Please insert info window border radious.', 'wpgmp_google_map')?></p>
-      
-        <label><?php _e('Infowindow Border Width:', 'wpgmp_google_map')?></label>
-        <input type="text" name="info_window_setting[info_window_border_width]" value="<?php echo $unserialize_map_info_window_setting['info_window_border_width']; ?>" class="create_map"/>&nbsp;px
-        <p class="description"><?php _e('Please insert info window border width.', 'wpgmp_google_map')?></p>
-      
-        <label><?php _e('Infowindow Border Color:', 'wpgmp_google_map')?></label>
-        <input type="text" value="<?php echo $unserialize_map_info_window_setting['info_window_border_color']; ?>" name="info_window_setting[info_window_border_color]" class="color {pickerClosable:true}" />
-        <p class="description"><?php _e('Please insert info window border color.', 'wpgmp_google_map')?></p>
-     
-        <label><?php _e('Infowindow Background Color:', 'wpgmp_google_map')?></label>
-        <input type="text" value="<?php echo $unserialize_map_info_window_setting['info_window_background_color']; ?>" name="info_window_setting[info_window_background_color]" class="color {pickerClosable:true}" />
-        <p class="description"><?php _e('Please insert info window background color.', 'wpgmp_google_map')?></p>
-     
-        <label><?php _e('Infowindow Arrow Size:', 'wpgmp_google_map')?></label>
-        <input type="text" name="info_window_setting[info_window_arrow_size]" value="<?php echo $unserialize_map_info_window_setting['info_window_arrow_size']; ?>" class="create_map"/>&nbsp;px
-        <p class="description"><?php _e('Please insert info window arrow size.', 'wpgmp_google_map')?></p>
-     
-        <label><?php _e('Infowindow Arrow Position:', 'wpgmp_google_map')?></label>
-        <input type="text" name="info_window_setting[info_window_arrow_position]" value="<?php echo $unserialize_map_info_window_setting['info_window_arrow_position']; ?>" class="create_map"/>&nbsp;%
-        <p class="description"><?php _e('Please insert info window arrow position.', 'wpgmp_google_map')?></p>
-     
-        <label><?php _e('Infowindow Arrow Style:', 'wpgmp_google_map')?></label>
-        <select name="info_window_setting[info_window_arrow_style]">
-          <option value=""><?php _e('Select Arrow Style', 'wpgmp_google_map')?></option>
-          <option value="0"<?php selected($unserialize_map_info_window_setting['info_window_arrow_style'],0) ?>>0</option>
-          <option value="1"<?php selected($unserialize_map_info_window_setting['info_window_arrow_style'],1) ?>>1</option>
-          <option value="2"<?php selected($unserialize_map_info_window_setting['info_window_arrow_style'],2) ?>>2</option>
-        </select>
-        <p class="description"><?php _e('Please select info window arrow style.', 'wpgmp_google_map')?></p>
+   
+     <div class="col-md-4 left">    <label for="title"><?php _e('Turn Off Pan Control', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">
+	<p class="description"><input type="checkbox" name="control[pan_control]" value="false"<?php checked($unserialize_map_control_setting['pan_control'],'false') ?>/>
+	<?php _e('Please check to disable pan control.', 'wpgmp_google_map')?></p>
   </div>
- <?php
-}
-else
-{
-?>
-<div id="disply_info_window" style="display:none;">
-    
-    <label for="title"><?php _e('Turn Off Infowindow', 'wpgmp_google_map')?></label>
-	<input type="checkbox" name="info_window_setting[info_window]"  value="false"<?php checked($unserialize_map_info_window_setting['info_window'],'false') ?>/>
-	<p class="description"><?php _e('Please check to disable infowindow messages.', 'wpgmp_google_map')?></p>
-    <label><?php _e('Infowindow Width:', 'wpgmp_google_map')?></label>
-    <input type="text" name="info_window_setting[info_window_width]" value="<?php echo $unserialize_map_info_window_setting['info_window_width']; ?>" class="create_map"/>&nbsp;px
-    <p class="description"><?php _e('Please insert info window Width.', 'wpgmp_google_map')?></p>
-    
-    <label><?php _e('Infowindow Height:', 'wpgmp_google_map')?></label>
-    <input type="text" name="info_window_setting[info_window_height]" class="create_map" value="<?php echo $unserialize_map_info_window_setting['info_window_height']; ?>" />&nbsp;px
-    <p class="description"><?php _e('Please insert info window height.', 'wpgmp_google_map')?></p>
-    
-     <label><?php _e('Infowindow ShadowStyle:', 'wpgmp_google_map')?></label>
-        <select name="info_window_setting[info_window_shadow_style]">
-          <option value=""><?php _e('Select Shawdow Style', 'wpgmp_google_map')?></option>
-          <option value="0"<?php selected($unserialize_map_info_window_setting['info_window_shadow_style'],0) ?>>0</option>
-          <option value="1"<?php selected($unserialize_map_info_window_setting['info_window_shadow_style'],1) ?>>1</option>
-          <option value="2"<?php selected($unserialize_map_info_window_setting['info_window_shadow_style'],2) ?>>2</option>
-        </select>
-     <p class="description"><?php _e('Please select info window shawdow style.', 'wpgmp_google_map')?></p>
-      
-        <label><?php _e('Infowindow Border Radius:', 'wpgmp_google_map')?></label>
-        <input type="text" name="info_window_setting[info_window_border_radious]" value="<?php echo $unserialize_map_info_window_setting['info_window_border_radious']; ?>" class="create_map"/>&nbsp;px
-        <p class="description"><?php _e('Please insert info window border radious.', 'wpgmp_google_map')?></p>
-      
-        <label><?php _e('Infowindow Border Width:', 'wpgmp_google_map')?></label>
-        <input type="text" name="info_window_setting[info_window_border_width]" value="<?php echo $unserialize_map_info_window_setting['info_window_border_width']; ?>" class="create_map"/>&nbsp;px
-        <p class="description"><?php _e('Please insert info window border width.', 'wpgmp_google_map')?></p>
-      
-        <label><?php _e('Infowindow Border Color:', 'wpgmp_google_map')?></label>
-        <input type="text" value="<?php echo $unserialize_map_info_window_setting['info_window_border_color']; ?>" name="info_window_setting[info_window_border_color]" class="color {pickerClosable:true}" />
-        <p class="description"><?php _e('Please insert info window border color.', 'wpgmp_google_map')?></p>
-     
-        <label><?php _e('Infowindow Background Color:', 'wpgmp_google_map')?></label>
-        <input type="text" value="<?php echo $unserialize_map_info_window_setting['info_window_background_color']; ?>" name="info_window_setting[info_window_background_color]" class="color {pickerClosable:true}" />
-        <p class="description"><?php _e('Please insert info window background color.', 'wpgmp_google_map')?></p>
-     
-        <label><?php _e('Infowindow Arrow Size:', 'wpgmp_google_map')?></label>
-        <input type="text" name="info_window_setting[info_window_arrow_size]" value="<?php echo $unserialize_map_info_window_setting['info_window_arrow_size']; ?>" class="create_map"/>&nbsp;px
-        <p class="description"><?php _e('Please insert info window arrow size.', 'wpgmp_google_map')?></p>
-     
-        <label><?php _e('Infowindow Arrow Position:', 'wpgmp_google_map')?></label>
-        <input type="text" name="info_window_setting[info_window_arrow_position]" value="<?php echo $unserialize_map_info_window_setting['info_window_arrow_position']; ?>" class="create_map"/>&nbsp;%
-        <p class="description"><?php _e('Please insert info window arrow position.', 'wpgmp_google_map')?></p>
-     
-        <label><?php _e('Infowindow Arrow Style:', 'wpgmp_google_map')?></label>
-        <select name="info_window_setting[info_window_arrow_style]">
-          <option value=""><?php _e('Select Arrow Style', 'wpgmp_google_map')?></option>
-          <option value="0"<?php selected($unserialize_map_info_window_setting['info_window_arrow_style'],0) ?>>0</option>
-          <option value="1"<?php selected($unserialize_map_info_window_setting['info_window_arrow_style'],1) ?>>1</option>
-          <option value="2"<?php selected($unserialize_map_info_window_setting['info_window_arrow_style'],2) ?>>2</option>
-        </select>
-        <p class="description"><?php _e('Please select info window arrow style.', 'wpgmp_google_map')?></p>
-  </div>
-<?php
-}
-?>	
+     <div class="col-md-4 left">    
+    <label for="title"><?php _e('Turn Off Zoom Control', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">
+	<p class="description"><input type="checkbox" name="control[zoom_control]" value="false"<?php checked($unserialize_map_control_setting['zoom_control'],'false') ?>/>
+	<?php _e('Please check to disable zoom control.', 'wpgmp_google_map')?></p>
+    </div>
+     <div class="col-md-4 left">  
+    <label for="title"><?php _e('Turn Off Map Type Control', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">
+	<p class="description"><input type="checkbox" name="control[map_type_control]" value="false"<?php checked($unserialize_map_control_setting['map_type_control'],'false') ?>/>
+	<?php _e('Please check to disable map type control.', 'wpgmp_google_map')?></p>
+    </div>
+     <div class="col-md-4 left">  
+    <label for="title"><?php _e('Turn Off Scale Control', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">
+	<p class="description"><input type="checkbox" name="control[scale_control]" value="false"<?php checked($unserialize_map_control_setting['scale_control'],'false') ?>/>
+	<?php _e('Please check to disable scale control.', 'wpgmp_google_map')?></p>
+    </div>
+     <div class="col-md-4 left"> 
+    <label for="title"><?php _e('Turn Off Street View Control', 'wpgmp_google_map')?></label> </div>
+   <div class="col-md-7">
+	<p class="description"><input type="checkbox" name="control[street_view_control]" value="false"<?php checked($unserialize_map_control_setting['street_view_control'],'false') ?>/>
+	<?php _e('Please check to disable street view control.', 'wpgmp_google_map')?></p>
+    </div>
+     <div class="col-md-4 left">  
+    <label for="title"><?php _e('Turn Off Overview Map Control', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">
+	<p class="description"><input type="checkbox" name="control[overview_map_control]" value="false"<?php checked($unserialize_map_control_setting['overview_map_control'],'false') ?>/>
+	<?php _e('Please check to disable overview map control.', 'wpgmp_google_map')?></p>
+    </div>
 </fieldset>
+
+
+
 <fieldset>
-    <legend><?php _e('Street View Settings', 'wpgmp_google_map')?></legend>
+    <legend><?php _e('Street View Setting', 'wpgmp_google_map')?></legend>
     
-     <label for="title"><?php _e('Turn On Street View', 'wpgmp_google_map')?></label>
-	<input type="checkbox" name="street_view_control[street_control]"  class="street_view_toggle" value="true"<?php checked($unserialize_map_street_view_setting['street_control'],'true') ?>/>
-	<p class="description"><?php _e('Please check to enable Street View control.', 'wpgmp_google_map')?></p>
- 
+   <div class="col-md-4 left">  <label for="title"><?php _e('Turn On Street View', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">
+	<p class="description"><input type="checkbox" name="street_view_control[street_control]"  class="street_view_toggle" value="true"<?php checked($unserialize_map_street_view_setting['street_control'],'true') ?>/>
+	<?php _e('Please check to enable Street View control.', 'wpgmp_google_map')?></p>
+ </div>
 <?php
 if( $unserialize_map_street_view_setting['street_control']=='true' )
 {
 ?>   
 <div id="disply_street_view">
   
-        <label for="title"><?php _e('Turn On Close Button', 'wpgmp_google_map')?></label>
-	<input type="checkbox" name="street_view_control[street_view_close_button]" value="true"<?php checked($unserialize_map_street_view_setting['street_view_close_button'],'true') ?>/>
-	<p class="description"><?php _e('Please check to enable Close button.', 'wpgmp_google_map')?></p>
-    
-    <label for="title"><?php _e('Turn Off links Control', 'wpgmp_google_map')?></label>
-	<input type="checkbox" name="street_view_control[links_control]" value="false"<?php checked($unserialize_map_street_view_setting['links_control'],'false') ?>/>
-	<p class="description"><?php _e('Please check to disable links control.', 'wpgmp_google_map')?></p>
-    
-    <label for="title"><?php _e('Turn Off Street View Pan Control', 'wpgmp_google_map')?></label>
-	<input type="checkbox" name="street_view_control[street_view_pan_control]" value="false"<?php checked($unserialize_map_street_view_setting['street_view_pan_control'],'false') ?>/>
-	<p class="description"><?php _e('Please check to disable Street View Pan control.', 'wpgmp_google_map')?></p>
+     <div class="col-md-4 left">    <label for="title"><?php _e('Turn On Close Button', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">
+	<p class="description"><input type="checkbox" name="street_view_control[street_view_close_button]" value="true"<?php checked($unserialize_map_street_view_setting['street_view_close_button'],'true') ?>/>
+	<?php _e('Please check to enable Close button.', 'wpgmp_google_map')?></p>
+    </div>
+     <div class="col-md-4 left">
+    <label for="title"><?php _e('Turn Off links Control', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">
+	<p class="description"><input type="checkbox" name="street_view_control[links_control]" value="false"<?php checked($unserialize_map_street_view_setting['links_control'],'false') ?>/>
+	<?php _e('Please check to disable links control.', 'wpgmp_google_map')?></p>
+     </div>
+     <div class="col-md-4 left">
+    <label for="title"><?php _e('Turn Off Street View Pan Control', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">
+	<p class="description"><input type="checkbox" name="street_view_control[street_view_pan_control]" value="false"<?php checked($unserialize_map_street_view_setting['street_view_pan_control'],'false') ?>/>
+	<?php _e('Please check to disable Street View Pan control.', 'wpgmp_google_map')?></p>
    </div> 
+   </div>
  <?php
 }
 else
@@ -770,23 +650,35 @@ else
 ?>
 <div id="disply_street_view" style="display:none;">
   
-        <label for="title"><?php _e('Turn On Close Button', 'wpgmp_google_map')?></label>
-	<input type="checkbox" name="street_view_control[street_view_close_button]" value="true"<?php checked($unserialize_map_street_view_setting['street_view_close_button'],'true') ?>/>
-	<p class="description"><?php _e('Please check to enable Close button.', 'wpgmp_google_map')?></p>
-    
-    <label for="title"><?php _e('Turn Off links Control', 'wpgmp_google_map')?></label>
-	<input type="checkbox" name="street_view_control[links_control]" value="false"<?php checked($unserialize_map_street_view_setting['links_control'],'false') ?>/>
-	<p class="description"><?php _e('Please check to disable links control.', 'wpgmp_google_map')?></p>
-    
-    <label for="title"><?php _e('Turn Off Street View Pan Control', 'wpgmp_google_map')?></label>
-	<input type="checkbox" name="street_view_control[street_view_pan_control]" value="false"<?php checked($unserialize_map_street_view_setting['street_view_pan_control'],'false') ?>/>
-	<p class="description"><?php _e('Please check to disable Street View Pan control.', 'wpgmp_google_map')?></p>
+      <div class="col-md-4 left">   <label for="title"><?php _e('Turn On Close Button', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">
+	<p class="description"><input type="checkbox" name="street_view_control[street_view_close_button]" value="true"<?php checked($unserialize_map_street_view_setting['street_view_close_button'],'true') ?>/>
+	<?php _e('Please check to enable Close button.', 'wpgmp_google_map')?></p>
+    </div>
+     <div class="col-md-4 left">
+    <label for="title"><?php _e('Turn Off links Control', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">
+	<p class="description"><input type="checkbox" name="street_view_control[links_control]" value="false"<?php checked($unserialize_map_street_view_setting['links_control'],'false') ?>/>
+	<?php _e('Please check to disable links control.', 'wpgmp_google_map')?></p>
+    </div>
+     <div class="col-md-4 left">
+    <label for="title"><?php _e('Turn Off Street View Pan Control', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">
+	<p class="description"><input type="checkbox" name="street_view_control[street_view_pan_control]" value="false"<?php checked($unserialize_map_street_view_setting['street_view_pan_control'],'false') ?>/>
+	<?php _e('Please check to disable Street View Pan control.', 'wpgmp_google_map')?></p>
+   </div>
    </div>
 <?php
 }
 ?>
     
 </fieldset>
+
+<fieldset>
+    <legend><?php _e('Map Style Settings', 'wpgmp_google_map')?></legend>
+	 	<p class="description"><?php _e('Available in Pro Version. <a target="_blank" href="http://codecanyon.net/item/advanced-google-maps/5211638">Buy Now</a>', 'wpgmp_google_map')?></p>
+</fieldset>
+
 <fieldset>
     <legend><?php _e('Polygon Settings', 'wpgmp_google_map')?></legend>  
  	<p class="description"><?php _e('Available in Pro Version. <a target="_blank" href="http://codecanyon.net/item/advanced-google-maps/5211638">Buy Now</a>', 'wpgmp_google_map')?></p>
@@ -807,17 +699,20 @@ else
 
 </fieldset>
 	<p class="submit">
-	<input type="submit" name="update_map" id="submit" class="button button-primary" value="<?php _e('Update Map', 'wpgmp_google_map')?>">
+	<input type="submit" name="update_map" id="submit" class="btn btn-primary" value="<?php _e('Update Map', 'wpgmp_google_map')?>">
 	
     </p>
 </div>
 </form>
 </div>
+</div>
+</div></div>
 <?php } else {  ?>
-<div class="wrap">
+<div class="wpgmp-wrap">  
+<div class="col-md-12">
  
 <div id="icon-options-general" class="icon32"><br></div>
-<h2><?php _e('Manage Maps', 'wpgmp_google_map')?></h2><br />
+<h3><span class="glyphicon glyphicon-asterisk"></span><?php _e('Manage Maps', 'wpgmp_google_map')?></h3>
 <?php
 $location_list_table = new Wpgmp_Maps_Table();
 $location_list_table->prepare_items();
@@ -828,7 +723,7 @@ $location_list_table->search_box( 'search', 'search_id' );
 $location_list_table->display();
 ?> 
 </form> 
-</div>
+</div></div>
 <?php
 } 
 }

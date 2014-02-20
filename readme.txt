@@ -11,16 +11,17 @@ Tested up to:      3.8.1
 Stable tag:        Easiest way to create Google Maps! A plugin to display multiple location markers, customized map skins, infowindows and much more. Based on the latest Google API Version.   
 
 == Description ==
-Display <strong>Google Maps</strong> at a shortcode’s ease! WP Google Map Plugin is a simple tool to add single or multiple markers on the same map and display on your webpage using a shortcode. The plugin is also featured to automatically extract exact latitude and longitude from a provided address. WP Google Map plugin hassle free transfers your map to any number of domains without a Google Map API Key. 
+Display Google Maps at a shortcode’s ease! WP Google Map Plugin is a simple tool to add single or multiple markers on the same map and display on your webpage using a shortcode. The plugin is also featured to automatically extract exact latitude and longitude from a provided address. WP Google Map plugin hassle free transfers your map to any number of domains without a Google Map API Key. 
 Here is a quick highlight on the numerous customizable features offered by the free and pro versions of the WP Google Map plugin.
 
 Here is a quick highlight on the numerous customizable features offered by the free and pro versions of the  [WP Google Map Pro Version](http://codecanyon.net/item/advanced-google-maps/5211638).
 
 = Lite Version (Free) =
-* Create <strong>unlimited maps</strong> and display on posts/pages using shortcode
-* Add <strong>unlimited locations</strong> using an easy to use interface for Google Maps
+* Create unlimited maps and display on posts/pages using shortcode
+* Add unlimited locations using an easy to use interface for Google Maps
 * Customize marker image for each location separately or group wise. Choose from +500 readymade markers or pick your own image
-* Display your map perfectly on all devices. Create <strong>100% responsive maps</strong> effortlessly
+* Display your map perfectly on all devices. Create 100% responsive maps effortlessly
+* First & the only wordpress plugin to support multiple infowindows with title
 * Display Google Maps on sidebars using widget
 * Add any number of Google maps on pages/posts/sidebars
 * Display Road Map view. This is the default map type
@@ -35,7 +36,7 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * Apply any type of marker customization on Google map infowindows
 * Display photos from Panoramio as a layer to your maps using the Panoramio Layer
 * A Cross Browser Compatible plugin. Fully tested on IE8, IE9, IE10 and all major browsers
-* Enable <strong>visual refresh</strong> on any Google Map on a button’s click
+* Enable visual refresh on any Google Map at a button’s click
 * No need of any Google API key. Based on API Version 3.
 * Fully Responsive. Tested on real devices.
 * Display one infowindow at a time.
@@ -50,15 +51,6 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * Define KML Layers on Google Maps
 * Apply 45 Imagery view on Google Maps
 * Fusion Table Layers 
-* Ability to <strong>Export Locations in JSON, XML,EXCLE or CSV</strong> Format.
-* Ability to <strong>Import Locations using JSON, XML,EXCLE or CSV</strong> Format.
-* <strong>Quick Locations</strong> Feature to add multiple locations manually very quickly. 
-* Draw <strong>multiple Polylines</strong> easily with help of mouse. Choose your own colors, opacity, stroke width.
-* Draw <strong>multiple Polygons</strong> easily with help of mouse. Choose your own fill colors,stroke colors, opacity, stroke width.
-* Draw <strong>multiple Rectangles</strong> easily with help of mouse. Choose your own fill colors,stroke colors, opacity, stroke width.
-* Draw <strong>multiple Circles</strong> easily with help of mouse. Choose your own fill colors,stroke colors, opacity, stroke width.
-* A easy way to limit panning/dragging so the map stays within certain bounds.
-* A easy way to restrict map on a minimum zoom level.
 * Download [WP Google Map Pro Edition](http://codecanyon.net/item/advanced-google-maps/5211638)
 
 = DEMO =
@@ -77,8 +69,6 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * [Google Map KML Layers using WordPress Plugin](http://www.flippercode.com/implement-kml-layers-on-google-map-using-wordpress-plugin)
 * [Display Polylines on Google Map](http://www.flippercode.com/display-polylines-on-google-map-using-wordpress-plugin)
 * [Display Route Direction on Google Map](http://www.flippercode.com/display-route-direction-on-google-map-using-wordpress-plugin)
-* [Draw Circles on google maps](http://www.flippercode.com/draw-circles-on-google-maps/)
-* [Draw Rectangles on Google Maps](http://www.flippercode.com/draw-rectangles-on-google-maps/)
 
 
 Importance
@@ -138,6 +128,6 @@ Version 1.1.0
 3. Added Widget Support
 4. Added multiple maps on a page support.
 == Frequently Asked Questions ==
-Check Demo here http://www.flippercode.com/wp-google-map-pro-examples/
+Check Demo here http://wwww.flippercode.com/wp-google-map-plugin-demo/
 == Donations ==
 

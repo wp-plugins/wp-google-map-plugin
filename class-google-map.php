@@ -219,6 +219,7 @@ else
 	  $height = "300px";
 	  
 }
+
 $this->divID="wgmpmap";
 $this->code='
 <style>
@@ -499,40 +500,9 @@ if( $this->map_layers=="BicyclingLayer" )
 
 }
 
-
-if( $this->displaymarker!='' ) {
-	$displaymarker = $this->displaymarker[0];
-	$this->code.='
-	var latLng = new google.maps.LatLng('.$displaymarker['lat'].','.$displaymarker['long'].')
-	var marker = new google.maps.Marker({
-				 map:'.$this->divID.',
-				 position: latLng,
-				 title:"'.$displaymarker['title'].'"
-	});';
-	
-	$infos = str_replace(array("\r","\n"),'"+"',$displaymarker['message']);
-						
-	$this->code.='
-	'.$this->infowindow.' =  new google.maps.InfoWindow({
-												content: "'.$infos.'"
-												});	';
-	
-	$this->code.=" infoWindows.push(".$this->infowindow.");"; 											
-	$this->code.="google.maps.event.addListener(marker, 'click', function() { ";											
-	$this->code.="wgmp_closeAllInfoWindows();";
-	$this->code.="".$this->infowindow.".open(".$this->divID.",marker);
-	
-	
-	
-	});";
-}
-
-		
-		
 		
 for($i=0; $i < count($this->marker); $i++)
 {
-  
   if( empty($this->marker[$i]['draggable']) )
 	 $this->marker[$i]['draggable']='false';
 
@@ -567,7 +537,10 @@ if( $this->marker[$i]['info']!='' )
 	
 	if( is_array($infos) )
 	{
-		$infos_mess_one = str_replace(array("\r","\n"),'"+"',$infos['first']['message']);
+		$message = nl2br($infos['first']['message']);
+		$infos = str_replace(array("\r\n"),'"+"',$message);
+		$infos_mess_one = do_shortcode($infos);
+		
 				$this->code.='
 				'.$this->infowindow.''.$i.$this->divID.' =  new google.maps.InfoWindow({
 					content: "'.$infos_mess_one.'"
@@ -661,20 +634,6 @@ $this->code.='</script>';
 
 }
 
-
-public function addDisplayMarker($lat,$long,$title,$message)
-{
-	$count=count($this->displaymarker);	
-	
-	$this->displaymarker[$count]['lat']=$lat;
-	
-	$this->displaymarker[$count]['long']=$long;
-	
-	$this->displaymarker[$count]['title']=$title;
-	
-	$this->displaymarker[$count]['message']=$message;
-}
-
 public function addMarker($lat,$lng,$click='false',$title='My WorkPlace',$info='Hello World',$icon='',$map='map',$draggable='',$animation='',$group_id='')
 {
 	$count=count($this->marker);	
@@ -683,15 +642,15 @@ public function addMarker($lat,$lng,$click='false',$title='My WorkPlace',$info='
 	
 	$this->marker[$count]['lng']=$lng;
 	
-	$this->marker[$count]['map']=$map;
+	$this->marker[$count]['click']=$click;
 	
 	$this->marker[$count]['title']=$title;
 	
-	$this->marker[$count]['click']=$click;
+	$this->marker[$count]['info']=$info;
 	
 	$this->marker[$count]['icon']=$icon;
 	
-	$this->marker[$count]['info']=$info;
+	$this->marker[$count]['map']=$map;
 	
 	$this->marker[$count]['draggable']=$draggable;
 	

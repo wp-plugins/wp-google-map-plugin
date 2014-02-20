@@ -420,36 +420,35 @@ $un_info_window_setting = unserialize($map_locations->map_info_window_setting);
  
 function wpgmp_settings(){
 ?>
-<div class="wrap">  
-<div id="icon-options-general" class="icon32"><br></div><h2><?php _e( 'WP Google Map Plugin Settings', 'wpgmp_google_map' ) ?></h2>
+<div class="wpgmp-wrap"> 
+<div class="col-md-11">   
+<div id="icon-options-general" class="icon32"><br></div>
+<h3><span class="glyphicon glyphicon-asterisk"></span><?php _e( 'Google WP Map Pro Settings', 'wpgmp_google_map' ) ?></h3>
+<div class="wpgmp-overview">
         <form method="post" action="options.php">  
             <?php wp_nonce_field('update-options') ?>  
       <p>
 <a href="<?php echo get_bloginfo('siteurl'); ?>/wp-admin/admin.php?page=wpgmp_add_location"><?php _e( 'Click Here', 'wpgmp_google_map' ) ?></a>&nbsp; <?php _e( 'to add a new location or', 'wpgmp_google_map' ) ?>&nbsp;<a href="<?php echo get_bloginfo('siteurl'); ?>/wp-admin/admin.php?page=wpgmp_manage_location"><?php _e( 'Browse', 'wpgmp_google_map' ) ?></a>&nbsp; <?php _e( 'your existings locations.', 'wpgmp_google_map' ) ?>
  </p>
        
-      <table class="form-table">
-<tbody>    
-            <tr valign="top">
-<th scope="row"><label for="wpgmp_zoomlevel"><?php _e( 'Zoom Level', 'wpgmp_google_map' ) ?></label></th>
-<td><input type="text" name="wpgmp_zoomlevel" size="45" value="<?php echo get_option('wpgmp_zoomlevel'); ?>" />
-<p class="description"><?php _e( 'Choose Zoom Level between 1 to 14. Default is 4.', 'wpgmp_google_map' ) ?> </p></td>
-</tr>
-<tr valign="top">
-<th scope="row"><label for="wpgmp_centerlatitude"><?php _e( 'Center Latitude', 'wpgmp_google_map' ) ?></label></th>
-<td><input type="text" name="wpgmp_centerlatitude" size="45" value="<?php echo get_option('wpgmp_centerlatitude'); ?>" />
-<p class="description"><?php _e( 'Write down center location on the map.', 'wpgmp_google_map' ) ?></p></td>
-</tr>
-<tr valign="top">
-<th scope="row"><label for="wpgmp_centerlongitude"><?php _e( 'Center Longitude', 'wpgmp_google_map' ) ?></label></th>
-<td><input type="text" name="wpgmp_centerlongitude" size="45" value="<?php echo get_option('wpgmp_centerlongitude'); ?>" />
-<p class="description"><?php _e( 'Write down center location on the map.', 'wpgmp_google_map' ) ?></p></td>
-</tr>
-<tr valign="top">
-<th scope="row"><label for="wpgmp_language"><?php _e( 'Select Language', 'wpgmp_google_map' ) ?></label>
-</th>
-<td>
-<select name="wpgmp_language">
+      <div class="form-horizontal">
+    <div class="col-md-4 left"><label for="wpgmp_zoomlevel"><?php _e( 'Zoom Level', 'wpgmp_google_map' ) ?></label></div>
+   <div class="col-md-7"><input type="text" class="form-control" name="wpgmp_zoomlevel" size="45" value="<?php echo get_option('wpgmp_zoomlevel'); ?>" />
+<p class="description"><?php _e( 'Choose Zoom Level between 1 to 14. Default is 4.', 'wpgmp_google_map' ) ?> </p></div>
+           	
+    <div class="col-md-4 left"><label for="wpgmp_centerlatitude"><?php _e( 'Center Latitude', 'wpgmp_google_map' ) ?></label></div>
+   <div class="col-md-7"><input type="text"  class="form-control" name="wpgmp_centerlatitude" size="45" value="<?php echo get_option('wpgmp_centerlatitude'); ?>" />
+<p class="description"><?php _e( 'Write down center location on the map.', 'wpgmp_google_map' ) ?></p></div>
+       
+        	
+    <div class="col-md-4 left"><label for="wpgmp_centerlongitude"><?php _e( 'Center Longitude', 'wpgmp_google_map' ) ?></label></div>
+   <div class="col-md-7"><input type="text" class="form-control" name="wpgmp_centerlongitude" size="45" value="<?php echo get_option('wpgmp_centerlongitude'); ?>" />
+<p class="description"><?php _e( 'Write down center location on the map.', 'wpgmp_google_map' ) ?></p></div>
+       
+        	
+    <div class="col-md-4 left"><label for="wpgmp_language"><?php _e( 'Select Language', 'wpgmp_google_map' ) ?></label></div>
+   <div class="col-md-7">
+<select name="wpgmp_language" class="form-control">
  <option value="en"<?php selected(get_option('wpgmp_language'),'en') ?>><?php _e( 'ENGLISH', 'wpgmp_google_map' ) ?></option>
  <option value="ar"<?php selected(get_option('wpgmp_language'),'ar') ?>><?php _e( 'ARABIC', 'wpgmp_google_map' ) ?></option>
  <option value="eu"<?php selected(get_option('wpgmp_language'),'eu') ?>><?php _e( 'BASQUE', 'wpgmp_google_map' ) ?></option>
@@ -505,21 +504,14 @@ function wpgmp_settings(){
  <option value="zh-TW"<?php selected(get_option('wpgmp_language'),'zh-TW') ?>><?php _e( 'CHINESE (TRADITIONAL)', 'wpgmp_google_map' ) ?></option>
  </select>
 <p class="description"><?php _e( 'Default is English.', 'wpgmp_google_map' ) ?></p>
-</td>
-</tr>
-</tbody>
-   
-</table>        
-<input type="hidden" name="action" value="update" />  
+</div>
+ <input type="hidden" name="action" value="update" />  
 <input type="hidden" name="page_options" value="wpgmp_zoomlevel,wpgmp_centerlatitude,wpgmp_centerlongitude,wpgmp_mapwidth,wpgmp_mapheight,wpgmp_language,wpgmp_default_marker,wpgmp_mashup" />  
-     
-    <p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="<?php _e( 'Save Changes', 'wpgmp_google_map' ) ?>"></p>
+   <div class="col-md-4 left">  </div><div class="col-md-7">  
+    <input type="submit" name="submit" id="submit" class="btn btn-lg btn-primary" value="<?php _e( 'Save Changes', 'wpgmp_google_map' ) ?>"></div>
  		   </form> 
- <p>
- 
-</fieldset>
- </p>
-    </div>  
+</div>
+    </div> </div>  
 <?php
 }
 /**
@@ -608,6 +600,9 @@ function wpgmp_google_map_load(){
 wp_enqueue_style(
 		'google_map_css',
 		plugins_url( '/css/google-map.css' , __FILE__ ));
+wp_enqueue_style(
+		'google_bootstrap_css',
+		plugins_url( '/css/bootstrap.css' , __FILE__ ));		
 }
   
 function wpgmp_excerpt_more(){
@@ -706,7 +701,19 @@ add_shortcode('display_map','wpgmp_display_map');
 add_action('admin_print_scripts', 'wpgmp_admin_scripts');
 add_action('admin_print_styles', 'wpgmp_admin_styles');
 add_action('admin_head', 'wpgmp_js_head');
+add_shortcode('post','return_post_content');
 }
+
+function return_post_content($atts, $content=null)
+{
+	$post = get_post($atts['id']);
+	setup_postdata($post);
+	$content = "<div><h4>".get_the_title()."</h4>";
+	$content .= "<p>".get_the_excerpt()."</p>";
+	wp_reset_postdata();
+	return $content;
+}
+
 add_action('widgets_init' , 'wpgmp_google_map_widget');
 add_action('init', 'wpgmp_load_actions');
 include_once("wpgmp-all-js.php");
@@ -733,7 +740,7 @@ function wpgmp_showMessage($message, $errormsg = false)
 		echo '<div id="message" class="error">';
 	}
 	else {
-		echo '<div id="message" class="updated fade">';
+		echo '<div id="message" class="updated">';
 	}
 	echo "<p><strong>$message</strong></p></div>";
 } 
@@ -746,7 +753,8 @@ function wpgmp_showMessage($message, $errormsg = false)
 function wpgmp_admin_overview()  {
 	?>
 	<div class="wrap wpgmp-wrap">
-		<h2><?php _e('How to Use', 'wpgmp_google_map') ?></h2>
+    <div class="col-md-11"> 
+		<h3><span class="glyphicon glyphicon-asterisk"></span><?php _e('How to Use', 'wpgmp_google_map') ?></h3>
 		<div id="dashboard-widgets-container" class="wpgmp-overview">
 		    <div id="dashboard-widgets" class="metabox-holder">
 				<div id="post-body">
@@ -772,7 +780,7 @@ function wpgmp_admin_overview()  {
 		    </div>
 		</div>
 		<div style="clear:both"></div>
-			<h2><?php _e('Pro Version', 'wpgmp_google_map') ?></h2>
+			<h3><span class="glyphicon glyphicon-asterisk"></span><?php _e('Pro Version', 'wpgmp_google_map') ?></h3>
 		<div id="dashboard-widgets-container" class="wpgmp-overview">
 		    <div id="dashboard-widgets" class="metabox-holder">
 				<div id="post-body">
@@ -789,7 +797,7 @@ function wpgmp_admin_overview()  {
 
 	
 		<div style="clear:both"></div>
-			<h2><?php _e('Online Documentation', 'wpgmp_google_map') ?></h2>
+			<h3><span class="glyphicon glyphicon-asterisk"></span><?php _e('Online Documentation', 'wpgmp_google_map') ?></h3>
 		<div id="dashboard-widgets-container" class="wpgmp-overview">
 		    <div id="dashboard-widgets" class="metabox-holder">
 				<div id="post-body">

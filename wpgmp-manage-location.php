@@ -217,9 +217,9 @@ if( $_GET['action']=='edit' && $_GET['location']!='' )
 $user_record = $wpdb->get_row($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."map_locations WHERE location_id=%d",$_GET['location']));
 $unmess = unserialize(base64_decode($user_record->location_messages));
 ?>
-<div class="wrap">  
-<div id="icon-options-general" class="icon32"><br></div>
-<h2><?php _e('Edit Location', 'wpgmp_google_map')?></h2><br />
+<div class="wpgmp-wrap"> <div class="col-md-11"> <div id="icon-options-general" class="icon32"><br></div>
+<h3><span class="glyphicon glyphicon-asterisk"></span><?php _e('Edit Location', 'wpgmp_google_map')?></h3>
+<div class="wpgmp-overview">
 <form method="post">
 <?php
 if( !empty($error) )
@@ -233,56 +233,55 @@ if( !empty($success) )
     
     wpgmp_showMessage($success);
 }
-?>
-<div class="map_table">
-    <label for="Title"><?php _e('Location Title', 'wpgmp_google_map')?>&nbsp;<span style="color:#F00;">*</span></label>
-    
-    <input name="googlemap_title" type="text" style="width:350px;" value="<?php echo stripslashes($user_record->location_title 	); ?>" size="50" class="code" >
-    
-    <p class="description"><?php _e('Insert here the location title.', 'wpgmp_google_map')?></p>
-    
-    <label for="Description"><?php _e('Address', 'wpgmp_google_map')?>&nbsp;<span style="color:#F00;">*</span></label>
-    
-    <input type="text" name="googlemap_address" style="width:350px;" id="googlemap_address" size="50" class="code" value="<?php echo stripslashes($user_record->location_address); ?>" />
-    
-    <input type="button" value="Geocode" onclick="geocodeaddress()" class="button button-primary">
-    
-    <p class="description"><?php _e('Insert here the address.', 'wpgmp_google_map')?></p>
-    
-    <input type="text" name="googlemap_latitude" id="googlemap_latitude" class="google_latitude" placeholder="<?php _e('Latitude', 'wpgmp_google_map')?>" style="width:167px; margin-left:230px;" value="<?php echo $user_record->location_latitude; ?>" />&nbsp;&nbsp;&nbsp;
-    
-    <input type="text" name="googlemap_longitude" id="googlemap_longitude" class="google_longitude" placeholder="<?php _e('Longitude', 'wpgmp_google_map')?>" value="<?php echo $user_record->location_longitude; ?>" />
-    
-    <p class="description"><?php _e('Insert here the latitude.', 'wpgmp_google_map')?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php _e('Insert here the longitude.', 'wpgmp_google_map')?></p><br />
-    
-    <div id="map" style="width: 700px; height: 300px;margin: 0.6em; margin-left:230px;"></div><br /><br />   
-    
-    <label for="title"><?php _e('Infowindow Title', 'wpgmp_google_map')?></label>
-    
-    <input type="text" name="infowindow_message[googlemap_infowindow_title_one]" style="width:350px;" value="<?php echo stripslashes($unmess['googlemap_infowindow_title_one']); ?>" />
-    
-    <p class="description"><?php _e('Insert here the Infowindow title.', 'wpgmp_google_map')?></p>
-    
-    <label for="title"><?php _e('Infowindow Message', 'wpgmp_google_map')?></label>
-    
-    <textarea rows="3" cols="70" name="infowindow_message[googlemap_infowindow_message_one]" id="googlemap_infomessage" size="45" /><?php echo stripslashes($unmess['googlemap_infowindow_message_one']); ?></textarea>
-    
-    <p class="description"><?php _e('Insert here the Infowindow message.', 'wpgmp_google_map')?></p>
-    
 
-    
-    <label for="title"><?php _e('Is Draggable', 'wpgmp_google_map')?></label>
-    
-    <input type="checkbox" name="googlemap_draggable" value="true"<?php checked($user_record->location_draggable,'true') ?>/>
-    
-    <p class="description"><?php _e('Marker Draggable.', 'wpgmp_google_map')?></p>
-    
-    <label for="Image"><?php _e('Choose Marker Image', 'wpgmp_google_map')?></label>
-    
-    <div style=" margin-left:5px; width:78%; margin-bottom:10px;">     
-    
-   
+$infowindow_settings=unserialize($user_record->location_settings);
+?>
+<div>
+  <div class="form-horizontal">
+	  <div class="row">
+		<div class="col-md-2">    <label for="Title"><?php _e('Location Title', 'wpgmp_google_map')?>&nbsp;<span style="color:#F00;">*</span></label></div>
+		<div class="col-md-7"><input name="googlemap_title"   type="text" value="<?php echo stripslashes($user_record->location_title 	); ?>" size="50" class="code form-control" >
+		<p class="description"><?php _e('Enter here the location title', 'wpgmp_google_map')?></p></div>
+     </div>  
      
+    <div class="row">    	
+    <div class="col-md-2"><label for="Description"><?php _e('Address', 'wpgmp_google_map')?>&nbsp;</label></div>
+    <div class="col-md-7">
+     <div class="row"><div class="col-md-10"><input type="text" name="googlemap_address"   id="googlemap_address" size="50" class="code form-control" value="<?php echo stripslashes($user_record->location_address); ?>" /></div>
+  <div class="col-md-2"> <input type="button" value="Geocode" onclick="geocodeaddress()" class="btn btn-sm btn-primary"></div>
+  </div>
+    
+    <p class="description"><?php _e('Enter here the address. Google auto suggest helps you to choose one.', 'wpgmp_google_map')?></p>
+    
+   <div class="row"> <div class="col-md-6"> <input type="text" name="googlemap_latitude" id="googlemap_latitude" class="google_latitude form-control" placeholder="<?php _e('Latitude', 'wpgmp_google_map')?>" value="<?php echo $user_record->location_latitude; ?>" /> <p class="description"><?php _e('Enter here the latitude.', 'wpgmp_google_map')?></p></div>
+  
+  <div class="col-md-6"><input type="text" name="googlemap_longitude" id="googlemap_longitude" class="google_longitude form-control" placeholder="<?php _e('Longitude', 'wpgmp_google_map')?>" value="<?php echo $user_record->location_longitude; ?>" />
+    
+  <p class="description"> <?php _e('Enter here the longitude.', 'wpgmp_google_map')?></p></div>
+  </div>
+    
+    <div id="map" style="width:100%; height: 300px;margin: 0.6em;"></div>
+    </div>   
+    
+   </div>
+   
+   <div class="row">
+   <div class="col-md-2"><label for="title"><?php _e('Message', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7"> <textarea rows="3" cols="70" name="infowindow_message[googlemap_infowindow_message_one]" id="googlemap_infomessage" size="45" class="form-control"/><?php echo stripslashes($unmess['googlemap_infowindow_message_one']); ?></textarea>
+    <p class="description"><?php _e('Enter here the infoWindow message.', 'wpgmp_google_map')?></p>
+     </div>
+  </div>
+  
+   <div class="row">
+   <div class="col-md-2">    <label for="title"><?php _e('Draggable', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7">    <p class="description"><input type="checkbox" name="googlemap_draggable" value="true"<?php checked($user_record->location_draggable,'true') ?>/>
+    <?php _e('Do you want to allow visitors to drag the marker?.', 'wpgmp_google_map')?></p></div>
+   </div>
+    
+   <div class="row">
+   <div class="col-md-2"><label for="Image"><?php _e('Choose Marker Image', 'wpgmp_google_map')?></label></div>
+   <div class="col-md-7"> 
+    <div style=" margin-left:5px;  margin-bottom:10px;">     
     <?php
     
     global $wpdb;
@@ -317,7 +316,7 @@ if( !empty($success) )
     
     ?>	
     
-    <?php _e('No Marker groups found.', 'wpgmp_google_map')?> <a href="<?php echo admin_url('admin.php?page=wpgmp_google_wpgmp_create_group_map') ?>"><?php _e('Click Here', 'wpgmp_google_map')?></a><?php _e(' to add a new marker group.', 'wpgmp_google_map')?> 
+    <?php _e('You don\'t have any marker group yet.', 'wpgmp_google_map')?>&nbsp;<a href="<?php echo admin_url('admin.php?page=wpgmp_google_wpgmp_create_group_map') ?>"><?php _e('Click here', 'wpgmp_google_map')?></a>&nbsp;<?php _e('to add a group marker now', 'wpgmp_google_map')?> 
     
     <?php
     
@@ -328,24 +327,30 @@ if( !empty($success) )
      
     </div>
     
-    <p class="description"><?php _e('Please Select Group.', 'wpgmp_google_map')?></p>
+    <p class="description"><?php _e('Assign a marker group to this location.', 'wpgmp_google_map')?></p>
     
-    <p class="submit">
-    <input type="submit" name="update_location" id="submit" class="button button-primary" value="<?php _e('Update Locations', 'wpgmp_google_map')?>" style="width:130px;">
+    </div>
     
-    </p>
+    </div>
     
+     <div class="row">
+    <div class="col-md-7 col-md-offset-2">
+    <input type="submit" name="update_location" id="submit" class="btn btn-primary" value="<?php _e('Update Locations', 'wpgmp_google_map')?>">
+    </div>
+  </div> 
 </div>
 </form>
 </div>
+</div></div></div>
 <?php
 }
 else
 {
 ?>
-<div class="wrap">  
+<div class="wpgmp-wrap">
+<div class="col-md-12">   
 <div id="icon-options-general" class="icon32"><br></div>
-<h2><?php _e('Manage Locations', 'wpgmp_google_map')?></h2><br />
+<h3><span class="glyphicon glyphicon-asterisk"></span><?php _e('Manage Locations', 'wpgmp_google_map')?></h3>
 <?php
 $location_list_table = new Wpgmp_Location_Table();
 $location_list_table->prepare_items();
@@ -356,7 +361,7 @@ $location_list_table->search_box( 'search', 'search_id' );
 $location_list_table->display();
 ?> 
 </form> 
-</div>
+</div></div> 
 <?php
 }
 }
