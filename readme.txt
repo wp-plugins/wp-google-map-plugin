@@ -8,7 +8,7 @@ Author:            flippercode
 Donate link:       (a link for donating)
 Requires at least: 2.0.0 
 Tested up to:      3.8.1
-Stable tag:        Easiest way to create Google Maps! A plugin to display multiple location markers, customized map skins, infowindows and much more. Based on the latest Google API Version.   
+Stable tag:        Twitter Bootstrap Based! A plugin to display multiple location markers, customized map skins, infowindows and much more. Based on the latest Google API Version.   
 
 == Description ==
 Display Google Maps at a shortcode’s ease! WP Google Map Plugin is a simple tool to add single or multiple markers on the same map and display on your webpage using a shortcode. The plugin is also featured to automatically extract exact latitude and longitude from a provided address. WP Google Map plugin hassle free transfers your map to any number of domains without a Google Map API Key. 
@@ -17,6 +17,7 @@ Here is a quick highlight on the numerous customizable features offered by the f
 Here is a quick highlight on the numerous customizable features offered by the free and pro versions of the  [WP Google Map Pro Version](http://codecanyon.net/item/advanced-google-maps/5211638).
 
 = Lite Version (Free) =
+* Twitter Bootstrap 3 based.
 * Create unlimited maps and display on posts/pages using shortcode
 * Add unlimited locations using an easy to use interface for Google Maps
 * Customize marker image for each location separately or group wise. Choose from +500 readymade markers or pick your own image
@@ -30,7 +31,6 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * Display physical maps based on terrain information
 * Apply any type of marker customization on Google map infowindows
 * Display traffic real time conditions and overlays using Traffic Layers
-* Allows to add weather forecasts using Weather Layers
 * Add bicycle path information to your maps using the Bicycling Layer
 * Display physical maps based on terrain information
 * Apply any type of marker customization on Google map infowindows
@@ -51,6 +51,13 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * Define KML Layers on Google Maps
 * Apply 45 Imagery view on Google Maps
 * Fusion Table Layers 
+* Awesome Shortcodes to add unlimited locations by address or latitude/longitues.
+* Contact Form 7 Shortcode to include map in contact form 7.
+* An innovative Quick Locations feature to add locations quickly by click.
+* Export/Import Features using CSV/JSON/XML or EXCEL.
+
+ 
+
 * Download [WP Google Map Pro Edition](http://codecanyon.net/item/advanced-google-maps/5211638)
 
 = DEMO =
@@ -69,6 +76,7 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * [Google Map KML Layers using WordPress Plugin](http://www.flippercode.com/implement-kml-layers-on-google-map-using-wordpress-plugin)
 * [Display Polylines on Google Map](http://www.flippercode.com/display-polylines-on-google-map-using-wordpress-plugin)
 * [Display Route Direction on Google Map](http://www.flippercode.com/display-route-direction-on-google-map-using-wordpress-plugin)
+* [Display Multiple Markers using Address using Shortcodes](http://www.flippercode.com/display-multiple-markers-using-addresses-on-google-maps)
 
 
 Importance
@@ -78,7 +86,7 @@ google map and display multiple markers on that seamlessly.
 
 Usage:
 
-It's easy! Just instll this and see WP Google Map Plugin navigation at left side menus.
+It's easy! Just install this and see WP Google Map Plugin navigation at left side menus.
 
 
 Notes:
@@ -107,6 +115,10 @@ This section describes how to install the plugin and get it working.
 9  Define your dimensations for weathers layers.
 
 == Changelog ==
+
+Version 2.2.0
+1. Twitter Bootstrap 3 Based.
+2. Solved Featured Image Problem.
 
 Version 2.1.0
 1. Infowindow CSS Improved
