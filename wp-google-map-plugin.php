@@ -544,11 +544,12 @@ class wpgmp_google_map_widget extends WP_Widget{
 		extract($args);
 		$title=$instance['title'];
 		$map_title = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."create_map where map_id='".$title."'");
+		echo $before_widget;
 		
 		if($title)
 			echo $before_title . $map_title->map_title . $after_title;
 		
-		echo do_shortcode('[put_wpgm id='.$title.']' );
+		echo do_shortcode('[put_wpgm id='.$title.']' ).$after_widget;
 	
 	}
 	function update( $new_instance, $old_instance )
