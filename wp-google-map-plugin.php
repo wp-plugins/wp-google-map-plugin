@@ -36,7 +36,7 @@ function wpgmp_activation() {
   				  `location_group_map` int(11) NOT NULL,
   				  `location_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   				  PRIMARY KEY (`location_id`)
-				  ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;";
+				  ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
  $wpdb->query($map_location);
  
  $create_map = "CREATE TABLE IF NOT EXISTS `".$wpdb->prefix."create_map` (
@@ -61,7 +61,7 @@ function wpgmp_activation() {
   			   `map_cluster_setting` text NOT NULL,
   			   `map_overlay_setting` text NOT NULL,
   			   PRIMARY KEY (`map_id`)
-			   ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;";
+			   ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
  $wpdb->query($create_map);
 
  $group_map = "CREATE TABLE IF NOT EXISTS `".$wpdb->prefix."group_map` (
@@ -70,7 +70,7 @@ function wpgmp_activation() {
   			  `group_marker` text NOT NULL,
   			  `group_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   			  PRIMARY KEY (`group_map_id`)
-			  ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;";
+			  ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
  $wpdb->query($group_map);
 }
 
