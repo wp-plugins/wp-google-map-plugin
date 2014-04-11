@@ -8,10 +8,11 @@ Author:            flippercode
 Donate link:       (a link for donating)
 Requires at least: 2.0.0 
 Tested up to:      3.8.1
-Stable tag:        Twitter Bootstrap Based! A plugin to display multiple location markers, customized map skins, infowindows and much more. Based on the latest Google API Version.   
+Stable tag:        A multilingual, multisite supported & most advanced Google Maps plugin for WordPress. 
 
 == Description ==
-Display Google Maps at a shortcode’s ease! WP Google Map Plugin is a simple tool to add single or multiple markers on the same map and display on your webpage using a shortcode. The plugin is also featured to automatically extract exact latitude and longitude from a provided address. WP Google Map plugin hassle free transfers your map to any number of domains without a Google Map API Key. 
+A Google Maps plugin for wordpress to create unlimited locations, maps and display Google Maps at a shortcode’s ease. Perfectly responsive maps, Multi-lingual and multisite supported made it most advanced wordpress plugin ever. 
+ 
 Here is a quick highlight on the numerous customizable features offered by the free and pro versions of the WP Google Map plugin.
 
 Here is a quick highlight on the numerous customizable features offered by the free and pro versions of the  [WP Google Map Pro Version](http://codecanyon.net/item/advanced-google-maps/5211638).
@@ -40,6 +41,8 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * No need of any Google API key. Based on API Version 3.
 * Fully Responsive. Tested on real devices.
 * Display one infowindow at a time.
+* Multi-lingual Supported.
+* Multisite Enabled and ability to activate it network wide.
 
 = Pro Edition =
 * Define overlays on Google maps via an easy to use interface

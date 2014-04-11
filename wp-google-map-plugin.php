@@ -1,13 +1,13 @@
 <?php 
 /*
 Plugin Name: WP Google Map Plugin
-Description: A complete solution to Google Maps covering all Basic to Advanced Features
+Description: A multilingual, multisite supported & most advanced Google Maps plugin for WordPress.  
 Author: flippercode
-Version: 2.2.0
+Version: 2.3.0
 Author URI: http://www.flippercode.com
 */
 
-register_activation_hook( __FILE__, 'wpgmp_activation' );
+register_activation_hook( __FILE__, 'wpgmp_network_propagate' );
 
 add_action( 'plugins_loaded', 'wpgmp_load_plugin_languages' );
 
@@ -21,6 +21,35 @@ function wpgmp_load_plugin_languages() {
  * @version 1.0.0
  * @package Maps
  */
+ 
+  function wpgmp_network_propagate($network_wide)
+        {
+				if ( is_multisite() && $network_wide ) { // See if being activated on the entire network or one blog
+					global $wpdb;
+
+					// Get this so we can switch back to it later
+					$currentblog = $wpdb->blogid;
+					// For storing the list of activated blogs
+					$activated = array();
+
+					// Get all blogs in the network and activate plugin on each one
+					$sql = "SELECT blog_id FROM {$wpdb->blogs}";
+					$blog_ids = $wpdb->get_col($wpdb->prepare($sql,null));
+					foreach ($blog_ids as $blog_id) {
+						switch_to_blog($blog_id);
+						wpgmp_activation();
+						
+					}
+			 
+					// Switch back to the current blog
+					switch_to_blog($currentblog);
+
+					// Store the array for a later function
+					update_site_option('wpgmp_activated', $activated);
+				} else { // Running on a single blog
+					wpgmp_activation();
+				}
+		} // END public static function wprpw_network_propagate()
  
 function wpgmp_activation() {
   global $wpdb;	
