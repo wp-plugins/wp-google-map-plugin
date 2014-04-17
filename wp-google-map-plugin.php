@@ -55,14 +55,14 @@ function wpgmp_activation() {
   global $wpdb;	
   $map_location = "CREATE TABLE IF NOT EXISTS `".$wpdb->prefix."map_locations` (
   				  `location_id` int(11) NOT NULL AUTO_INCREMENT,
-  				  `location_title` varchar(255) NOT NULL,
-  				  `location_address` varchar(255) NOT NULL,
-  				  `location_draggable` varchar(255) NOT NULL,
- 				  `location_latitude` varchar(255) NOT NULL,
-  				  `location_longitude` varchar(255) NOT NULL, 
-  				  `location_messages` text NOT NULL,
-  				  `location_marker_image` text NOT NULL,
-  				  `location_group_map` int(11) NOT NULL,
+  				  `location_title` varchar(255) DEFAULT NULL,
+  				  `location_address` varchar(255) DEFAULT NULL,
+  				  `location_draggable` varchar(255) DEFAULT NULL,
+ 				  `location_latitude` varchar(255) DEFAULT NULL,
+  				  `location_longitude` varchar(255) DEFAULT NULL, 
+  				  `location_messages` text DEFAULT NULL,
+  				  `location_marker_image` text DEFAULT NULL,
+  				  `location_group_map` int(11) DEFAULT NULL,
   				  `location_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   				  PRIMARY KEY (`location_id`)
 				  ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
@@ -70,33 +70,33 @@ function wpgmp_activation() {
  
  $create_map = "CREATE TABLE IF NOT EXISTS `".$wpdb->prefix."create_map` (
   			   `map_id` int(11) NOT NULL AUTO_INCREMENT,
-  			   `map_title` varchar(255) NOT NULL,
-  			   `map_width` varchar(255) NOT NULL,
-  			   `map_height` varchar(255) NOT NULL,
-  			   `map_zoom_level` varchar(255) NOT NULL,
-  			   `map_type` varchar(255) NOT NULL,
-  			   `map_scrolling_wheel` varchar(255) NOT NULL,
- 			   `map_visual_refresh` varchar(255) NOT NULL,
-  			   `map_45imagery` varchar(255) NOT NULL,
-  			   `map_street_view_setting` text NOT NULL,
-  			   `map_route_direction_setting` text NOT NULL,
-  			   `map_all_control` text NOT NULL,
-  			   `map_info_window_setting` text NOT NULL,
-  			   `style_google_map` text NOT NULL,
-  			   `map_locations` text NOT NULL,
-  			   `map_layer_setting` text NOT NULL,
-  			   `map_polygon_setting` text NOT NULL,
-  			   `map_polyline_setting` text NOT NULL,
-  			   `map_cluster_setting` text NOT NULL,
-  			   `map_overlay_setting` text NOT NULL,
+  			   `map_title` varchar(255) DEFAULT NULL,
+  			   `map_width` varchar(255) DEFAULT NULL,
+  			   `map_height` varchar(255) DEFAULT NULL,
+  			   `map_zoom_level` varchar(255) DEFAULT NULL,
+  			   `map_type` varchar(255) DEFAULT NULL,
+  			   `map_scrolling_wheel` varchar(255) DEFAULT NULL,
+ 			   `map_visual_refresh` varchar(255) DEFAULT NULL,
+  			   `map_45imagery` varchar(255) DEFAULT NULL,
+  			   `map_street_view_setting` text DEFAULT NULL,
+  			   `map_route_direction_setting` text DEFAULT NULL,
+  			   `map_all_control` text DEFAULT NULL,
+  			   `map_info_window_setting` text DEFAULT NULL,
+  			   `style_google_map` text DEFAULT NULL,
+  			   `map_locations` text DEFAULT NULL,
+  			   `map_layer_setting` text DEFAULT NULL,
+  			   `map_polygon_setting` text DEFAULT NULL,
+  			   `map_polyline_setting` text DEFAULT NULL,
+  			   `map_cluster_setting` text DEFAULT NULL,
+  			   `map_overlay_setting` text DEFAULT NULL,
   			   PRIMARY KEY (`map_id`)
 			   ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
  $wpdb->query($create_map);
 
  $group_map = "CREATE TABLE IF NOT EXISTS `".$wpdb->prefix."group_map` (
   			  `group_map_id` int(11) NOT NULL AUTO_INCREMENT,
-  			  `group_map_title` varchar(255) NOT NULL,
-  			  `group_marker` text NOT NULL,
+  			  `group_map_title` varchar(255) DEFAULT NULL,
+  			  `group_marker` text DEFAULT NULL,
   			  `group_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   			  PRIMARY KEY (`group_map_id`)
 			  ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
