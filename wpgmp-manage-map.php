@@ -719,7 +719,6 @@ $location_list_table->prepare_items();
 ?>
 <form method="post">
 <?php
-$location_list_table->search_box( 'search', 'search_id' );
 $location_list_table->display();
 ?> 
 </form> 
