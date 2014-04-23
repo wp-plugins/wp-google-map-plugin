@@ -1,9 +1,9 @@
 <?php 
 /*
 Plugin Name: WP Google Map Plugin
-Description: A multilingual, multisite supported & most advanced Google Maps plugin for WordPress.  
+Description: A complete solution to Google Maps covering all Basic to Advanced Features
 Author: flippercode
-Version: 2.3.0
+Version: 2.3.1
 Author URI: http://www.flippercode.com
 */
 
@@ -143,14 +143,14 @@ $wpgmp_containers=array('map');
 
 function wpgmp_google_map_page() {
     define("wpgmp_plugin_permissions", "add_users");
-    add_menu_page(
+   $pagehook1 = add_menu_page(
         __("WP Google Map", "wpgmp_google_map"),
         __("WP Google Map", "wpgmp_google_map"),
         wpgmp_plugin_permissions,
         "wpgmp_google_map_pro",
         "wpgmp_admin_overview"
     );
-    add_submenu_page(
+   $pagehook2 = add_submenu_page(
         "wpgmp_google_map_pro",
         __("Add Locations", "wpgmp_google_map"),
         __("Add Locations", "wpgmp_google_map"),
@@ -158,7 +158,7 @@ function wpgmp_google_map_page() {
         "wpgmp_add_location",
         "wpgmp_add_locations"
     );
-   add_submenu_page(
+   $pagehook3 = add_submenu_page(
         "wpgmp_google_map_pro",
         __("Manage Locations", "wpgmp_google_map"),
         __("Manage Locations", "wpgmp_google_map"),
@@ -167,7 +167,7 @@ function wpgmp_google_map_page() {
         "wpgmp_manage_locations"
     );
     
-	add_submenu_page(
+	$pagehook4 = add_submenu_page(
         "wpgmp_google_map_pro",
         __("Create Map", "wpgmp_google_map"),
         __("Create Map", "wpgmp_google_map"),
@@ -175,7 +175,7 @@ function wpgmp_google_map_page() {
         "wpgmp_create_map",
         "wpgmp_create_map"
     );
-	add_submenu_page(
+	$pagehook5 = add_submenu_page(
         "wpgmp_google_map_pro",
         __("Manage Map", "wpgmp_google_map"),
         __("Manage Map", "wpgmp_google_map"),
@@ -184,7 +184,7 @@ function wpgmp_google_map_page() {
         "wpgmp_manage_map"
     );
 	
-	add_submenu_page(
+	$pagehook6 = add_submenu_page(
         "wpgmp_google_map_pro",
         __("Create Marker Group", "wpgmp_google_map"),
         __("Create Marker Group", "wpgmp_google_map"),
@@ -193,7 +193,7 @@ function wpgmp_google_map_page() {
         "wpgmp_create_group_map"
     );
 	
-	add_submenu_page(
+	$pagehook7 = add_submenu_page(
         "wpgmp_google_map_pro",
         __("Manage Marker Groups", "wpgmp_google_map"),
         __("Manage Marker Groups", "wpgmp_google_map"),
@@ -201,7 +201,7 @@ function wpgmp_google_map_page() {
         "wpgmp_google_wpgmp_manage_group_map",
         "wpgmp_manage_group_map"
     );
-	add_submenu_page(
+	$pagehook8 = add_submenu_page(
         "wpgmp_google_map_pro",
         __("Settings", "wpgmp_google_map"),
         __("Settings", "wpgmp_google_map"),
@@ -209,7 +209,29 @@ function wpgmp_google_map_page() {
         "wpgmp_google_settings",
         "wpgmp_settings"
     );
+    
+   add_action('load-'.$pagehook1, 'load_color_js');
+   add_action('load-'.$pagehook2, 'load_color_js');
+   add_action('load-'.$pagehook3, 'load_color_js');
+
+   add_action('load-'.$pagehook4, 'load_color_js');
+   add_action('load-'.$pagehook5, 'load_color_js');
+   add_action('load-'.$pagehook6, 'load_color_js');
+
+   add_action('load-'.$pagehook6, 'load_color_js');
+   add_action('load-'.$pagehook7, 'load_color_js');
+   add_action('load-'.$pagehook8, 'load_color_js');
+
+
 }
+
+function load_color_js(){
+wp_enqueue_style(
+		'google_bootstrap_css',
+		plugins_url( '/css/bootstrap.css' , __FILE__ ));	
+		
+}
+
 
 /**
  * This function used to show map on front end side.
@@ -228,7 +250,7 @@ wpgmp_google_map_load();
 		'zoom' => get_option('wpgmp_zoomlevel'),
 		'width' => get_option('wpgmp_mapwidth'),
 		'height' => get_option('wpgmp_mapheight'),
-		'title' => 'WP Google Map Pro',
+		'title' => 'WP Google Map',
 		'class' => 'map',
 		'center_latitude' => get_option('wpgmp_centerlatitude'),
 		'center_longitude' => get_option('wpgmp_centerlongitude'),
@@ -452,7 +474,7 @@ function wpgmp_settings(){
 <div class="wpgmp-wrap"> 
 <div class="col-md-11">   
 <div id="icon-options-general" class="icon32"><br></div>
-<h3><span class="glyphicon glyphicon-asterisk"></span><?php _e( 'Google WP Map Pro Settings', 'wpgmp_google_map' ) ?></h3>
+<h3><span class="glyphicon glyphicon-asterisk"></span><?php _e( 'WP Google Map Plugin Settings', 'wpgmp_google_map' ) ?></h3>
 <div class="wpgmp-overview">
         <form method="post" action="options.php">  
             <?php wp_nonce_field('update-options') ?>  
@@ -630,9 +652,7 @@ function wpgmp_google_map_load(){
 wp_enqueue_style(
 		'google_map_css',
 		plugins_url( '/css/google-map.css' , __FILE__ ));
-wp_enqueue_style(
-		'google_bootstrap_css',
-		plugins_url( '/css/bootstrap.css' , __FILE__ ));		
+	
 }
   
 function wpgmp_excerpt_more(){
@@ -728,7 +748,7 @@ add_filter('media_upload_tabs', 'wpgmp_google_map_tabs_filter');
 add_action('admin_menu', 'wpgmp_google_map_page');
 add_shortcode('put_wpgm','wpgmp_show_location_in_map');
 add_shortcode('display_map','wpgmp_display_map');
-add_action('admin_print_scripts', 'wpgmp_admin_scripts');
+add_action('admin_enqueue_scripts', 'wpgmp_admin_scripts');
 add_action('admin_print_styles', 'wpgmp_admin_styles');
 add_action('admin_head', 'wpgmp_js_head');
 add_shortcode('post','return_post_content');
