@@ -58,6 +58,11 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * Contact Form 7 Shortcode to include map in contact form 7.
 * An innovative Quick Locations feature to add locations quickly by click.
 * Export/Import Features using CSV/JSON/XML or EXCEL.
+* Display Ajax based Locations below Maps.
+* Ajax based searching for locations.
+* Filter by user's current location. 
+* Directions & Route Suggestions
+* Each location listing is paginated.
 
  
 
