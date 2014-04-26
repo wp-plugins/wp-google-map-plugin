@@ -1,7 +1,7 @@
 <?php 
 /*
 Plugin Name: WP Google Map Plugin
-Description: A complete solution to Google Maps covering all Basic to Advanced Features
+Description:  A multilingual, multisite supported & most advanced Google Maps plugin for WordPress.
 Author: flippercode
 Version: 2.3.1
 Author URI: http://www.flippercode.com
