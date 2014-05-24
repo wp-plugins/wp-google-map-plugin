@@ -14,7 +14,7 @@ class Wpgmp_Manage_Group_Table extends WP_List_Table {
             'plural'    => __( 'googlemaps', 'wpgmp_google_map' ),  
             'ajax'      => false       
     ) );
-		if($_GET['page']=='wpgmp_google_wpgmp_manage_group_map' && $_POST['s']!='')
+		if($_GET['page']=='wpgmp_google_wpgmp_manage_group_map' && isset($_POST['s']) && $_POST['s']!='')
 		{
 			$query = "SELECT * FROM ".$wpdb->prefix."group_map WHERE group_map_title LIKE '%".$_POST['s']."%'";
 		}
@@ -23,7 +23,7 @@ class Wpgmp_Manage_Group_Table extends WP_List_Table {
 			$query = "SELECT * FROM ".$wpdb->prefix."group_map ORDER BY group_map_id DESC";
 		}
 		
-	 	$this->group_data = $wpdb->get_results($wpdb->prepare($query,NULL),ARRAY_A);
+	 	$this->group_data = $wpdb->get_results($query,ARRAY_A);
     add_action( 'admin_head', array( &$this, 'admin_header' ) );            
     }
 	
@@ -71,23 +71,25 @@ function get_sortable_columns() {
 }
 function get_columns(){
         $columns = array(
-           	'cb'        => '<input type="checkbox" />',
+       'cb'        => '<input type="checkbox" />',
 			'group_map_title'      => __( 'Group Title', 'wpgmp_google_map' ),
 			'group_marker'      => __( 'Group Marker', 'wpgmp_google_map' ),
 			'group_added'      => __( 'Group Added', 'wpgmp_google_map' ),
         );
          return $columns;
     }
+
 function usort_reorder( $a, $b ) {
-  // If no sort, default to title
-  $orderby = ( ! empty( $_GET['orderby'] ) ) ? $_GET['orderby'] : '';
-  // If no order, default to asc
+  
+  $orderby = ( ! empty( $_GET['orderby'] ) ) ? $_GET['orderby'] : 'group_map_title';
+  
   $order = ( ! empty($_GET['order'] ) ) ? $_GET['order'] : 'asc';
-  // Determine sort order
+  
   $result = strcmp( $a[$orderby], $b[$orderby] );
-  // Send final sort direction to usort
+  
   return ( $order === 'asc' ) ? $result : -$result;
 }
+
 function column_group_map_title($item){
   $actions = array(
             'edit'      => sprintf('<a href="?page=%s&action=%s&group_map=%s">Edit</a>',$_REQUEST['page'],'edit',$item['group_map_id']),
@@ -140,13 +142,13 @@ function wpgmp_manage_group_map()
 {
 	
 global $wpdb; 
-if( $_GET['action']=='delete' && $_GET['group_map']!='' )
+if( isset($_GET['action']) && $_GET['action']=='delete' && isset($_GET['group_map']) && $_GET['group_map']!='' )
 {
 	$id = (int)$_GET['group_map'];
 	$wpdb->query($wpdb->prepare("DELETE FROM ".$wpdb->prefix."group_map WHERE group_map_id=%d",$id));
 	$success= __( 'Selected Record Deleted Successfully.', 'wpgmp_google_map' );	
 }
-if( $_POST['action'] == 'delete' && $_POST['group_map']!='' )
+if( isset($_POST['action']) && $_POST['action'] == 'delete' && isset($_POST['group_map']) && $_POST['group_map']!='' )
 {
 	foreach($_POST['group_map'] as $id)
 		{
@@ -183,7 +185,7 @@ $success= __( 'Group Map Updated Successfully.', 'wpgmp_google_map' );
 }
 ?>
 <?php
-if( $_GET['action']=='edit' && $_GET['group_map']!='' )
+if( isset($_GET['action']) && $_GET['action']=='edit' && isset($_GET['group_map']) && $_GET['group_map']!='' )
 {
 $group_data = $wpdb->get_row($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."group_map WHERE group_map_id=%d",$_GET['group_map']));
 ?>

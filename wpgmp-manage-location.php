@@ -14,7 +14,7 @@ class Wpgmp_Location_Table extends WP_List_Table {
             'plural'    => __( 'googlemaps', 'wpgmp_google_map' ),  
             'ajax'      => false       
     ) );
-		if($_GET['page']=='wpgmp_manage_location' && $_POST['s']!='')
+		if($_GET['page']=='wpgmp_manage_location' && isset($_POST['s']) && $_POST['s']!='')
 		{
 		$query = "SELECT * FROM ".$wpdb->prefix."map_locations WHERE location_title LIKE '%".$_POST['s']."%'";
 		}
@@ -23,7 +23,7 @@ class Wpgmp_Location_Table extends WP_List_Table {
 		$query = "SELECT * FROM ".$wpdb->prefix."map_locations ORDER BY location_id DESC";
 		}
 		
-	 	$this->table_data = $wpdb->get_results($wpdb->prepare($query,NULL),ARRAY_A );
+	 	$this->table_data = $wpdb->get_results($query,ARRAY_A );
     add_action( 'admin_head', array( &$this, 'admin_header' ) );            
     }
 	
@@ -92,7 +92,7 @@ function get_columns(){
     }
 function usort_reorder( $a, $b ) {
   // If no sort, default to title
-  $orderby = ( ! empty( $_GET['orderby'] ) ) ? $_GET['orderby'] : '';
+  $orderby = ( ! empty( $_GET['orderby'] ) ) ? $_GET['orderby'] : 'location_id';
   // If no order, default to asc
   $order = ( ! empty($_GET['order'] ) ) ? $_GET['order'] : 'asc';
   // Determine sort order
@@ -146,12 +146,12 @@ function prepare_items() {
 function wpgmp_manage_locations()
 {
 global $wpdb; 
-if( $_GET['action']=='delete' && $_GET['location']!='' )
+if( isset($_GET['action']) && $_GET['action']=='delete' && $_GET['location']!='' )
 {
 	$id = (int)$_GET['location'];
 	$wpdb->query($wpdb->prepare("DELETE FROM ".$wpdb->prefix."map_locations WHERE location_id=%d",$id));
 }
-if( $_POST['action'] == 'delete' && $_POST['location']!='' )
+if( isset($_POST['action']) && $_POST['action'] == 'delete' && isset($_POST['location']) && $_POST['location']!='' )
 {
 	foreach($_POST['location'] as $id)
 		{
@@ -181,10 +181,14 @@ if( isset($_POST['update_location']) && $_POST['update_location']=='Update Locat
 			{
 			   $error[]= __( 'Please enter longitude.', 'wpgmp_google_map' );
 			}
-			if( $_POST['googlemap_draggable']=="" )
-			{
-			   $_POST['googlemap_draggable'] = "false";
-			}
+			if( isset($_POST['googlemap_draggable']) && !empty($_POST['googlemap_draggable']) )
+      {
+          $_POST['googlemap_draggable'] = $_POST['googlemap_draggable'];
+      }
+      else
+      {
+        $_POST['googlemap_draggable'] = 'false';
+      }
 			
 			$messages = base64_encode(serialize($_POST['infowindow_message']));
 		
@@ -200,19 +204,18 @@ array(
 	'location_latitude' => $_POST['googlemap_latitude'],
 	'location_longitude' => $_POST['googlemap_longitude'],
 	'location_messages'=> $messages,
-	'location_marker_image' => htmlspecialchars(stripslashes($_POST['upload_image_url'])),
-	'location_group_map' => $_POST['location_group_map']
+	'location_marker_image' => isset($_POST['upload_image_url']) ? htmlspecialchars(stripslashes($_POST['upload_image_url'])) :'',
+	'location_group_map' => isset($_POST['location_group_map']) ? $_POST['location_group_map']:''
 ), 
 array( 'location_id' => $_GET['location'] ) 
 );
-	
-update_post_meta( $_GET['location'], '_image_id', $_POST['upload_image_id'] );
-$success= __( 'Locations Updated Successfully.', 'wpgmp_google_map' );
-	}
+ $upload_image_id = isset($_POST['upload_image_id']) ? $_POST['upload_image_id'] : '';	
+ update_post_meta( $_GET['location'], '_image_id',  $upload_image_id);
+ }
 }
 ?>
 <?php
-if( $_GET['action']=='edit' && $_GET['location']!='' )
+if( isset($_GET['action']) && $_GET['action']=='edit' && $_GET['location']!='' )
 {
 $user_record = $wpdb->get_row($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."map_locations WHERE location_id=%d",$_GET['location']));
 $unmess = unserialize(base64_decode($user_record->location_messages));
@@ -234,7 +237,7 @@ if( !empty($success) )
     wpgmp_showMessage($success);
 }
 
-$infowindow_settings=unserialize($user_record->location_settings);
+$infowindow_settings= isset($user_record->location_settings) ? unserialize($user_record->location_settings) : '';
 ?>
 <div>
   <div class="form-horizontal">
@@ -286,7 +289,7 @@ $infowindow_settings=unserialize($user_record->location_settings);
     
     global $wpdb;
     
-    $group_results = $wpdb->get_results($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."group_map",NULL));
+    $group_results = $wpdb->get_results("SELECT * FROM ".$wpdb->prefix."group_map");
     
     if( !empty($group_results) )
     {

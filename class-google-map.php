@@ -14,8 +14,6 @@ var $center_address = '';
 
 var $divID='map'; // The div id where you want to 	place your google map
 
-var $groupID = 'groupmap';
-
 var $marker=array(); // Array to store markers information. 
 
 var $instance=1;
@@ -26,35 +24,9 @@ var $height="";
 
 var $title = 'WP Google Map Plugin';
 
-var $polygon = array();
-
-var $polyline = array();
-
-var $routedirections = array();
-
-var $map_draw_polygon = "";
-
-var $kml_layers_links="";
-
-var $fusion_select="";
-
-var $fusion_from="";
-
-var $heat_map="";
-
-var $temperature_unit="";
-
-var $wind_speed_unit="";
-
 var $map_width = "";
 
 var $map_height = "";
-
-var $map_start_point="";
-
-var $map_end_point="";
-
-var $map_multiple_point="";
 
 var $map_scrolling_wheel="true";
 
@@ -70,43 +42,7 @@ var $map_street_view_control="true";
 
 var $map_overview_control="true";
 
-var $map_enable_info_window_setting = "";
-
-var $map_info_window_width="";
-
-var $map_info_window_height="";
-
-var $map_info_window_shadow_style="";
-
-var $map_info_window_border_radius="";
-
-var $map_info_window_border_width=""; 
-
-var $map_info_window_border_color="";
-
-var $map_info_window_background_color="";
-
-var $map_info_window_arrow_size="";
-
-var $map_info_window_arrow_position="";
-
-var $map_info_window_arrow_style="";
-
-var $map_style_google_map="";
-
 var $map_language="en";
-
-var $polygon_border_color="#f22800";
-
-var $polygon_background_color="#f22800";
-
-var $map_draw_polyline="";
-
-var $map_polyline_stroke_color="";
-
-var $map_polyline_stroke_opacity="";
-
-var $map_polyline_stroke_weight="";
 
 var $map_type="ROADMAP";
 
@@ -114,45 +50,7 @@ var $map_45="";
 
 var $map_layers="";
 
-var $marker_cluster="";
-
-var $grid="";
-
-var $max_zoom="14";
-
-var $style="default";
-
-var $map_overlay = "";
-
-var $map_overlay_border_color="#F22800";
-
-var $map_overlay_width="200";
-
-var $map_overlay_height="200";
-
-var $map_overlay_fontsize="16";
-
-var $map_overlay_border_width="200";
-
-var $map_overlay_border_style="";
-
-var $polygontriangle="polygontriangle"; 
-
 var $visualrefresh = "false";
-
-var $directionsDisplay = "directionsDisplay";
-
-var $directionsService = "directionsService";
-
-var $route_direction = "";
-
-var $map_way_point = "";
-
-var $route_direction_stroke_color = "";
-
-var $route_direction_stroke_opacity = "";
-
-var $route_direction_stroke_weight = "";
 
 var $street_control = "";
 
@@ -230,20 +128,6 @@ max-width: none;
 </style>'.'
 <div id='.$this->divID.' style="width:'.$width.'; height:'.$height.';"></div>';
 
-if( $this->enable_group_map=='true' )
-{
-	
-	$this->code.='<div id='.$this->groupID.' style="width:'.$width.'; height:50px;">';
-	
-	for($gm=0; $gm<count($this->group_data); $gm++)
-	{
-		
-		$this->code.='<img src="'.$this->group_data[$gm]->group_marker.'" onclick="maps_group_id('.$this->group_data[$gm]->group_map_id.')" style="padding:5px 8px 0px 8px; cursor:pointer;">';
-	}
-	
-	$this->code.='</div>';
-}
-
 $this->code.='
 
 <script type="text/javascript">
@@ -256,135 +140,11 @@ $this->code.='google.load("maps", "3.7", {"other_params" : "sensor=false&librari
 
 google.setOnLoadCallback(initialize);';	
 	
-if( $this->enable_group_map == 'true' )
-{	
-	$this->code.='var groups = [];';
-}
-
 
 $this->code.='function initialize() {';
 	
-if( $this->route_direction == 'true' )
-{
-	$this->code.=''.$this->directionsService.' = new google.maps.DirectionsService();';
-	
-	if(count($this->marker)<3)
-	{
-		
-	  $this->code.='
-		var start = "'.$this->map_way_point[0]->location_address.'";
-		var end = "'.$this->map_way_point[1]->location_address.'"
-
-		var request = {
-			origin: start,
-			destination: end,
-			travelMode: google.maps.TravelMode.DRIVING,
-			unitSystem: google.maps.DirectionsUnitSystem.METRIC,
-			optimizeWaypoints: false
-		};
-		
-		'.$this->directionsService.'.route(request, function(response, status) {
-			if (status == google.maps.DirectionsStatus.OK)
-			{
-				   var polyOpts = {
-						strokeColor: "#'.$this->route_direction_stroke_color.'",
-						strokeOpacity: '.$this->route_direction_stroke_opacity.',
-						strokeWeight: '.$this->route_direction_stroke_weight.'
-					}
-	
-				   var rendererOptions = {
-						draggable: true,
-						suppressMarkers: false, 
-						suppressInfoWindows: false, 
-						preserveViewport: false, 
-						polylineOptions: polyOpts
-					};
-			
-			'.$this->directionsDisplay.' = new google.maps.DirectionsRenderer(rendererOptions);
-			'.$this->directionsDisplay.'.setMap('.$this->divID.');
-			'.$this->directionsDisplay.'.setDirections(response);
-					
-			}
-			else
-			{
-			console.info("could not get route");
-			console.info(response);
-			}
-	  });
-	';
-	}
-	elseif( count($this->marker)>2 )
-	{
-		
-		$start_point = current($this->map_way_point);
-		$end_point = end($this->map_way_point);
-		$newarray = array_slice($this->map_way_point, 1, -1);
-		foreach($newarray as $newarr)
-		{
-		 $new_array_value[] = $newarr->location_address;
-		}
-		
-		$js_array = json_encode($new_array_value);
-
-	  $this->code.='
-		var start = "'.$start_point->location_address.'";
-		var end = "'.$end_point->location_address.'";
-		var waypts = [];
-		checkboxArray = '.$js_array.';
-		
-		for(var mp=0; mp<checkboxArray.length; mp++){
-			waypts.push({
-				location:checkboxArray[mp],
-				stopover:true});
-		}
-		
-
-		var request = {
-			origin: start,
-			destination: end,
-			waypoints: waypts,
-			optimizeWaypoints: true,
-			travelMode: google.maps.TravelMode.DRIVING
-		};
-		
-		'.$this->directionsService.'.route(request, function(response, status) {
-			if (status == google.maps.DirectionsStatus.OK)
-			{
-				   var polyOpts = {
-						strokeColor: "#'.$this->route_direction_stroke_color.'",
-						strokeOpacity: '.$this->route_direction_stroke_opacity.',
-						strokeWeight: '.$this->route_direction_stroke_weight.'
-					}
-	
-				   var rendererOptions = {
-						draggable: true,
-						suppressMarkers: false, 
-						suppressInfoWindows: false, 
-						preserveViewport: false, 
-						polylineOptions: polyOpts
-					};
-			
-			'.$this->directionsDisplay.' = new google.maps.DirectionsRenderer(rendererOptions);
-			'.$this->directionsDisplay.'.setMap('.$this->divID.');
-			'.$this->directionsDisplay.'.setDirections(response);
-					
-			}
-			else
-			{
-			console.info("could not get route");
-			console.info(response);
-			}
-	  });
-	';
-	
-	}
-}
-
-
-
-
-				  
-	$this->code.='var latlng = new google.maps.LatLng('.$this->center_lat.','.$this->center_lng.');';
+			  
+$this->code.='var latlng = new google.maps.LatLng('.$this->center_lat.','.$this->center_lng.');';
 
 if( $this->street_control!='true' )
 {		
@@ -417,6 +177,11 @@ $this->code.='scrollwheel: '.$this->map_scrolling_wheel.',
 		streetViewControl: '.$this->map_street_view_control.',
 		
 		overviewMapControl: '.$this->map_overview_control.',
+		
+		overviewMapControlOptions: {
+
+	            opened: '.$this->map_overview_control.',
+	    },
 
 		center: latlng,
 
@@ -471,24 +236,6 @@ if( $this->map_layers=="TransitLayer" )
 	transitLayer.setMap('.$this->divID.');';
 }
 
-if( $this->map_layers=="WeatherLayer" )
-{
-	$this->code.='
-
-	var weatherLayer = new google.maps.weather.'.$this->map_layers.'({
-
-	windSpeedUnit: google.maps.weather.WindSpeedUnit.'.$this->wind_speed_unit.',
-
-	temperatureUnits: google.maps.weather.TemperatureUnit.'.$this->temperature_unit.'
-
-	});
-
-	weatherLayer.setMap('.$this->divID.');
-
-	var cloudLayer = new google.maps.weather.CloudLayer();
-
-	cloudLayer.setMap('.$this->divID.');';
-}
 
 if( $this->map_layers=="BicyclingLayer" )
 {
@@ -591,50 +338,11 @@ function wgmp_closeAllInfoWindows() {
 
 ';
 
-
-if( $this->enable_group_map == 'true' )
-{	
-
-$this->code.='
-
-function maps_group_id(group_id)
-{
-	
-position = false;
-var bounds = new google.maps.LatLngBounds();
-if(groups)
-{	
- for( var n in groups){
- 
-   if(n.indexOf("group") != "-1"){
-	 if(n == "group"+group_id)
-	 {
-	   for(i = 0; i <groups[n].length; i++){
-		if( typeof groups[n][i].getMap() == "null");
-		groups[n][i].setMap('.$this->divID.');
-		bounds.extend(groups[n][i].getPosition());
-	   } 
-	   position = true;  
-	 }else{
-	   for(i = 0; i <groups[n].length; i++){
-		groups[n][i].setMap(null);
-	   }
-	 }
-   }
- }
-}	
-		
-if( position == true ) 
-'.$this->divID.'.fitBounds(bounds);
-}';
-
-}
-
 $this->code.='</script>';
 
 }
 
-public function addMarker($lat,$lng,$click='false',$title='My WorkPlace',$info='Hello World',$icon='',$map='map',$draggable='',$animation='',$group_id='')
+public function addMarker($lat,$lng,$click='false',$title='My WorkPlace',$info='Hello World',$icon='',$map='map',$draggable='')
 {
 	$count=count($this->marker);	
 	
@@ -653,60 +361,8 @@ public function addMarker($lat,$lng,$click='false',$title='My WorkPlace',$info='
 	$this->marker[$count]['map']=$map;
 	
 	$this->marker[$count]['draggable']=$draggable;
-	
-	$this->marker[$count]['animation']=$animation;
-	
-	if($group_id)
-	$this->marker[$count]['group_id']=$group_id;
 }
 
-public function addMarkerByAddress($address,$click='false',$title='My WorkPlace',$info='Hello World',$icon='',$map='map')
-{
-	$status = false;
-
-	$output = $this->getData($address);
-
-	if( $output->status == 'OK' )
-	{
-	   $lat = $output->results[0]->geometry->location->lat;
-
-	   $lng = $output->results[0]->geometry->location->lng;
-
-	   $status = true;
-	}
-
-	if( $status )
-	{
-		$count=count($this->marker);	
-
-		$this->marker[$count]['lat']=$lat;
-
-		$this->marker[$count]['lng']=$lng;
-
-		$this->marker[$count]['map']=$map;
-
-		$this->marker[$count]['title']=$title;
-
-		$this->marker[$count]['click']=$click;
-
-		$this->marker[$count]['icon']=$icon;
-
-		$this->marker[$count]['info']=$info;
-    }		
-}
-
-public function addroutedirections($lat,$lng)
-{
-	$count=count($this->routedirections);	
-	
-	$this->routedirections[$count]['lat']=$lat;
-	
-	$this->routedirections[$count]['lng']=$lng;
-}
-
-
-
-// Call this function to create a google map.
 
 public function showmap()
 {
@@ -717,29 +373,4 @@ public function showmap()
 	return $this->code;
 }
 
-public function getData($address)
-{
-  $url = 'http://maps.google.com/maps/api/geocode/json?address='.urlencode($address).'&sensor=false';
-
-  if( ini_get('allow_url_fopen') )
-  {
-		$geocode2 = wp_remote_get($url);
-
-		$geocode=$geocode2['body'];
-  }
-  elseif( !ini_get('allow_url_fopen') )
-  {
-		$geocode2 = wp_remote_get($url);
-
-		$geocode=$geocode2['body'];
-  }
-  else
-  {
-	echo "Configure your php.ini settings. allow_url_fopen may be disabled";
-
-	exit;
-  }	
-
-  return json_decode($geocode);
-}
 }

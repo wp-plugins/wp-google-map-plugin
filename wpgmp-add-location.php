@@ -26,13 +26,17 @@ function wpgmp_add_locations()
 		{
 		   $error[]= __( 'Please enter longitude.', 'wpgmp_google_map' );
 		}
-		if( $_POST['googlemap_draggable']=="" )
-		{
-		   $_POST['googlemap_draggable'] = "false";
-		}
+
+    if( isset($_POST['googlemap_draggable']) && !empty($_POST['googlemap_draggable']) )
+    {
+        $_POST['googlemap_draggable'] = $_POST['googlemap_draggable'];
+    }
+    else
+    {
+      $_POST['googlemap_draggable'] = 'false';
+    }
 		
 		$messages = base64_encode(serialize($_POST['infowindow_message']));
-		
 		
 		if( empty($error) )
 		{
@@ -69,9 +73,9 @@ function wpgmp_add_locations()
 			
 			'location_messages'=> $messages,
 			
-			'location_marker_image' => htmlspecialchars(stripslashes($_POST['upload_image_url'])),
+			'location_marker_image' => isset($_POST['upload_image_url']) ? htmlspecialchars(stripslashes($_POST['upload_image_url'])) : '',
 			
-			'location_group_map' => $_POST['location_group_map']
+			'location_group_map' => isset($_POST['location_group_map']) ? $_POST['location_group_map'] : ''
 				
 			);
 	
@@ -121,7 +125,7 @@ if( !empty($success) )
               &nbsp;<span style="color:#F00;">*</span></label>
           </div>
           <div class="col-md-9">
-            <input type="text" class="form-control" name="googlemap_title" placeholder="Location Title"   value="<?php echo $_POST['googlemap_title']; ?>" />
+            <input type="text" class="form-control" name="googlemap_title" placeholder="Location Title"   value="<?php if(isset($_POST['googlemap_title'])) echo $_POST['googlemap_title']; ?>" />
             <p class="description">
               <?php _e('Enter here the location title', 'wpgmp_google_map')?>
             </p>
@@ -136,7 +140,7 @@ if( !empty($success) )
           <div class="col-md-9">
             <div class="row">
               <div class="col-md-10">
-                <input type="text" class="form-control" name="googlemap_address" id="googlemap_address"   value="<?php echo $_POST['googlemap_address']; ?>" />
+                <input type="text" class="form-control" name="googlemap_address" id="googlemap_address"   value="<?php if(isset($_POST['googlemap_address']))  echo $_POST['googlemap_address']; ?>" />
               </div>
               <div class="col-md-2">
                 <input type="button" value="<?php _e('Geocode', 'wpgmp_google_map')?>" onclick="geocodeaddress()" class="btn btn-sm btn-primary">
@@ -147,13 +151,13 @@ if( !empty($success) )
             </p>
             <div class="row">
               <div class="col-md-6">
-                <input type="text"  name="googlemap_latitude" id="googlemap_latitude" class="google_latitude form-control" placeholder="<?php _e('Latitude', 'wpgmp_google_map')?>"  value="<?php echo $_POST['googlemap_latitude']; ?>" />
+                <input type="text"  name="googlemap_latitude" id="googlemap_latitude" class="google_latitude form-control" placeholder="<?php _e('Latitude', 'wpgmp_google_map')?>"  value="<?php if(isset($_POST['googlemap_latitude']) ) echo $_POST['googlemap_latitude']; ?>" />
                 <p class="description">
                   <?php _e('Enter here the latitude.', 'wpgmp_google_map')?>
                 </p>
               </div>
               <div class="col-md-6">
-                <input type="text" name="googlemap_longitude" id="googlemap_longitude" class="google_longitude form-control" placeholder="<?php _e('Longitude', 'wpgmp_google_map')?>"   value="<?php echo $_POST['googlemap_longitude']; ?>" />
+                <input type="text" name="googlemap_longitude" id="googlemap_longitude" class="google_longitude form-control" placeholder="<?php _e('Longitude', 'wpgmp_google_map')?>"   value="<?php if(isset($_POST['googlemap_longitude']) ) echo $_POST['googlemap_longitude']; ?>" />
                 <p class="description">
                   <?php _e('Enter here the longitude.', 'wpgmp_google_map')?>
                 </p>
@@ -171,7 +175,7 @@ if( !empty($success) )
             </label>
           </div>
           <div class="col-md-9">
-            <textarea class="form-control" rows="3" cols="70" name="infowindow_message[googlemap_infowindow_message_one]" id="googlemap_infomessage" size="45" /><?php echo $_POST['googlemap_infomessage']; ?></textarea>
+            <textarea class="form-control" rows="3" cols="70" name="infowindow_message[googlemap_infowindow_message_one]" id="googlemap_infomessage" size="45" /><?php if(isset($_POST['googlemap_infomessage']) ) echo $_POST['googlemap_infomessage']; ?></textarea>
             <p class="description">
               <?php _e('Enter here the infoWindow message.', 'wpgmp_google_map')?>
             </p>
@@ -185,7 +189,7 @@ if( !empty($success) )
           </div>
           <div class="col-md-7">
             <p class="description">
-              <input type="checkbox" name="googlemap_draggable" value="true"<?php checked($_POST['googlemap_draggable'],'true') ?>/>
+              <input type="checkbox" name="googlemap_draggable" value="true"<?php checked((isset($_POST['googlemap_draggable']) ? $_POST['googlemap_draggable'] : false),true) ?>/>
               <?php _e('Do you want to allow visitors to drag the marker?.', 'wpgmp_google_map')?>
             </p>
           </div>
@@ -202,19 +206,28 @@ if( !empty($success) )
     
     global $wpdb;
     
-    $group_results = $wpdb->get_results($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."group_map",NULL));
-    
-    if( !empty($group_results) )
+    $group_results = $wpdb->get_results("SELECT * FROM ".$wpdb->prefix."group_map");
+
+    if(  !empty($group_results) )
     {
     ?>
               <select name="location_group_map">
                 <option value="">Select group</option>
                 <?php
-        for($i = 0; $i < count($group_results); $i++)
+        foreach($group_results as $group_result)
         {
-    ?>
-                <option value="<?php echo $group_results[$i]->group_map_id; ?>"<?php selected($group_results[$i]->group_map_id,$_POST['location_group_map']); ?>><?php echo $group_results[$i]->group_map_title; ?></option>
-                <?php
+            if( !empty($_POST['location_group_map']))
+            {  
+              ?>
+                <option value="<?php echo $group_result->group_map_id; ?>"<?php selected($_POST['location_group_map'],$group_result->group_map_id); ?>><?php echo $group_result->group_map_title; ?></option>
+              <?php
+            }
+            else
+            {
+                ?>
+                <option value="<?php echo $group_result->group_map_id; ?>"><?php echo $group_result->group_map_title; ?></option>
+              <?php
+            }
         
         }
     ?>

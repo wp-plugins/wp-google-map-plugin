@@ -62,18 +62,18 @@ if( !empty($success) )
    <div class="form-horizontal">
     <div class="col-md-4 left"> <label for="title"><?php _e('Group Title', 'wpgmp_google_map')?>&nbsp;<span style="color:#F00;">*</span></label></div>
    <div class="col-md-7">
-	<input type="text"   name="group_map_title" value="<?php echo $_POST["group_map_title"]; ?>" class="create_map form-control" />
+	<input type="text"   name="group_map_title" value="<?php if(isset($_POST["group_map_title"])) echo $_POST["group_map_title"]; ?>" class="create_map form-control" />
 	<p class="description"><?php _e('Enter here the group title.', 'wpgmp_google_map')?></p></div>
     
    <div class="col-md-4 left">    <label for="title"><?php _e('Choose Marker Image', 'wpgmp_google_map')?><span style="color:#F00;">*</span></label></div>
    <div class="col-md-7">
-    <img id="book_image" src="<?php echo $image_src ?>" style="float:left;" />
+    <img id="book_image" src="<?php if(isset($image_src)) echo $image_src ?>" style="float:left;" />
  
-	<input type="hidden" name="upload_image_url" id="upload_image_url" value="<?php echo $image_src ?>" />
+	<input type="hidden" name="upload_image_url" id="upload_image_url" value="<?php if(isset($image_src)) echo $image_src ?>" />
            
      <div style="margin-left:5px;">     
             	   <a title="<?php esc_attr_e( 'Upload Marker Image', 'wpgmp_google_map' ) ?>" href="#" id="set-book-image"><?php _e( 'Upload Marker Image', 'wpgmp_google_map' ) ?></a><br />
-            	<a title="<?php esc_attr_e( 'Remove Marker Image', 'wpgmp_google_map' ) ?>" href="#" id="remove-book-image" style="<?php echo ( ! $image_src ? 'display:none;' : '' ); ?>"><?php _e( 'Remove Marker Image', 'wpgmp_google_map' ) ?></a><br />
+            	<a title="<?php esc_attr_e( 'Remove Marker Image', 'wpgmp_google_map' ) ?>" href="#" id="remove-book-image" style="<?php if(isset($image_src) && $image_src) echo "display:block;"; else  "display:none;";  ?>"><?php _e( 'Remove Marker Image', 'wpgmp_google_map' ) ?></a><br />
    </div><br />
    <p class="description"><?php _e('Upload marker image.', 'wpgmp_google_map')?></p> </div>
 </fieldset>

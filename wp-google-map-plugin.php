@@ -3,7 +3,7 @@
 Plugin Name: WP Google Map Plugin
 Description:  A multilingual, multisite supported & most advanced Google Maps plugin for WordPress.
 Author: flippercode
-Version: 2.3.1
+Version: 2.3.2
 Author URI: http://www.flippercode.com
 */
 
@@ -255,25 +255,23 @@ wpgmp_google_map_load();
 		'center_latitude' => get_option('wpgmp_centerlatitude'),
 		'center_longitude' => get_option('wpgmp_centerlongitude'),
 		'container_id' => 'map',
-		'polygon' => 'true',
 		'id' => ''
  ),$atts));
 	
- $icon=$atts['icon'];
+ $icon= isset($atts['icon']) ? $atts['icon'] : '';
  include_once dirname(__FILE__).'/class-google-map.php';
  $map = new Wpgmp_Google_Map();
   
- $map_data = $wpdb->get_results($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."create_map where map_id=%d",$atts['id']));
-  
- $unserialize_group_map_setting = unserialize($map_data[0]->group_map_setting);
- $unserialize_map_street_view_setting = unserialize($map_data[0]->map_street_view_setting);
- $unserialize_map_control_setting = unserialize($map_data[0]->map_all_control);
- $unserialize_map_info_window_setting = unserialize($map_data[0]->map_info_window_setting);
- $unserialize_map_layer_setting = unserialize($map_data[0]->map_layer_setting);
+ $map_data = $wpdb->get_row($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."create_map where map_id=%d",$atts['id']));
+ 
+ $unserialize_map_street_view_setting = unserialize($map_data->map_street_view_setting);
+ $unserialize_map_control_setting = unserialize($map_data->map_all_control);
+ $unserialize_map_info_window_setting = unserialize($map_data->map_info_window_setting);
+ $unserialize_map_layer_setting = unserialize($map_data->map_layer_setting);
   
  if( !empty($map_data) )
  {
-	$un_loc_add = unserialize($map_data[0]->map_locations);
+	$un_loc_add = unserialize($map_data->map_locations);
  	$loc_data = $wpdb->get_row($wpdb->prepare("SELECT location_address,location_latitude,location_longitude FROM ".$wpdb->prefix."map_locations where location_id=%d",$un_loc_add[0]));
  
  if( !empty($center_latitude) ) {
@@ -287,9 +285,7 @@ wpgmp_google_map_load();
  } else {
 	$map->center_lng = $loc_data->location_longitude;
  }
-    $map->map_language=$map_data[0]->map_languages;
-  
-  
+    
  if( !empty($unserialize_map_street_view_setting['street_control']) ) {
 	 
 	$map->street_control = $unserialize_map_street_view_setting['street_control'];
@@ -299,21 +295,21 @@ wpgmp_google_map_load();
  }
   
   
-   $map->map_type=$map_data[0]->map_type;
+   $map->map_type=$map_data->map_type;
   
-  if( empty($map_data[0]->map_width) ) {
+  if( empty($map_data->map_width) ) {
 	 $map->map_width = $width;
   } else {
-	 $map->map_width = $map_data[0]->map_width;
+	 $map->map_width = $map_data->map_width;
   }	
 	
-  if( empty($map_data[0]->map_height) ) {
+  if( empty($map_data->map_height) ) {
 	 $map->map_height = $height;
   } else {
-	 $map->map_height = $map_data[0]->map_height;
+	 $map->map_height = $map_data->map_height;
   }
   
-  $map->map_scrolling_wheel =$map_data[0]->map_scrolling_wheel;
+  $map->map_scrolling_wheel =$map_data->map_scrolling_wheel;
   $map->map_pan_control =$unserialize_map_control_setting['pan_control'];
   $map->map_zoom_control =$unserialize_map_control_setting['zoom_control'];
   $map->map_type_control =$unserialize_map_control_setting['map_type_control'];
@@ -321,32 +317,14 @@ wpgmp_google_map_load();
   $map->map_street_view_control =$unserialize_map_control_setting['street_view_control'];
   $map->map_overview_control =$unserialize_map_control_setting['overview_map_control'];
   
-  if( $unserialize_map_info_window_setting['enable_info_window_setting']=="true" ) {
   
-	  $map->map_enable_info_window_setting = $unserialize_map_info_window_setting['enable_info_window_setting'];
-	  $map->map_info_window_width = $unserialize_map_info_window_setting['info_window_width'];
-	  $map->map_info_window_height = $unserialize_map_info_window_setting['info_window_height'];
-	  $map->map_info_window_shadow_style = $unserialize_map_info_window_setting['info_window_shadow_style'];
-	  $map->map_info_window_border_radius = $unserialize_map_info_window_setting['info_window_border_radious'];
-	  $map->map_info_window_border_width = $unserialize_map_info_window_setting['info_window_border_width'];
-	  $map->map_info_window_border_color = $unserialize_map_info_window_setting['info_window_border_color'];
-	  $map->map_info_window_background_color = $unserialize_map_info_window_setting['info_window_background_color'];
-	  $map->map_info_window_arrow_size = $unserialize_map_info_window_setting['info_window_arrow_size'];
-	  $map->map_info_window_arrow_position = $unserialize_map_info_window_setting['info_window_arrow_position'];
-	  $map->map_info_window_arrow_style = $unserialize_map_info_window_setting['info_window_arrow_style'];
-  }
-  
-  $map->map_style_google_map = unserialize($map_data[0]->style_google_map);
-  $map->visualrefresh =$map_data[0]->map_visual_refresh;
-   $map->heat_map=$unserialize_map_layer_setting['heat_map'];;
-  $map->temperature_unit=$unserialize_map_layer_setting['temp'];
-  $map->wind_speed_unit=$unserialize_map_layer_setting['wind'];
+  $map->visualrefresh =$map_data->map_visual_refresh;
   $map->map_layers=$unserialize_map_layer_setting['choose_layer'];
 
-  if( empty($map_data[0]->map_zoom_level) ) {
+  if( empty($map_data->map_zoom_level) ) {
 		$map->zoom = $zoom;
   } else {
-		$map->zoom = $map_data[0]->map_zoom_level;
+		$map->zoom = $map_data->map_zoom_level;
   }
   
  
@@ -355,11 +333,8 @@ wpgmp_google_map_load();
 if( !empty($atts['id']) ) {
 	
 $map_locations = $wpdb->get_row($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."create_map where map_id=%d",$atts['id']));
-$un_group_map_setting = unserialize($map_locations->group_map_setting);
 $un_info_window_setting = unserialize($map_locations->map_info_window_setting);
  
-
-	
    	$map_address = unserialize($map_locations->map_locations);
 	
 	if( $map_address!='' ) {
@@ -389,26 +364,14 @@ $un_info_window_setting = unserialize($map_locations->map_info_window_setting);
 	$longitude = $map_locations_records->location_longitude;
 	$title = $map_locations_records->location_title;
 	$dragg = $map_locations_records->location_draggable;
-	$animation = $map_locations_records->location_animation;
-	$address['first']['title'] = $unmess_info_message['googlemap_infowindow_title_one'];
+		
 	$address['first']['message'] = $unmess_info_message['googlemap_infowindow_message_one'];
-	$address['second']['title'] = $unmess_info_message['googlemap_infowindow_title_two'];
-	$address['second']['message'] = $unmess_info_message['googlemap_infowindow_message_two'];
-	$address['third']['title'] = $unmess_info_message['googlemap_infowindow_title_three'];
-	$address['third']['message'] = $unmess_info_message['googlemap_infowindow_message_three'];
-	$address['fourth']['title'] = $unmess_info_message['googlemap_infowindow_title_four'];
-	$address['fourth']['message'] = $unmess_info_message['googlemap_infowindow_message_four'];
-	$address['fifth']['title'] = $unmess_info_message['googlemap_infowindow_title_five'];
-	$address['fifth']['message'] = $unmess_info_message['googlemap_infowindow_message_five'];
-	$address = array_filter($address);
 	
-	if( $un_map_cluster_setting['marker_cluster']=='true' ){
+	$address = array_filter($address);
 		
-	} else {
-		
-		if( $address['first']['title']!='' || $address['first']['message']!='' || $address['second']['title']!='' || $address['second']['message']!='' || $address['third']['title']!='' || $address['third']['message']!='' || $address['fourth']['title']!='' || $address['fourth']['title']!='' || $address['fifth']['title']!='' || $address['fifth']['message']!='' ) {
+		if( $address['first']['message']!='' ) {
 			
-			$map->addMarker($latitude,$longitude,$un_info_window_setting['info_window'],$title,$address,$loc_image_src,'',$dragg,$animation);
+			$map->addMarker($latitude,$longitude,$un_info_window_setting['info_window'],$title,$address,$loc_image_src,'',$dragg);
 		} else {
 			
 			wp_print_scripts( 'wpgmp_map' );
@@ -419,10 +382,10 @@ $un_info_window_setting = unserialize($map_locations->map_info_window_setting);
 			
 			$address_coordinates = wpgmp_get_address_coordinates( $new_loc_adds );
 			
-			$map->addMarker($latitude,$longitude,$un_info_window_setting['info_window'],$title,$new_loc_adds,$loc_image_src,'',$dragg,$animation);
+			$map->addMarker($latitude,$longitude,$un_info_window_setting['info_window'],$title,$new_loc_adds,$loc_image_src,'',$dragg);
 				
 	    }
-	}
+	
    }
   }
 } elseif( $content ) {
@@ -479,7 +442,7 @@ function wpgmp_settings(){
         <form method="post" action="options.php">  
             <?php wp_nonce_field('update-options') ?>  
       <p>
-<a href="<?php echo get_bloginfo('siteurl'); ?>/wp-admin/admin.php?page=wpgmp_add_location"><?php _e( 'Click Here', 'wpgmp_google_map' ) ?></a>&nbsp; <?php _e( 'to add a new location or', 'wpgmp_google_map' ) ?>&nbsp;<a href="<?php echo get_bloginfo('siteurl'); ?>/wp-admin/admin.php?page=wpgmp_manage_location"><?php _e( 'Browse', 'wpgmp_google_map' ) ?></a>&nbsp; <?php _e( 'your existings locations.', 'wpgmp_google_map' ) ?>
+<a href="<?php echo site_url(); ?>/wp-admin/admin.php?page=wpgmp_add_location"><?php _e( 'Click Here', 'wpgmp_google_map' ) ?></a>&nbsp; <?php _e( 'to add a new location or', 'wpgmp_google_map' ) ?>&nbsp;<a href="<?php echo site_url() ?>/wp-admin/admin.php?page=wpgmp_manage_location"><?php _e( 'Browse', 'wpgmp_google_map' ) ?></a>&nbsp; <?php _e( 'your existings locations.', 'wpgmp_google_map' ) ?>
  </p>
        
       <div class="form-horizontal">
@@ -674,8 +637,7 @@ function wpgmp_google_map_tabs_filter($tabs)
 }
  
 function wpgmp_google_map_media_upload_tab() {
-	
-    return wp_iframe('wpgmp_google_map_icon', $errors );
+	return wp_iframe('wpgmp_google_map_icon');
 }
 function wpgmp_google_map_icon()
 {

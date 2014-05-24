@@ -15,7 +15,7 @@ parent::__construct( array(
   'plural'    => __( 'googlemaps', 'wpgmp_google_map' ),  
   'ajax'      => false       
     ) );
-if( $_GET['page']=='wpgmp_google_wpgmp_manage_map' && $_POST['s']!='' )
+if( $_GET['page']=='wpgmp_google_wpgmp_manage_map' && isset($_POST['s']) && $_POST['s']!='' )
 {
 $query = "SELECT * FROM ".$wpdb->prefix."create_map WHERE map_title LIKE '%".$_POST['s']."%' OR  map_type LIKE '%".$_POST['s']."%' OR map_width LIKE '%".$_POST['s']."%' OR map_height LIKE '%".$_POST['s']."%' ";
 }
@@ -23,7 +23,7 @@ else
 {
 $query = "SELECT * FROM ".$wpdb->prefix."create_map ORDER BY map_id DESC";
 }
-$this->table_data = $wpdb->get_results($wpdb->prepare($query,NULL),ARRAY_A );
+$this->table_data = $wpdb->get_results($query,ARRAY_A );
 add_action( 'admin_head', array( &$this, 'admin_header' ) );            
 }
 function admin_header()
@@ -105,7 +105,7 @@ function get_columns()
 }
 function usort_reorder( $a, $b )
 {
-  $orderby = ( ! empty( $_GET['orderby'] ) ) ? $_GET['orderby'] : '';
+  $orderby = ( ! empty( $_GET['orderby'] ) ) ? $_GET['orderby'] : 'map_id';
   $order = ( ! empty($_GET['order'] ) ) ? $_GET['order'] : 'asc';
   $result = strcmp( $a[$orderby], $b[$orderby] );
   return ( $order === 'asc' ) ? $result : -$result;
@@ -165,13 +165,13 @@ function prepare_items()
 function wpgmp_manage_map()
 {
 global $wpdb; 
-if($_GET['action']=='delete' && $_GET['map']!='')
+if( isset($_GET['action']) && $_GET['action']=='delete' && $_GET['map']!='')
 {
 	$id = (int)$_GET['map'];
 	$wpdb->query($wpdb->prepare("DELETE FROM ".$wpdb->prefix."create_map WHERE map_id=%d",$id));
 	$success= __( 'Selected Records Deleted Successfully.', 'wpgmp_google_map' );
 }
-if( $_POST['action'] == 'delete' && $_POST['map']!='' )
+if( isset($_POST['action']) && $_POST['action'] == 'delete' && isset($_POST['map']) &&  $_POST['map']!='' )
 {
 	foreach($_POST['map'] as $id)
 		{
@@ -199,14 +199,7 @@ else if( !intval($_POST['map_height']) )
 {
 	$error[]= __( 'Please enter Integer value in map height.', 'wpgmp_google_map' );
 }
-if( $_POST['direction_servics']['route_direction']=="" )
-{
-	$_POST['direction_servics']['route_direction'] = 'false';
-	$_POST['direction_servics']['route_direction_stroke_color'] = "#0000FF";
-	$_POST['direction_servics']['route_direction_stroke_opacity'] = 1.0;
-	$_POST['direction_servics']['route_direction_stroke_weight'] = 2;
-}
-else
+if( isset($_POST['direction_servics']['route_direction']) && !empty( $_POST['direction_servics']['route_direction'] ))
 {
 	if(count($_POST['locations'])<2)
 	{
@@ -216,114 +209,135 @@ else
 	{
 		$_POST['direction_servics']['route_direction'] = $_POST['direction_servics']['route_direction'];
 	}
-}
-if( $_POST['scrolling_wheel']=="" )
-{
-	$_POST['scrolling_wheel'] = 'true';
+	
 }
 else
+{
+	$_POST['direction_servics']['route_direction'] = 'false';
+	$_POST['direction_servics']['route_direction_stroke_color'] = "#0000FF";
+	$_POST['direction_servics']['route_direction_stroke_opacity'] = 1.0;
+	$_POST['direction_servics']['route_direction_stroke_weight'] = 2;
+}
+if( isset($_POST['scrolling_wheel']) && !empty($_POST['scrolling_wheel']) )
 {
 	$_POST['scrolling_wheel'] = $_POST['scrolling_wheel'];
 }
-if( $_POST['visual_refresh']=="" )
+else
 {
-    $_POST['visual_refresh'] = 'false';
+	$_POST['scrolling_wheel'] = 'true';
+}
+
+if( isset($_POST['visual_refresh']) && !empty($_POST['visual_refresh']) )
+{
+    $_POST['visual_refresh'] = $_POST['visual_refresh'];
 }
 else
 {
-	$_POST['visual_refresh'] = $_POST['visual_refresh'];
+	$_POST['visual_refresh'] = 'false';
 }
-if( $_POST['street_view_control']['street_control']=="" )
+if( isset($_POST['street_view_control']['street_control']) && !empty($_POST['street_view_control']['street_control']) )
 {
-   $_POST['street_view_control']['street_control'] = 'false';
+   $_POST['street_view_control']['street_control'] = $_POST['street_view_control']['street_control'];
 }
 else
 {
-	$_POST['street_view_control']['street_control'] = $_POST['street_view_control']['street_control'];
+	$_POST['street_view_control']['street_control'] = 'false';
 }
-if( $_POST['street_view_control']['street_view_close_button']=="" )
+if( isset( $_POST['street_view_control']['street_view_close_button']) && !empty($_POST['street_view_control']['street_view_close_button']) )
 {
-   $_POST['street_view_control']['street_view_close_button'] = 'false';
+   	$_POST['street_view_control']['street_view_close_button'] = $_POST['street_view_control']['street_view_close_button'];
 }
 else
 {
-	$_POST['street_view_control']['street_view_close_button'] = $_POST['street_view_control']['street_view_close_button'];
+	$_POST['street_view_control']['street_view_close_button'] = 'false';
+
 }
-if( $_POST['street_view_control']['links_control']=="" )
+if( isset($_POST['street_view_control']['links_control']) && !empty($_POST['street_view_control']['links_control']))
+{
+   $_POST['street_view_control']['links_control'] = $_POST['street_view_control']['links_control'];
+}
+else
 {
    $_POST['street_view_control']['links_control'] = 'true';
 }
-else
+
+if( isset($_POST['street_view_control']['street_view_pan_control']) && !empty($_POST['street_view_control']['street_view_pan_control']))
 {
-	$_POST['street_view_control']['links_control'] = $_POST['street_view_control']['links_control'];
+  $_POST['street_view_control']['street_view_pan_control'] = $_POST['street_view_control']['street_view_pan_control'];
 }
-if( $_POST['street_view_control']['street_view_pan_control']=="" )
+else
 {
    $_POST['street_view_control']['street_view_pan_control'] = 'true';
+
+}
+if( isset($_POST['control']['pan_control']) && !empty($_POST['control']['pan_control']) )
+{
+  $_POST['control']['pan_control'] = $_POST['control']['pan_control'];
 }
 else
 {
-	$_POST['street_view_control']['street_view_pan_control'] = $_POST['street_view_control']['street_view_pan_control'];
+   $_POST['control']['pan_control'] = 'true';	
 }
-if( $_POST['control']['pan_control']=="" )
+if( isset($_POST['control']['zoom_control']) && !empty($_POST['control']['zoom_control']) )
 {
-   $_POST['control']['pan_control'] = 'true';
+   $_POST['control']['zoom_control'] = $_POST['control']['zoom_control'];
 }
 else
-{
-	$_POST['control']['pan_control'] = $_POST['control']['pan_control'];
-}
-if( $_POST['control']['zoom_control']=="" )
 {
    $_POST['control']['zoom_control'] = 'true';
+	
+}
+if( isset($_POST['control']['map_type_control']) && !empty($_POST['control']['map_type_control']) )
+{
+   $_POST['control']['map_type_control'] = $_POST['control']['map_type_control'];
 }
 else
-{
-	$_POST['control']['zoom_control'] = $_POST['control']['zoom_control'];
-}
-if( $_POST['control']['map_type_control']=="" )
 {
    $_POST['control']['map_type_control'] = 'true';
+
 }
-else
-{
-	$_POST['control']['map_type_control'] = $_POST['control']['map_type_control'];
-}
-if( $_POST['control']['scale_control']=="" )
-{
-   $_POST['control']['scale_control'] = 'true';
-}
-else
+if( isset($_POST['control']['scale_control']) && !empty($_POST['control']['scale_control']) )
 {
 	$_POST['control']['scale_control'] = $_POST['control']['scale_control'];
 }
-if( $_POST['control']['street_view_control']=="" )
+else
 {
-   $_POST['control']['street_view_control'] = 'true';
+   $_POST['control']['scale_control'] = 'true';
+}
+
+if( isset($_POST['control']['street_view_control']) && !empty($_POST['control']['street_view_control']) )
+{
+  $_POST['control']['street_view_control'] = $_POST['control']['street_view_control'];
 }
 else
 {
-	$_POST['control']['street_view_control'] = $_POST['control']['street_view_control'];
+	 $_POST['control']['street_view_control'] = 'true';
 }
-if( $_POST['control']['overview_map_control']=="" )
-{
-   $_POST['control']['overview_map_control'] = 'true';
-}
-else
+if( isset($_POST['control']['overview_map_control']) && !empty($_POST['control']['overview_map_control']))
 {
 	$_POST['control']['overview_map_control'] = $_POST['control']['overview_map_control'];
 }
-if( $_POST['info_window_setting']['info_window']=="" )
-{
-   $_POST['info_window_setting']['info_window'] = 'true';
-}
 else
+{
+  $_POST['control']['overview_map_control'] = 'true';
+}
+if( isset($_POST['info_window_setting']['info_window']) && !empty($_POST['info_window_setting']['info_window'])=="" )
 {
 	$_POST['info_window_setting']['info_window'] = $_POST['info_window_setting']['info_window'];
 }
-if( $_POST['info_window_setting']['enable_info_window_setting']=="" )
+else
 {
-   $_POST['info_window_setting']['enable_info_window_setting'] = 'false';
+   $_POST['info_window_setting']['info_window'] = 'true';
+
+}
+if( isset($_POST['info_window_setting']['enable_info_window_setting']) && !empty($_POST['info_window_setting']['enable_info_window_setting']))
+{
+   $_POST['info_window_setting']['enable_info_window_setting'] = $_POST['info_window_setting']['enable_info_window_setting'];
+   
+}
+else
+{
+  $_POST['info_window_setting']['enable_info_window_setting'] = 'false';
    $_POST['info_window_setting']['info_window_width'] = 300;
    $_POST['info_window_setting']['info_window_height'] = '';
    $_POST['info_window_setting']['info_window_shadow_style'] = 0;
@@ -335,15 +349,11 @@ if( $_POST['info_window_setting']['enable_info_window_setting']=="" )
    $_POST['info_window_setting']['info_window_arrow_position'] = 50;
    $_POST['info_window_setting']['info_window_arrow_style'] = 0;
 }
-else
-{
-	$_POST['info_window_setting']['enable_info_window_setting'] = $_POST['info_window_setting']['enable_info_window_setting'];
-}
-if( $_POST['locations']=="" )
+if( isset($_POST['locations']) && $_POST['locations']=="" )
 {
    $error[]= __( 'Please check any one location.', 'wpgmp_google_map' );
 }
-if( $_POST['group_map_setting']['enable_group_map']=='true' )
+if( isset($_POST['group_map_setting']['enable_group_map']) && $_POST['group_map_setting']['enable_group_map']=='true' )
 {
 	if( $_POST['group_map_setting']['select_group_map']=="" )
 	{
@@ -383,9 +393,9 @@ array(
 	'map_street_view_setting' => serialize($_POST['street_view_control']),
 	'map_all_control' => serialize($_POST['control']),
 	'map_info_window_setting' => serialize($_POST['info_window_setting']),
-	'style_google_map' => serialize($_POST['style_array_type']),
-	'map_locations' => serialize($_POST['locations']),
-	'map_layer_setting' => serialize($_POST['layer_setting'])
+	'style_google_map' => isset($_POST['style_array_type']) ? serialize($_POST['style_array_type']) : '',
+	'map_locations' => isset($_POST['locations']) ? serialize($_POST['locations']) : '',
+	'map_layer_setting' => isset($_POST['layer_setting']) ? serialize($_POST['layer_setting']) : ''
 
 ), 
 array( 'map_id' => $_GET['map'] ) 
@@ -402,7 +412,7 @@ $success= __( 'Map Updated Successfully.', 'wpgmp_google_map' );
 </style>
 <div class="wrap">  
 <?php
-if( $_GET['action']=='edit' && $_GET['map']!='' )
+if( isset($_GET['action']) &&  $_GET['action']=='edit' && $_GET['map']!='' )
 {
 $map_record = $wpdb->get_row($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."create_map where map_id=%d",$_GET['map']));
 $unserialize_map_street_view_setting = unserialize($map_record->map_street_view_setting);
@@ -511,7 +521,7 @@ if( !empty($success) )
     <?php
     global $wpdb;
     $un_maploc = unserialize($map_record->map_locations);
-    $results = $wpdb->get_results($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."map_locations",NULL));
+    $results = $wpdb->get_results("SELECT * FROM ".$wpdb->prefix."map_locations");
     for($i = 0; $i < count($results); $i++)
 	{
     ?>
@@ -698,6 +708,24 @@ else
 	 <p class="description"><?php _e('Available in Pro Version. <a target="_blank" href="http://codecanyon.net/item/advanced-google-maps/5211638">Buy Now</a>', 'wpgmp_google_map')?></p>
 
 </fieldset>
+<fieldset>
+            <legend>
+            <?php _e('Limit Panning and Zoom', 'wpgmp_google_map')?>
+            </legend>
+             <div class="col-md-7"><p class="description"><?php _e('Available in Pro Version. <a target="_blank" href="http://codecanyon.net/item/advanced-google-maps/5211638">Buy Now</a>', 'wpgmp_google_map')?></p></div>
+</fieldset>   
+
+<fieldset>
+            <legend>
+            <?php _e('Category/Directions/Nearby Module', 'wpgmp_google_map')?>
+            </legend>
+                <div class="col-md-7"><p class="description"><?php _e('Available in Pro Version. <a target="_blank" href="http://codecanyon.net/item/advanced-google-maps/5211638">Buy Now</a>', 'wpgmp_google_map')?></p></div>
+</fieldset>   
+
+ <fieldset><legend>Listing Module</legend>
+ <div class="col-md-7"><p class="description"><?php _e('Available in Pro Version. <a target="_blank" href="http://codecanyon.net/item/advanced-google-maps/5211638">Buy Now</a>', 'wpgmp_google_map')?></p></div>
+</fieldset>
+
 	<p class="submit">
 	<input type="submit" name="update_map" id="submit" class="btn btn-primary" value="<?php _e('Update Map', 'wpgmp_google_map')?>">
 	

@@ -2,7 +2,11 @@
 function wpgmp_js_head()
 {
 global $wpdb,$post;
-$user_record = $wpdb->get_row($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."map_locations where location_id=%d",$_GET['location']));
+
+$location_name = isset($_GET['location']) ? $_GET['location'] : ""; 
+
+$user_record = $wpdb->get_row($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."map_locations where location_id=%d",$location_name));
+if($user_record)
 $group_marker = $wpdb->get_row($wpdb->prepare("SELECT group_marker FROM ".$wpdb->prefix."group_map where group_map_id=%d",$user_record->location_group_map));
 
 if(!empty($group_marker->group_marker))
@@ -29,7 +33,7 @@ function initialize() {
   geocoder = new google.maps.Geocoder();
   var latlng = new google.maps.LatLng(-34.397, 150.644);
  
-var imgurl= '<?php echo $image_src; ?>';
+var imgurl= '<?php if(isset($image_src)) echo $image_src; ?>';
 if(imgurl=='')
 {
    var image = 'http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png';
@@ -106,7 +110,7 @@ geocodeaddress();
 }
 function geocodeaddress() {
 	
-var imgurl= '<?php echo $image_src; ?>';
+var imgurl= '<?php if(isset($image_src)) echo $image_src; ?>';
 if(imgurl=='')
 {
    var image = 'http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png';
@@ -152,7 +156,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 			$('#set-book-image').click(function(){
 				// replace the default send_to_editor handler function with our own
 				window.send_to_editor = window.attach_image;
-				tb_show('', 'media-upload.php?post_id=<?php echo $post->ID ?>&amp;type=image&amp;TB_iframe=true');
+				tb_show('', 'media-upload.php?post_id=<?php if(isset($post->ID)) echo $post->ID ?>&amp;type=image&amp;TB_iframe=true');
 				return false;
 			});
 			
