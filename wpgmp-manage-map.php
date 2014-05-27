@@ -199,6 +199,13 @@ else if( !intval($_POST['map_height']) )
 {
 	$error[]= __( 'Please enter Integer value in map height.', 'wpgmp_google_map' );
 }
+
+if( !isset($_POST['locations']) && $_POST['locations']=="" )
+{
+   $error[]= __( 'Please check any one location.', 'wpgmp_google_map' );
+}
+
+
 if( isset($_POST['direction_servics']['route_direction']) && !empty( $_POST['direction_servics']['route_direction'] ))
 {
 	if(count($_POST['locations'])<2)

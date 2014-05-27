@@ -157,7 +157,7 @@ else
 {
 	$_POST['info_window_setting']['info_window'] = 'true';
 }
-if( isset($_POST['locations']) && $_POST['locations']=="" )
+if( !isset($_POST['locations']) or $_POST['locations']=="" )
 {
    $error[]= __( 'Please check any one location.', 'wpgmp_google_map' );
 }
