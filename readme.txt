@@ -44,6 +44,7 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * Multi-lingual Supported.
 * Multisite Enabled and ability to activate it network wide.
 
+
 = Pro Edition =
 * Define overlays on Google maps via an easy to use interface
 * Design your own Google map skins easily. Turn ON/OFF roads, places, water area. 
@@ -63,14 +64,21 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * Filter by user's current location. 
 * Directions & Route Suggestions
 * Each location listing is paginated.
+* GEOTags Supported - Easiest way to display posts/pages or custom post types on map.
+* Hooks Supported - Use actions & filters to modify map,markers,listing and associated html on fly.
 
  
 
 * Download [WP Google Map Pro Edition](http://codecanyon.net/item/advanced-google-maps/5211638)
 
 = DEMO =
+
+* [Display Post,Pages or Custom Post types on Google Maps](http://www.flippercode.com/display-multiple-markers-using-addresses-on-google-maps)
+* [Display Multiple Markers using Address using Shortcodes](http://www.flippercode.com/display-multiple-markers-using-addresses-on-google-maps)
+* [Filter Locations by Categories](http://www.flippercode.com/filtration-using-categories-on-google-maps)
 * [Styled Google Map Skins](http://www.flippercode.com/styled-google-map-skin)
 * [Google Map Street View](http://www.flippercode.com/google-map-street-view-using-wordpress-plugin)
+* [100% Responsive Google Map](http://bit.ly/MMxK13)
 * [Google Map Weather Layer](http://www.flippercode.com/google-map-weather-layer-using-wordpress-plugin)
 * [Google Map Traffic Layer](http://www.flippercode.com/google-map-traffic-layer-using-wordpress-plugin)
 * [Google Map Bicycling Layer](http://www.flippercode.com/google-map-bicycling%20-layer-using-wordpress-plugin)
@@ -84,7 +92,7 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * [Google Map KML Layers using WordPress Plugin](http://www.flippercode.com/implement-kml-layers-on-google-map-using-wordpress-plugin)
 * [Display Polylines on Google Map](http://www.flippercode.com/display-polylines-on-google-map-using-wordpress-plugin)
 * [Display Route Direction on Google Map](http://www.flippercode.com/display-route-direction-on-google-map-using-wordpress-plugin)
-* [Display Multiple Markers using Address using Shortcodes](http://www.flippercode.com/display-multiple-markers-using-addresses-on-google-maps)
+
 
 
 Importance
