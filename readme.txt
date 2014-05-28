@@ -92,6 +92,7 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * [Google Map KML Layers using WordPress Plugin](http://www.flippercode.com/implement-kml-layers-on-google-map-using-wordpress-plugin)
 * [Display Polylines on Google Map](http://www.flippercode.com/display-polylines-on-google-map-using-wordpress-plugin)
 * [Display Route Direction on Google Map](http://www.flippercode.com/display-route-direction-on-google-map-using-wordpress-plugin)
+* [Hooks for Google Maps Plugin] (http://www.flippercode.com/hooks-for-google-maps-plugin/)
 
 
 
