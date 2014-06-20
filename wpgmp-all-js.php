@@ -106,7 +106,7 @@ else
              marker.setIcon(image);
              marker.setPosition(latlng);
          }
-geocodeaddress();
+//geocodeaddress();
 }
 function geocodeaddress() {
 	
