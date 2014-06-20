@@ -2,16 +2,14 @@
 function wpgmp_js_head()
 {
 global $wpdb,$post;
-
-$location_name = isset($_GET['location']) ? $_GET['location'] : ""; 
-
-$user_record = $wpdb->get_row($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."map_locations where location_id=%d",$location_name));
-if($user_record)
-$group_marker = $wpdb->get_row($wpdb->prepare("SELECT group_marker FROM ".$wpdb->prefix."group_map where group_map_id=%d",$user_record->location_group_map));
-
-if(!empty($group_marker->group_marker))
+if( !empty($_GET['location']) )
 {
-	$image_src = $group_marker->group_marker;
+	$user_record = $wpdb->get_row($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."map_locations where location_id=%d",$location_name));
+	$group_marker = $wpdb->get_row($wpdb->prepare("SELECT group_marker FROM ".$wpdb->prefix."group_map where group_map_id=%d",$user_record->location_group_map));
+	if(!empty($group_marker)) 
+	{
+		$image_src = $group_marker->group_marker;
+	}
 }
 ?>
 <style type="text/css">
@@ -25,18 +23,20 @@ label{
 	border:1px solid #903 !important;
 }
 </style>
-<script src="http://maps.google.com/maps/api/js?libraries=places&region=uk&language=en&sensor=true"></script>
+<script src="http://maps.google.com/maps/api/js?libraries=places&region=uk&language=en&sensor=false"></script>
 <script type="text/javascript"> 
 var geocoder;
 var map;
-function initialize() {
-  geocoder = new google.maps.Geocoder();
-  var latlng = new google.maps.LatLng(-34.397, 150.644);
+function initialize() {		
+	
+geocoder = new google.maps.Geocoder();
+  
+var latlng = new google.maps.LatLng(-34.397, 150.644);
  
-var imgurl= '<?php if(isset($image_src)) echo $image_src; ?>';
-if(imgurl=='')
+var imgurl= "<?php echo $image_src; ?>";
+if(imgurl=="")
 {
-   var image = 'http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png';
+   var image = '<?php echo plugins_url('images/blue-dot.png', __FILE__ ); ?>';
 }
 else
 {
@@ -49,16 +49,26 @@ else
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
- 
- 				
- marker = new google.maps.Marker({
+  
+  marker = new google.maps.Marker({
                  position: latlng,
                  map: map,
+				 
+				 draggable:true,
                  icon: image,
     			 animation: google.maps.Animation.DROP,
              });
-  		google.maps.event.addListener(marker, 'click',function() { });
-		
+			 
+		google.maps.event.addListener(marker, "dragend", function(event) {
+			geocodePosition(marker.getPosition());
+			
+			map.panTo(marker.getPosition());
+			
+			jQuery('.google_latitude').val(event.latLng.lat());
+            jQuery('.google_longitude').val(event.latLng.lng());
+        });	 
+        
+        
 		var input = document.getElementById('googlemap_address');
         
 		 var autocomplete = new google.maps.places.Autocomplete(input, {
@@ -76,77 +86,104 @@ else
                  map.setCenter(place.geometry.location);
                  map.setZoom(17);
              }
-			
 			 moveMarker(place.name, place.geometry.location);
              jQuery('.google_latitude').val(place.geometry.location.lat());
              jQuery('.google_longitude').val(place.geometry.location.lng());
-         });
-         google.maps.event.addListener(map, 'click', function (event) {
-             jQuery('.google_latitude').val(event.latLng.lat());
-             jQuery('.google_longitude').val(event.latLng.lng());
-             infowindow.close();
-                     var geocoder = new google.maps.Geocoder();
-                     geocoder.geocode({
-                         "latLng":event.latLng
-                     }, function (results, status) {
-                         console.log(results, status);
-                         if (status == google.maps.GeocoderStatus.OK) {
-                             console.log(results);
-                             var lat = results[0].geometry.location.lat(),
-                                 lng = results[0].geometry.location.lng(),
-                                 placeName = results[0].address_components[0].long_name,
-                                 latlng = new google.maps.LatLng(lat, lng);
-                             moveMarker(placeName, latlng);
-                             $("#googlemap_address").val(results[0].formatted_address);
-                         }
-                     });
          });
          function moveMarker(placeName, latlng)
 		 {
              marker.setIcon(image);
              marker.setPosition(latlng);
          }
-//geocodeaddress();
+position_marker_geocodeaddress();
 }
+
+function geocodePosition(pos) {
+	  
+  	geocoder.geocode({
+    	latLng: pos
+  	},
+	
+	function(responses)
+	{
+    	if (responses && responses.length > 0)
+		{
+      		jQuery('#googlemap_address').val(responses[0].formatted_address);
+    	}
+		else
+		{
+      		alert('Cannot determine address at this location.');
+    	}
+  	});
+}
+
+function position_marker_geocodeaddress()
+{
+	var imgurl= '<?php echo $image_src; ?>';
+	if(imgurl=='')
+	{
+	   var image = 'http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png';
+	}
+	else
+	{
+		var image= imgurl;
+	}
+
+	var pos_lat = jQuery('.google_latitude').val();
+    var pos_lng = jQuery('.google_longitude').val();
+    var latlng = new google.maps.LatLng(pos_lat, pos_lng);
+    map.setCenter(latlng);
+    var marker = new google.maps.Marker({
+      map: map, 
+	  icon:image,
+	  draggable:true,
+      position: latlng
+    });
+
+    google.maps.event.addListener(marker, "dragend", function(event) {
+		geocodePosition(marker.getPosition());	
+		map.panTo(marker.getPosition());
+		jQuery('.google_latitude').val(event.latLng.lat());
+        jQuery('.google_longitude').val(event.latLng.lng());
+    });
+}
+
 function geocodeaddress() {
 	
-var imgurl= '<?php if(isset($image_src)) echo $image_src; ?>';
-if(imgurl=='')
-{
-   var image = 'http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png';
-}
-else
-{
-	var image= imgurl;
-}
-
-  var latlng = new google.maps.LatLng(-34.397, 150.644);
- 
-  var mapOptions = {
-    zoom: 8,
-    center: latlng,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  }
-  map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
+	var imgurl= '<?php echo $image_src; ?>';
+	if(imgurl=='')
+	{
+	   var image = 'http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png';
+	}
+	else
+	{
+		var image= imgurl;
+	}
 	
-  var address = document.getElementById('googlemap_address').value;
-  geocoder.geocode( { 'address': address}, function(results, status) {
+  	var address = jQuery('#googlemap_address').val(); 
+  	geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
-      map.setCenter(results[0].geometry.location);
-      var marker = new google.maps.Marker({
-          map: map,
-		  icon:image,
-          position: results[0].geometry.location
-      });
-	  var latitude = results[0].geometry.location.lat();
-     var longitude = results[0].geometry.location.lng();
-		
-	document.getElementById("googlemap_latitude").value = latitude;
-	document.getElementById("googlemap_longitude").value = longitude;
+      	map.setCenter(results[0].geometry.location);
+      	var marker = new google.maps.Marker({
+          	map: map,
+		  	icon:image,
+		  	draggable:true,
+          	position: results[0].geometry.location
+      	});
+	  
+	  	google.maps.event.addListener(marker, "dragend", function(event) {
+			geocodePosition(marker.getPosition());			
+			map.panTo(marker.getPosition());			
+			jQuery('.google_latitude').val(event.latLng.lat());
+            jQuery('.google_longitude').val(event.latLng.lng());
+        });	
+	  	
+		jQuery('.google_latitude').val(results[0].geometry.location.lat());
+		jQuery('.google_longitude').val(results[0].geometry.location.lng());
     }
   });
 }
+
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 <script type="text/javascript">
