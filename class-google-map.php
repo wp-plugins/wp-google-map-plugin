@@ -136,7 +136,13 @@ var infoWindows = [];
 
 ';
 
-$this->code.='google.load("maps", "3.7", {"other_params" : "sensor=false&libraries=places,weather,panoramio&language='.get_option('wpgmp_language').'"});
+$this->map_language = get_option('wpgmp_language');
+
+if($this->map_language=='')
+$this->map_language = 'en';
+
+
+$this->code.='google.load("maps", "3.7", {"other_params" : "sensor=false&libraries=places,weather,panoramio&language='.$this->map_language.'"});
 
 google.setOnLoadCallback(initialize);';	
 	
@@ -180,7 +186,7 @@ $this->code.='scrollwheel: '.$this->map_scrolling_wheel.',
 		
 		overviewMapControlOptions: {
 
-	            opened: '.$this->map_overview_control.',
+	            opened: '.$this->map_overview_control.'
 	    },
 
 		center: latlng,
@@ -259,7 +265,7 @@ for($i=0; $i < count($this->marker); $i++)
 		$this->code.='position: new google.maps.LatLng('.$this->marker[$i]['lat'].', '.$this->marker[$i]['lng'].'), 
 		title: "'.$this->marker[$i]['title'].'",
 		clickable: '.$this->marker[$i]['click'].',
-		icon: "'.$this->marker[$i]['icon'].'",
+		icon: "'.$this->marker[$i]['icon'].'"
 	  });';
   
  if( $this->enable_group_map=='true' )
