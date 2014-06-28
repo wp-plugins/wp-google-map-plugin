@@ -193,7 +193,7 @@ $this->code.='scrollwheel: '.$this->map_scrolling_wheel.',
 
 		mapTypeId: google.maps.MapTypeId.'.$this->map_type.'
 
-		}
+		};
 
 		'.$this->divID.' = new google.maps.Map(document.getElementById("'.$this->divID.'"), mapOptions);';
 }
@@ -345,6 +345,13 @@ function wgmp_closeAllInfoWindows() {
 ';
 
 $this->code.='</script>';
+
+/* remove tabs, spaces, newlines, etc. */
+$this->code = str_replace(array("\r\n","\r","\t","\n",'  ','    ','     '), '', $this->code);
+/* remove other spaces before/after ) */
+$this->code = preg_replace(array('(( )+\))','(\)( )+)'), ')', $this->code);
+/* remove some more spaces. */
+$this->code = str_replace(array('), ','", ',' = ',': {',", '",': "',', function',': true',': false'), array('),','",','=',':{',",'",':"',',function',':true',':false'), $this->code);
 
 }
 
