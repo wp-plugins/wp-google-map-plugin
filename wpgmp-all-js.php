@@ -12,18 +12,6 @@ if( !empty($_GET['location']) )
 	}
 }
 ?>
-<style type="text/css">
-label{
-	padding-bottom:5px;
-	font-weight:bold;
-	margin-left:10px;
-}
-.success{
-	background-color:#CF9 !important;
-	border:1px solid #903 !important;
-}
-</style>
-<script src="http://maps.google.com/maps/api/js?libraries=places&region=uk&language=en&sensor=false"></script>
 <script type="text/javascript"> 
 var geocoder;
 var map;
