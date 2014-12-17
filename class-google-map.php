@@ -4,7 +4,7 @@ class Wpgmp_Google_Map
 
 var $code='';  // Do not edit this.
 
-var $zoom=14; // Zoop Level.
+var $zoom=10; // Zoop Level.
 
 var $center_lat = '37.09024'; // google map center location
 

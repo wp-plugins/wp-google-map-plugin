@@ -3,7 +3,7 @@
 Plugin Name: WP Google Map Plugin
 Description:  A multilingual, multisite supported & most advanced Google Maps plugin for WordPress.
 Author: flippercode
-Version: 2.3.5
+Version: 2.3.6
 Author URI: http://www.flippercode.com
 */
 

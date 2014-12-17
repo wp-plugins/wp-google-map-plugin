@@ -7,7 +7,7 @@ Author URI:        http://profiles.wordpress.org/flippercode/
 Author:            flippercode
 Donate link:       (a link for donating)
 Requires at least: 2.0.0 
-Tested up to:      3.9
+Tested up to:      4.0.1
 Stable tag:        A multilingual, multisite supported & most advanced Google Maps plugin for WordPress. 
 
 == Description ==
