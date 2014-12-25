@@ -1,7 +1,7 @@
 <?php 
 /*
 Plugin Name: WP Google Map Plugin
-Description:  A multilingual, multisite supported & most advanced Google Maps plugin for WordPress.
+Description:  Display Google Maps in Pages, Posts, Sidebar or Custom Templates. It’s Responsive, Multi-Lingual, Multi-Site Supported.
 Author: flippercode
 Version: 2.3.6
 Author URI: http://www.flippercode.com
