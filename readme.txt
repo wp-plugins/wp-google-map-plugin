@@ -18,23 +18,18 @@ Here is a quick highlight on the numerous customizable features offered by the f
 Here is a quick highlight on the numerous customizable features offered by the free and pro versions of the  [WP Google Map Pro Version](http://codecanyon.net/item/advanced-google-maps/5211638).
 
 = Lite Version (Free) =
-* Twitter Bootstrap 3 based.
-* Create unlimited maps and display on posts/pages using shortcode
+* Create unlimited maps and display on posts/pages using shortcode.
 * Add unlimited locations using an easy to use interface for Google Maps
 * Customize marker image for each location separately or group wise. Choose from +500 readymade markers or pick your own image
 * Display your map perfectly on all devices. Create 100% responsive maps effortlessly
-* First & the only wordpress plugin to support multiple infowindows with title
 * Display Google Maps on sidebars using widget
-* Add any number of Google maps on pages/posts/sidebars
 * Display Road Map view. This is the default map type
 * Display Google Earth satellite images on just one click
 * Display maps in a blend of normal and satellite views
 * Display physical maps based on terrain information
-* Apply any type of marker customization on Google map infowindows
 * Display traffic real time conditions and overlays using Traffic Layers
 * Add bicycle path information to your maps using the Bicycling Layer
 * Display physical maps based on terrain information
-* Apply any type of marker customization on Google map infowindows
 * Display photos from Panoramio as a layer to your maps using the Panoramio Layer
 * A Cross Browser Compatible plugin. Fully tested on IE8, IE9, IE10 and all major browsers
 * Enable visual refresh on any Google Map at a button’s click
