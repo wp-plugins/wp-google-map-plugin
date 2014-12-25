@@ -8,10 +8,10 @@ Author:            flippercode
 Donate link:       (a link for donating)
 Requires at least: 2.0.0 
 Tested up to:      4.0.1
-Stable tag:        Display Google Maps in Pages, Posts, Sidebar or Custom Templates. It’s Responsive, Multi-Lingual, Multi-Site Supported. 
+Stable tag:        Display Google Maps in Pages, Posts, Sidebar or Custom Templates. It’s Responsive, Multi-Lingual and Multi-Site Supported. 
 
 == Description ==
-A Google Maps plugin for wordpress to create unlimited locations, maps and display Google Maps at a shortcode’s ease. Perfectly responsive maps, Multi-lingual and multisite supported made it most advanced wordpress plugin ever. 
+A Google Maps plugin for WordPress to create unlimited locations, maps and display Google Maps at a shortcode’s ease. Perfectly responsive maps, Multi-lingual and multisite supported made it most advanced WordPress plugin ever. 
  
 Here is a quick highlight on the numerous customizable features offered by the free and pro versions of the WP Google Map plugin.
 
@@ -120,8 +120,8 @@ This section describes how to install the plugin and get it working.
 2. Take control on Google Map Default options with just on click.
 3. Easy to define General Settings of Google Maps
 4. Easy interface to modify info windows.
-5. Display all your locations in Core wordpress format. Easy to manage locations just like you do for posts/pages.
-6. Display all your maps in Core wordpress format. Easy to manage maps just like you do for posts/pages.
+5. Display all your locations in Core WordPress format. Easy to manage locations just like you do for posts/pages.
+6. Display all your maps in Core WordPress format. Easy to manage maps just like you do for posts/pages.
 7. Disable Scrolling Wheel, Enable Visual Refresh Property and many more...
 8. Enable Streetview and it's Settings.
 9  Define your dimensations for weathers layers.
