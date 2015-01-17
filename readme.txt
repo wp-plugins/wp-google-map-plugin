@@ -94,19 +94,6 @@ Here is a quick highlight on the numerous customizable features offered by the f
 
 We're at [FlipperCode](http://www.flippercode.com/), committed to excellent support to make every download worth for the user. Happily announcing [Support Desk](http://www.flippercode.com/forums/) for our valuable users to engaged with multiple support desk person for fast turnout.
 
-Importance
-
-Display a marker on google map is always a hassle for non technical person or find out latitude and longitude for the locations. Now you need not worry about these things. This plugins helps you to create a
-google map and display multiple markers on that seamlessly.  
-
-Usage:
-
-It's easy! Just install this and see WP Google Map Plugin navigation at left side menus.
-
-
-Notes:
-
-This plugin for WordPress, the publicly available  If you experience any problems with the plugin, feel free to contact me.
 
 == Installation ==
 This section describes how to install the plugin and get it working.
