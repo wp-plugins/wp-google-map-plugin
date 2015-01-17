@@ -66,6 +66,7 @@ Here is a quick highlight on the numerous customizable features offered by the f
 
 * Download [WP Google Map Pro Edition](http://codecanyon.net/item/advanced-google-maps/5211638)
 
+
 = DEMO =
 
 * [Display Post,Pages or Custom Post types on Google Maps](http://www.flippercode.com/display-multiple-markers-using-addresses-on-google-maps)
@@ -89,7 +90,9 @@ Here is a quick highlight on the numerous customizable features offered by the f
 * [Display Route Direction on Google Map](http://www.flippercode.com/display-route-direction-on-google-map-using-wordpress-plugin)
 * [Hooks for Google Maps Plugin] (http://www.flippercode.com/hooks-for-google-maps-plugin/)
 
+**Introducing Support Desk**
 
+We're at [FlipperCode](http://www.flippercode.com/), committed to excellent support to make every download worth for the user. Happily announcing [Support Desk](http://www.flippercode.com/forums/) for our valuable users to engaged with multiple support desk person for fast turnout.
 
 Importance
 
