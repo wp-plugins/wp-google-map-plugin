@@ -7,7 +7,7 @@ Author URI:        http://profiles.wordpress.org/flippercode/
 Author:            flippercode
 Donate link:       (a link for donating)
 Requires at least: 2.0.0 
-Tested up to:      4.0.1
+Tested up to:      4.1.1
 Stable tag:        Display Google Maps in Pages, Posts, Sidebar or Custom Templates. It’s Responsive, Multi-Lingual and Multi-Site Supported. 
 
 == Description ==
