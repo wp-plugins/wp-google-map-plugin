@@ -3,7 +3,7 @@
 Plugin Name: WP Google Map Plugin
 Description:  Display Google Maps in Pages, Posts, Sidebar or Custom Templates. It’s Responsive, Multi-Lingual, Multi-Site Supported.
 Author: flippercode
-Version: 2.3.6
+Version: 2.3.7
 Author URI: http://www.flippercode.com
 */
 
@@ -857,7 +857,7 @@ function wpgmp_get_coordinates( $content, $force_refresh = false ) {
     $coordinates = get_transient( $address_hash );
     if ($force_refresh || $coordinates === false) {
     	$args       = array( 'address' => urlencode( $content ), 'sensor' => 'false' );
-    	$url        = add_query_arg( $args, 'http://maps.googleapis.com/maps/api/geocode/json' );
+    	$url        = esc_url_raw(add_query_arg( $args, 'http://maps.googleapis.com/maps/api/geocode/json' ));
      	$response 	= wp_remote_get( $url );
      	if( is_wp_error( $response ) )
      		return;
@@ -896,7 +896,7 @@ function wpgmp_get_address_coordinates( $new_loc_add, $force_refresh = false ) {
     $coordinates = get_transient( $address_hash );
     if ($force_refresh || $coordinates === false) {
     	$args       = array( 'address' => urlencode( $new_loc_add ), 'sensor' => 'false' );
-    	$url        = add_query_arg( $args, 'http://maps.googleapis.com/maps/api/geocode/json' );
+    	$url        = esc_url_raw(add_query_arg( $args, 'http://maps.googleapis.com/maps/api/geocode/json' ));
      	$response 	= wp_remote_get( $url );
      	if( is_wp_error( $response ) )
      		return;

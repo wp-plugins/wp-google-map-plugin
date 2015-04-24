@@ -7,7 +7,7 @@ Author URI:        http://profiles.wordpress.org/flippercode/
 Author:            flippercode
 Donate link:       (a link for donating)
 Requires at least: 2.0.0 
-Tested up to:      4.1.1
+Tested up to:      4.2
 Stable tag:        Display Google Maps in Pages, Posts, Sidebar or Custom Templates. It’s Responsive, Multi-Lingual and Multi-Site Supported. 
 
 == Description ==
@@ -117,6 +117,9 @@ This section describes how to install the plugin and get it working.
 9  Define your dimensations for weathers layers.
 
 == Changelog ==
+
+Version 2.3.7
+1. Improvement Fix: Fixed add_query_arg() and remove_query_arg() usage to avoid XSS Vulnerability.
 
 Version 2.2.0
 1. Twitter Bootstrap 3 Based.
