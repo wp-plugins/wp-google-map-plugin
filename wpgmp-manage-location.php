@@ -6,7 +6,7 @@
  * @package Maps
  */
 class Wpgmp_Location_Table extends WP_List_Table {
-    var $table_data;
+    var $table_data,$found_data;
     function __construct(){
     global $status, $page,$wpdb;
         parent::__construct( array(

@@ -118,6 +118,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+Version 2.3.8
+1. locations, maps and category was not showing on manage pages in wordpress 4.2 resolved.
+
 Version 2.3.7
 1. Improvement Fix: Fixed add_query_arg() and remove_query_arg() usage to avoid XSS Vulnerability.
 
