@@ -7,7 +7,7 @@ Author URI:        http://profiles.wordpress.org/flippercode/
 Author:            flippercode
 Donate link:       (a link for donating)
 Requires at least: 2.0.0 
-Tested up to:      4.2
+Tested up to:      4.2.1
 Stable tag:        Display Google Maps in Pages, Posts, Sidebar or Custom Templates. It’s Responsive, Multi-Lingual and Multi-Site Supported. 
 
 == Description ==
@@ -117,6 +117,13 @@ This section describes how to install the plugin and get it working.
 9  Define your dimensations for weathers layers.
 
 == Changelog ==
+
+Version 2.3.9
+1. Display more than 10 locations on Manage Locations using Screen Options.
+2. Display more than 10 maps on Manage Categories using Screen Options.
+3. Display more than 10 categories on Manage Maps using Screen Options.
+4. SSL Supported. 
+
 
 Version 2.3.8
 1. locations, maps and category was not showing on manage pages in wordpress 4.2 resolved.

@@ -3,7 +3,7 @@
 Plugin Name: WP Google Map Plugin
 Description:  Display Google Maps in Pages, Posts, Sidebar or Custom Templates. It’s Responsive, Multi-Lingual, Multi-Site Supported.
 Author: flippercode
-Version: 2.3.8
+Version: 2.3.9
 Author URI: http://www.flippercode.com
 */
 
@@ -222,15 +222,95 @@ function wpgmp_google_map_page() {
    add_action('load-'.$pagehook7, 'load_color_js');
    add_action('load-'.$pagehook8, 'load_color_js');
 
+   add_action('load-'.$pagehook3, 'wpgmp_managelocations_screenoption');
+   add_action('load-'.$pagehook5, 'wpgmp_managemaps_screenoption');
+   add_action('load-'.$pagehook7, 'wpgmp_managemarkers_screenoption');
 
 }
-
+// start screen option for manage location page
+function wpgmp_managelocations_screenoption() {
+ 
+$option = 'per_page';
+ 
+$args = array(
+    'label' => 'Number of items per page',
+    'default' => 10,
+    'option' => 'wpgmp_managelocation_per_page'
+);
+ 
+add_screen_option( $option, $args );
+ 
+}
+add_filter('set-screen-option', 'wpgmp_managelocations_set_screenoption', 10, 3);
+ 
+function wpgmp_managelocations_set_screenoption($status, $option, $value) {
+ 
+    if ( 'wpgmp_managelocation_per_page' == $option ) return $value;
+ 
+    return $status;
+ 
+}
+// end screen option for manage location page
+// start screen option for manage map page
+function wpgmp_managemaps_screenoption() {
+ 
+$option = 'per_page';
+ 
+$args = array(
+    'label' => 'Number of items per page',
+    'default' => 10,
+    'option' => 'wpgmp_managemap_per_page'
+);
+ 
+add_screen_option( $option, $args );
+ 
+}
+add_filter('set-screen-option', 'wpgmp_managemaps_set_screenoption', 10, 3);
+ 
+function wpgmp_managemaps_set_screenoption($status, $option, $value) {
+ 
+    if ( 'wpgmp_managemap_per_page' == $option ) return $value;
+ 
+    return $status;
+ 
+}
+// end screen option for manage map page
+// start screen option for manage marker category page
+function wpgmp_managemarkers_screenoption() {
+ 
+$option = 'per_page';
+ 
+$args = array(
+    'label' => 'Number of items per page',
+    'default' => 10,
+    'option' => 'wpgmp_managemarker_per_page'
+);
+ 
+add_screen_option( $option, $args );
+ 
+}
+add_filter('set-screen-option', 'wpgmp_managemarkers_set_screenoption', 10, 3);
+ 
+function wpgmp_managemarkers_set_screenoption($status, $option, $value) {
+ 
+    if ( 'wpgmp_managemarker_per_page' == $option ) return $value;
+ 
+    return $status;
+ 
+}
+// end screen option for manage marker category page
 function load_color_js(){
+	
+	if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') 
+     $wpgmp_apilocation = 'https';
+    else 
+     $wpgmp_apilocation = 'http';
+	
 wp_enqueue_style(
 		'google_bootstrap_css',
 		plugins_url( '/css/bootstrap.css' , __FILE__ ));	
 
-wp_enqueue_script('wpgmp_map_preview',"http://maps.google.com/maps/api/js?libraries=places&region=uk&language=en&sensor=false");
+wp_enqueue_script('wpgmp_map_preview',$wpgmp_apilocation."://maps.google.com/maps/api/js?libraries=places&region=uk&language=en&sensor=false");
 		
 
 }
@@ -603,7 +683,12 @@ class wpgmp_google_map_widget extends WP_Widget{
  * @package Maps
  */
 function wpgmp_scripts_method(){
-    wp_enqueue_script('wpgmp_map','http://www.google.com/jsapi');
+	 if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') 
+  $wpgmp_apilocation = 'https';
+  else 
+  $wpgmp_apilocation = 'http';
+  
+     wp_enqueue_script('wpgmp_map', $wpgmp_apilocation.'://www.google.com/jsapi');;
 }
 
 
