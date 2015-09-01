@@ -12,7 +12,7 @@ Plugin URI: http://www.flippercode.com/
 Description: Display Google Maps in Pages, Posts, Sidebar or Custom Templates. Unlimited maps, locations and categories supported. It’s Responsive, Multi-Lingual and Multi-Site Supported.
 Author: flippercode
 Author URI: http://www.flippercode.com/
-Version: 3.0.2
+Version: 3.0.3
 Text Domain: wpgmp_google_map
 Domain Path: /lang/
 */
