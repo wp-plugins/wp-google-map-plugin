@@ -120,7 +120,7 @@ if ( is_array( $map_locations ) ) {
 			'id'          => $location->location_id,
 			'title'       => $location->location_title,
 			'address'     => $location->location_address,
-			'content'     => ('' != $location->location_messages) ? $location->location_messages : $location->location_title,
+			'content'     => ('' != $location->location_messages) ? stripcslashes( $location->location_messages ) : $location->location_title,
 			'location' => array(
 			'icon'      => $location_categories[0]['icon'],
 			'lat'       => $location->location_latitude,

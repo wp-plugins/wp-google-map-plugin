@@ -175,6 +175,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+Version 3.0.4
+* links in the info window is broken due to missing stripslashes function - resolved.
+
 Version 3.0.3
 * wpgmp_admin_overview capability added to read how to use instructions.
 
