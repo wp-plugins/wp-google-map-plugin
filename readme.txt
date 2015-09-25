@@ -175,6 +175,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+Version 3.0.5
+* Lang slug changed to wp-google-map-plugin as per wordpress.org requested.
+
 Version 3.0.4
 * links in the info window is broken due to missing stripslashes function - resolved.
 
